@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8
+<FilesMatch ".(cfg|ini)$">
+Order Deny,Allow
+Deny from all
+</FilesMatch>

@@ -1,0 +1,85 @@
+body
+{
+ color:white;
+ background:rgb(70,70,70);
+ text-align:center;
+ margin:0;
+ padding:0;
+ background: url(../img/books1.jpg) no-repeat center center fixed;
+ -moz-background-size: cover;
+ -webkit-background-size: cover;
+ -o-background-size: cover;
+  background-size: cover;
+}
+label
+{
+ margin-top:3px;
+}
+textarea
+{
+ text-align:left;
+}
+#work_container
+{
+ margin-top:5px;
+}
+#button_add_record
+{
+ margin:20px;
+ font-size:18px;
+}
+#main_row
+{
+ margin-top:20px;
+}
+#editor
+{
+ width:100%;
+ height:500px;
+ margin:auto; 
+ font-size:16px;
+}
+#info_panel
+{
+ font-size:14px;
+ padding-right:10px;
+ color:green;
+ background:white;	
+ text-align:center;
+ border-radius:3px;	
+}
+#user_name
+{
+ font-size:14px;
+ color:white;
+ text-transform:uppercase; 
+ font-weight:bold;
+}
+.cursor_default
+{
+ cursor:default;
+}
+.grey_shadow_text
+{
+ text-shadow: 	
+ -1px -1px 0 rgb(100,100,100), 
+ 1px -1px 0 rgb(100,100,100),
+ -1px 1px 0 rgb(100,100,100),
+ 1px 1px 0 rgb(100,100,100)
+}
+nav .nav-link 
+{
+ font-size:18px;	
+}
+.nav-link:hover 
+{ 
+ text-decoration: underline;
+}
+.nav-link:focus
+{
+ color: white;
+ outline: none;
+}
+/* mobile */
+@media (max-width: 576px) {
+}

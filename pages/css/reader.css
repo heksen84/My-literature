@@ -1,0 +1,77 @@
+body
+{
+	color:white;
+	background:rgb(70,70,70);
+	text-align:center;
+	margin:0;
+	padding:0;
+	background: url(../img/books1.jpg) no-repeat center center fixed;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding:5px;
+}
+#menu
+{
+	margin-top:0;
+	list-style-type: none; 
+	font-size:16px; 
+	color:white; 
+	text-align:left;	
+	border: 1px solid white;	
+	padding:10px;	
+	border-radius:5px;
+	font-family:verdana;	
+}
+#menu li
+{	
+	padding:8px;
+	cursor:pointer;
+}
+#button_save
+{
+	margin-top:5px;
+	position:absolute;
+	left:30px;
+}
+#content
+{
+	text-align:left;
+}
+.input
+{
+	width:300px;
+	margin: 3px;
+}
+#table
+{
+	cursor:pointer;
+	background:white;
+	color:black;
+}
+#table th
+{	
+	background:rgb(58, 111, 209);
+	color:white;
+}
+/* mobile */
+@media (max-width: 576px) {
+#content
+{
+	text-align:center;
+}
+#menu
+{	
+	text-align:center;
+}
+#button_save
+{
+	position:static;	
+}
+.input
+{
+	margin: 3px auto;
+	width:250px;
+}
+}

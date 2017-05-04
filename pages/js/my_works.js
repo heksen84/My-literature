@@ -1,0 +1,39 @@
+/*
+------------------------------
+ Ilya Bobkov 2017(c) 
+ https://github.com/heksen84
+------------------------------*/
+$(document).ready(function() 
+{		
+	sweetAlertInitialize();	
+		
+	$.ajax
+	({
+		url: "..//server.php",
+		data: 
+		{
+			"func": "SRV_GetWriterWorks" 
+		},
+	}).done(function( data )				
+	{																
+		var obj = jQuery.parseJSON(data);					
+		switch(obj.answer)
+		{
+			case "error": error(obj.string); break;
+			case "warning": warning(obj.string); break;
+			case "success": {				
+				$.each(obj.string, function(i, item) 
+				{
+					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td>"+item.title+"</td></tr>");					
+				});
+															
+				$(".table_item").click(function() 
+				{
+					localStorage.setItem("read_data_id", $(this).data("id"));
+					$(location).attr('href', "writer.php");
+				});
+			}
+		}		
+	});
+
+});

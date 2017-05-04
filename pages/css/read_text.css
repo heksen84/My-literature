@@ -1,0 +1,59 @@
+#title
+{
+	font-size:30px;
+	color:black;
+	font-weight:bold;
+	color:rgb(80,80,80);
+}
+#description
+{
+	font-size:22px;
+	color:rgb(80,80,80);
+	margin-bottom:10px;
+}
+#cover_image
+{
+	margin-bottom:10px;
+}
+#read_area
+{
+	font-size:20px;
+	color:rgb(80,80,80);
+}
+#totop
+ {
+	width:80px;
+	border:1px solid grey;
+	background:white;
+	text-align:center;
+	padding:5px;
+	position:fixed;
+	bottom:10px;
+	right:10px;
+	cursor:pointer;
+	display:none;
+	color:rgb(80,80,80);
+	font-family:verdana;
+	font-size:14px;	
+}
+#bookmark
+ {
+	width:80px;
+	border:1px solid grey;
+	background:white;
+	text-align:center;
+	padding:5px;
+	position:fixed;
+	bottom:45px;
+	right:10px;
+	cursor:pointer;
+	display:none;
+	color:rgb(80,80,80);
+	font-family:verdana;
+	font-size:14px;	
+}
+#bookmark:hover, #totop:hover
+{
+	color:white;
+	background:rgb(58, 111, 209);
+}
