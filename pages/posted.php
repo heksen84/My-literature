@@ -17,7 +17,7 @@
 <link href = "css/lib/tether.min.css"		     	rel = "stylesheet"/>
 <link href = "css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
 <link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
-<link href = "css/my_works.css?<?php echo time()?>" rel	= "stylesheet"/>
+<link href = "css/posted.css?<?php echo time()?>" rel	= "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>
@@ -25,14 +25,14 @@
 <script src = "js/lib/sweet-alert.min.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/moment.min.js"></script>
-<script src = "js/my_works.js?<?php echo time()?>"></script>
+<script src = "js/posted.js?<?php echo time()?>"></script>
 </head>
 <body>
 <div class="container-fluid">	
 <div class="row">
 <div class="col-md-12 text-center"><button type="button" class="btn btn-link" style="color:white" onclick="window.history.back();">назад</button></div>
 <div class="col-md-12 text-center">
-<h4>мои работы</h4>
+<h4>размещённые тексты</h4>
 <table class="table table-bordered table-hover table-sm" id="my_works_table">
   <thead>
     <tr>      
