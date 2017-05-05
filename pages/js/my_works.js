@@ -75,7 +75,7 @@ $(document).ready(function()
 								url: "..//server.php",
 								data: {	"func": "SRV_DeleteRecord", "record_id": element.parent().data("id") }, 
 							}).done(function( data )				
-							{																
+							{									
 								var obj = jQuery.parseJSON(data);					
 								switch(obj.answer)
 								{

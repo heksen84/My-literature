@@ -48,8 +48,8 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					break;	
 				}
 				case "SRV_DeleteRecord": {
-					$rec->delete();		
-					break;		
+					$rec->del();
+					break;    		
 				}
 				case "SRV_GetRecords": {
 					$rec->getRecords(); 
@@ -107,11 +107,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 						case "edit":  $rec->update(); break;
 					}
 					break;    		
-				}
-				case "SRV_DeleteRecord": {
-					$rec->del();
-					break;    		
-				}
+				}				
 
 				// --- закладка ---
 				case "SRV_SetBookMark": {

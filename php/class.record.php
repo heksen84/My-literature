@@ -81,18 +81,6 @@ class Record
 		msg::success("опубликовано!");			
 	}
 	
-	/* --- удалить запись --- */
-	function delete()
-	{
-		$db	= DataBase::getDB();
-		
-		if (isset($_GET['record_id'])) {
-            $record_id = $_GET['record_id'];
-        }
-        $table = $db->query("DELETE FROM `records` WHERE id=".$record_id);
-        msg::success($table);
-	}
-	
 	/* --- обновить запись --- */
 	function update()
 	{										
@@ -124,7 +112,11 @@ class Record
 
 	function del()
 	{		
-		msg::success("ok!");
+		$db	= DataBase::getDB();
+		if (!isset($_GET['record_id'])) msg::error("нет данных");		
+		$record_id = $_GET['record_id'];        		
+		$item = $db->query("DELETE FROM `records` WHERE id='".$record_id."'");
+        msg::success($item);
 	}
 	
 	/* --- получить список --- */
