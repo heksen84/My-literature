@@ -114,9 +114,12 @@ $(document).ready(function()
 	----------------------------------
 	ПОДНЯТЬСЯ ВВЕРХ
 	----------------------------------*/
-	$(window).scroll(function() {
-		if($(this).scrollTop() > 200) {
-			if (localStorage.getItem("user_name") != "") {
+	$(window).scroll(function() 
+	{
+		if($(this).scrollTop() > 200) 
+		{
+			if (localStorage.getItem("user_name") != "") 
+			{
 				$("#bookmark").fadeIn();
 			}
 			$("#totop").fadeIn();			

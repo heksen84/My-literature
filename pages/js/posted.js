@@ -37,7 +37,7 @@ $(document).ready(function()
 			case "success": 
 			{				
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='delete_record' title='удалить запись'>X</td></tr>");					
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td></td><td class='delete_record' title='удалить запись'>X</td></tr>");					
 				});
 				
 				/* показать запись в редакторе */
