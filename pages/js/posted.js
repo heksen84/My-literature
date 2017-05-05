@@ -55,7 +55,7 @@ $(document).ready(function()
 					/* ajax */
 					swal
 					({	
-						title: "Удалить работу?",
+						title: "Удалить текст?",
 						text: $(this).parent().find(".table_item").text(),
 						type: "warning",
 						showCancelButton: true,
