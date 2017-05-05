@@ -76,14 +76,12 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				case "SRV_GetWriterWorks": {		
 					$writer->getWorks();					
 					break;
-				}
-				
+				}				
 				// --- категории ---
 				case "SRV_GetCategories": {		
 					$categories->getAll();					
 					break;
-				}
-				
+				}				
 				case "SRV_GetCategoryFromId": {		
 					$categories->getFromId();					
 					break;
@@ -103,8 +101,8 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				}				
 				case "SRV_ProcessRecord": {				
 					switch($_POST["mode"]) {
-						case "new":   $rec->add(); break;
-						case "edit":  $rec->update(); break;
+						case "new": $rec->add(); break;
+						case "edit": $rec->update(); break;
 					}
 					break;    		
 				}				
