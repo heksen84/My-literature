@@ -38,7 +38,7 @@
     <tr>      
       <th style="width:5%">№</th>      
       <th style="width:90%">название</th>
-      <th style="width:5%"></th>
+      <th style="width:6%"></th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
