@@ -35,8 +35,7 @@ $(document).ready(function()
 			case "warning": warning(obj.string); break;
 			case "success": 
 			{				
-				$.each(obj.string, function(i, item) 
-				{
+				$.each(obj.string, function(i, item) {
 					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='delete_record' title='удалить запись'>X</td></tr>");					
 				});
 				
@@ -71,7 +70,7 @@ $(document).ready(function()
 							$.ajax
 							({
 								url: "..//server.php",
-								data: {	"func": "SRV_DeleteRecord" }, 
+								data: {	"func": "SRV_DeleteRecord", "record_id": element.parent().data("id") }, 
 							}).done(function( data )				
 							{																
 								var obj = jQuery.parseJSON(data);					
