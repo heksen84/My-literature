@@ -4,7 +4,7 @@
  https://github.com/heksen84
 ------------------------------*/
 $(document).ready(function() 
-{		
+{			
 	sweetAlertInitialize();	
 	
     // ---------------------------
@@ -14,19 +14,18 @@ $(document).ready(function()
     {	
 		var i = 1;
         var num_strings = $("#my_works_tabletr").length;
-        $("#my_works_table tbody tr td:first-child").each(function() {
+        $("#my_works_table tbody tr td:first-child").each(function() 
+		{
             if (i != num_strings) $(this).html(i);
             i++;
         });       
 	}
-		
+
+	/* получить список работ */
 	$.ajax
 	({
 		url: "..//server.php",
-		data: 
-			{
-				"func": "SRV_GetWriterWorks" 
-			},
+		data: {	"func": "SRV_GetWriterWorks" }, 
 	}).done(function( data )				
 	{																
 		var obj = jQuery.parseJSON(data);					
@@ -68,9 +67,25 @@ $(document).ready(function()
 					function(isConfirm) 
 					{
 						if (isConfirm) 
-						{
-							element.parent().remove();
-							UpdateMyWorksTable();
+						{							
+							$.ajax
+							({
+								url: "..//server.php",
+								data: {	"func": "SRV_DeleteRecord" }, 
+							}).done(function( data )				
+							{																
+								var obj = jQuery.parseJSON(data);					
+								switch(obj.answer)
+								{
+									case "error": error(obj.string); break;
+									case "warning": warning(obj.string); break;
+									case "success": 
+									{	
+										element.parent().remove();
+										UpdateMyWorksTable();
+									}
+								}
+							});														
 						}
 					});					
 				});
