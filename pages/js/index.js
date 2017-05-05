@@ -34,11 +34,11 @@ $(document).ready(function()
 				url: "server.php",
 				data: 
 				{
-					"func": 	"SRV_RegUser",
-					"type": 	$("#reg_user_type").val(),
-					"name": 	$("#reg_name").val(),
-					"surname": 	$("#reg_surname").val(),
-					"email": 	$("#reg_email").val(),
+					"func": "SRV_RegUser",
+					"type": $("#reg_user_type").val(),
+					"name": $("#reg_name").val(),
+					"surname": $("#reg_surname").val(),
+					"email": $("#reg_email").val(),
 					"password":	$("#reg_password").val()
 				}, async:false,
 			}).done(function( data ) 
