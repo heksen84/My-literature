@@ -7,9 +7,10 @@ $(document).ready(function()
 {			
 	sweetAlertInitialize();	
 	
-    // ---------------------------
-    // обновить таблицу
-    // ---------------------------
+    /* 
+	---------------------------
+     обновить таблицу
+    --------------------------- */
     function UpdateMyWorksTable()
     {	
 		var i = 1;
@@ -50,6 +51,8 @@ $(document).ready(function()
 				$(".delete_record").click(function() 
 				{
 					var element = $(this);
+					
+					/* ajax */
 					swal
 					({	
 						title: "Удалить работу?",
