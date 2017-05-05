@@ -103,8 +103,10 @@ class Record
 		$title 	= $_POST['title'];
 		$desc 	= $_POST['short_description'];
 		$text 	= $_POST['text'];
+		$image 	= $_POST['image'];
+
+		//msg::error($image);
 		
-		$id 	= $db->safe_string($_POST['id']);
 		$type 	= $db->safe_string($_POST['type_of_literature']);
 		$mode 	= $db->safe_string($_POST['record_show_mode']);
 		$price 	= $db->safe_string($_POST['price']);
@@ -116,6 +118,12 @@ class Record
 			if (file_exists($table[0]["cover"])) unlink($table[0]["cover"]);
 		}
 		
+		msg::success("ok!");
+	}
+
+
+	function del()
+	{		
 		msg::success("ok!");
 	}
 	

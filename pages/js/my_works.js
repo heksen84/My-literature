@@ -24,13 +24,18 @@ $(document).ready(function()
 			case "success": {				
 				$.each(obj.string, function(i, item) 
 				{
-					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td>"+item.title+"</td></tr>");					
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='delete_record' title='удалить запись'>X</td></tr>");					
 				});
 															
 				$(".table_item").click(function() 
 				{
-					localStorage.setItem("read_data_id", $(this).data("id"));
+					localStorage.setItem("read_data_id", $(this).parent().data("id"));
 					$(location).attr('href', "writer.php");
+				});
+
+				$(".delete_record").click(function() 
+				{
+					error("!");
 				});
 			}
 		}		

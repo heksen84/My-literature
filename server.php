@@ -108,6 +108,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					}
 					break;    		
 				}
+				case "SRV_DeleteRecord": {
+					$rec->del();
+					break;    		
+				}
+
 				// --- закладка ---
 				case "SRV_SetBookMark": {
 					$bookmark->set();

@@ -27,6 +27,14 @@ body
 {
 	font-weight:bold;
 }
+.delete_record
+{
+ text-align:center;
+}
+.delete_record:hover
+{
+ color:red;
+}
 /* mobile */
 @media (max-width: 576px) {
 }
