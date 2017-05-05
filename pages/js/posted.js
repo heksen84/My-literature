@@ -14,8 +14,8 @@ $(document).ready(function()
     function UpdateMyWorksTable()
     {	
 		var i = 1;
-        var num_strings = $("#my_works_tabletr").length;
-        $("#my_works_table tbody tr td:first-child").each(function() 
+        var num_strings = $("#posted_tabletr").length;
+        $("#posted_table tbody tr td:first-child").each(function() 
 		{
             if (i != num_strings) $(this).html(i);
             i++;

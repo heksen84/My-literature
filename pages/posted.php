@@ -13,11 +13,11 @@
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- styles -->
-<link href = "css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
-<link href = "css/lib/tether.min.css"		     	rel = "stylesheet"/>
-<link href = "css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
-<link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
-<link href = "css/posted.css?<?php echo time()?>" rel	= "stylesheet"/>
+<link href = "css/lib/bootstrap.min.css"	      rel = "stylesheet"/>
+<link href = "css/lib/tether.min.css"		      rel = "stylesheet"/>
+<link href = "css/lib/sweet-alert.css"   		  rel = "stylesheet"/>
+<link href = "css/lib/scroll.css"	              rel = "stylesheet"/>
+<link href = "css/posted.css?<?php echo time()?>" rel = "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>
@@ -33,7 +33,7 @@
 <div class="col-md-12 text-center"><button type="button" class="btn btn-link" style="color:white" onclick="window.history.back();">назад</button></div>
 <div class="col-md-12 text-center">
 <h4>мои тексты</h4>
-<table class="table table-bordered table-hover table-sm" id="my_works_table">
+<table class="table table-bordered table-hover table-sm" id="posted_table">
   <thead>
     <tr>      
       <th style="width:5%">№</th>      
