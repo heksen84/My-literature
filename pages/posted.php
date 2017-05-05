@@ -32,7 +32,7 @@
 <div class="row">
 <div class="col-md-12 text-center"><button type="button" class="btn btn-link" style="color:white" onclick="window.history.back();">назад</button></div>
 <div class="col-md-12 text-center">
-<h4>размещённые тексты</h4>
+<h4>мои тексты</h4>
 <table class="table table-bordered table-hover table-sm" id="my_works_table">
   <thead>
     <tr>      

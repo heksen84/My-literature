@@ -44,7 +44,7 @@
         <a class="nav-link active" href="http://the-texts/pages/opros.php">Опрос</a>
     </li>
 	<li class="nav-item active">
-        <a class="nav-link" href="http://the-texts/pages/posted.php">Размещённые тексты</a>
+        <a class="nav-link" href="http://the-texts/pages/posted.php">Мои тексты</a>
     </li>   		
 	<li class="nav-item active">
         <a class="nav-link" href="http://the-texts/pages/writer_settings.php">Настройки</a>
