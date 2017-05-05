@@ -35,7 +35,26 @@ $(document).ready(function()
 
 				$(".delete_record").click(function() 
 				{
-					error("!");
+					swal
+				({	
+					title: "Удалить работу?",
+					text: $(this).parent().find(".table_item").text(),
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Да",
+					cancelButtonText: "Нет",
+					closeOnConfirm: true,
+					closeOnCancel: true,
+					allowEscapeKey:	true
+				},
+				function(isConfirm) 
+				{
+					if (isConfirm) 
+					{
+							
+					}
+				});					
 				});
 			}
 		}		
