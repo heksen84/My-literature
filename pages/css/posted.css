@@ -27,6 +27,10 @@ body
 {
 	font-weight:bold;
 }
+.display_cell
+{
+ text-align:center;
+}
 .delete_record
 {
  text-align: center;

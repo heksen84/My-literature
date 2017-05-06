@@ -37,8 +37,15 @@ $(document).ready(function()
 			case "success": 
 			{				
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td></td><td class='delete_record' title='удалить запись'>X</td></tr>");					
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");					
 				});
+
+				/* показать запись в редакторе */
+				$(".eye_icon").click(function() 
+				{
+					$(this).hide();
+				});
+
 				
 				/* показать запись в редакторе */
 				$(".table_item").click(function() 
@@ -46,6 +53,7 @@ $(document).ready(function()
 					localStorage.setItem("read_data_id", $(this).parent().data("id"));
 					$(location).attr('href', "writer.php");
 				});
+
 				
 				/* удалить запись */
 				$(".delete_record").click(function() 
