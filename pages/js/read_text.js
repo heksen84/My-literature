@@ -98,12 +98,7 @@ $(document).ready(function()
 			case "success": 
 			{																
 				$("#col-title").append("<div id='title'>"+obj.string[0].title+"</div>");
-				$("#col-desc").append("<div id='description'>"+obj.string[0].description+"</div>");								
-				
-				if(obj.string[0].cover!="") {
-					$("#col-image").append("<img src='../"+obj.string[0].cover+"' class='rounded img-fluid' id='cover_image'/>");
-				}				
-
+				$("#col-desc").append("<div id='description'>"+obj.string[0].description+"</div>");												
 				$("#col-text").append(obj.string[0].text);
 				GetBookMark();				
 			}

@@ -67,9 +67,6 @@
 </div>
 <!-- ROW2 -->
 <div class="col-md-3">
-<label for="cover" id="label_cover" class="grey_shadow_text">Обложка</label>
-<img src="" class="rounded img-fluid" style="margin-bottom:5px;" id="cover_image">
-<input type="file" id="cover" name="fileupload" accept="image/*"/>
 <label for="text" style="margin-top:10px" class="grey_shadow_text">Название</label>
 <input type="text" class="form-control" maxlength="100" id="title">
 <label for="short_description" class="grey_shadow_text">Краткое описание</label>

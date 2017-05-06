@@ -4,39 +4,7 @@
  https://github.com/heksen84
 ------------------------------*/
 var max_symbols 	= 100000;
-var max_image_size 	= 1700000;
 var max_text_size 	= 100;
-
-/*----------------------------
-   загрузить изображение 
-  ----------------------------*/
-function handleLoadImage(evt)
-{			
-	var reader = new FileReader();
-	var files = evt.target.files;
-	f = files[0];
-	if (!f.type.match("image.*")) 
-	{
-        error("только изображения");
-		return;
-    }
-	reader.onload = (function(theFile) 
-	{
-		return function(e) 
-		{            
-		
-			var str = e.target.result.trim();			
-			if (str.length > max_image_size)
-			{
-				error("Большой размер");				
-			}
-			else
-			$("#cover_image").attr("src", e.target.result );
-		};
-	})(f);
-	
-	reader.readAsDataURL(f);
-}
 
 /*
 ----------------------------------
@@ -48,7 +16,6 @@ $(document).ready(function()
 	BlurInput();
 	
 	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
-	document.getElementById("cover").addEventListener("change", handleLoadImage, false);	
 	
 	$("#writer_quit").click(function() 
 	{				
@@ -128,8 +95,6 @@ $(document).ready(function()
 						localStorage.setItem("writer_record_id", obj.string[0].id),
 						$("#title").val(obj.string[0].title);
 						$("#short_description").val(obj.string[0].description);
-						if (obj.string[0].cover!="")
-						$("#cover_image").attr("src","../"+obj.string[0].cover);
 						$("#editor").val(obj.string[0].text);
 						$("#info_panel").html("Символов:&nbsp;"+$("#editor").val().length);					
 						$("#type_of_literature").val(obj.string[0].type_literature);
@@ -229,7 +194,6 @@ $(document).ready(function()
 				{
 					"func": "SRV_ProcessRecord",													
 					"id": localStorage.getItem("writer_record_id"),
-					"image": $("#cover_image").attr("src"),
 					"title": $("#title").val(),
 					"short_description": $("#short_description").val(),
 					"text": $("#editor").val(),
@@ -250,7 +214,6 @@ $(document).ready(function()
 					case "success": 
 					{
 						success(obj.string);
-						$("#cover_image").attr("src", "");
 						$("input:text, textarea").val("");						
 					}
 				}

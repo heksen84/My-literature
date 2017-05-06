@@ -38,7 +38,6 @@
 <button type="button" class="btn btn-link" id="return_link">назад</button></div>
 <div class="col-md-12 text-center" id="col-title"></div>
 <div class="col-md-12 text-center" id="col-desc"></div>
-<div class="col-md-12 text-center" id="col-image"></div>
 <div class="col-md-12 text-center" id="col-text"></div>
 </div>
 <div id="totop">Вверх</div>
