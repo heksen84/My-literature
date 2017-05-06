@@ -37,28 +37,23 @@ $(document).ready(function()
 			case "success": 
 			{				
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");					
-				});
-
-				/* --- */
-				$(".eye_icon").click(function() 
-				{
-					$(this).hide();
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
 				});
 				
 				/* показать запись в редакторе */
-				$(".table_item").click(function() 
-				{
+				$(".table_item").click(function() {
 					localStorage.setItem("read_data_id", $(this).parent().data("id"));
 					$(location).attr('href', "writer.php");
 				});
 				
+				/* режим отображения */
+				$(".eye_icon").click(function() {
+					$(this).hide();
+				});
+				
 				/* удалить запись */
-				$(".delete_record").click(function() 
-				{
-					var element = $(this);
-					
-					/* ajax */
+				$(".delete_record").click(function() {
+					var element = $(this);										
 					swal
 					({	
 						title: "Удалить текст?",
