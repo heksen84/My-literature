@@ -74,8 +74,8 @@
 <label for="type_of_literature" class="grey_shadow_text">Тип литературы</label>
 <select class="form-control" id="type_of_literature">
 </select>
-<label for="record_show_mode" class="grey_shadow_text">Доступ</label>
-<select class="form-control" id="record_show_mode" style="width:200px;margin:auto">
+<label for="record_access_mode" class="grey_shadow_text">Доступ</label>
+<select class="form-control" id="record_access_mode" style="width:200px;margin:auto">
 <option value="0">открытый</option>
 <option value="1">личный</option>	
 <!--<option value="1">закрытый</option>

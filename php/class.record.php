@@ -24,14 +24,14 @@ class Record
 		|| !isset($_POST['short_description']) 
 		|| !isset($_POST['type_of_literature'])
 		|| !isset($_POST['text']) 			
-		|| !isset($_POST['record_show_mode'])) msg::error("нет данных");								
+		|| !isset($_POST['record_access_mode'])) msg::error("нет данных");								
 		
 		$title 	= $_POST['title'];
 		$desc 	= $_POST['short_description'];
 		$text 	= $_POST['text'];
 		
 		$type 	= $db->safe_string($_POST['type_of_literature']);
-		$mode 	= $db->safe_string($_POST['record_show_mode']);
+		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 								
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
@@ -44,7 +44,7 @@ class Record
 	function update()
 	{										
 		$db	= DataBase::getDB();		
-		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_show_mode'])) msg::error("нет данных");
+		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) msg::error("нет данных");
 		
 		$id 	= $_POST['id'];
 		$title 	= $_POST['title'];
@@ -52,7 +52,7 @@ class Record
 		$text 	= $_POST['text'];
 		
 		$type 	= $db->safe_string($_POST['type_of_literature']);
-		$mode 	= $db->safe_string($_POST['record_show_mode']);
+		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 				
 		$table = $db->select("SELECT cover FROM `records` WHERE id='".$id."'");

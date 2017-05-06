@@ -48,7 +48,7 @@ $(document).ready(function()
 	});	
 	
 	/* -- переключатель доступа записи -- */
-	$( "#record_show_mode" ).change(function() 
+	$( "#record_acess_mode" ).change(function() 
 	{
 		if ($(this).val() == 1) $("#button_add_record").text("сохранить");
 		else $("#button_add_record").text("опубликовать");
@@ -98,7 +98,7 @@ $(document).ready(function()
 						$("#editor").val(obj.string[0].text);
 						$("#info_panel").html("Символов:&nbsp;"+$("#editor").val().length);					
 						$("#type_of_literature").val(obj.string[0].type_literature);
-						$("#record_show_mode").val(obj.string[0].show_mode);
+						$("#record_access_mode").val(obj.string[0].access_mode);
 					}
 				} 
 		
@@ -179,7 +179,7 @@ $(document).ready(function()
 			warning("введите описание");
 		}		
 		else
-		if ($("#price").val()=="" && $( "#record_show_mode" ).val() == 2) 
+		if ($("#price").val()=="" && $( "#record_access_mode" ).val() == 2) 
 		{
 			$("#price").focus();
 			warning("введите цену");
@@ -198,7 +198,7 @@ $(document).ready(function()
 					"short_description": $("#short_description").val(),
 					"text": $("#editor").val(),
 					"type_of_literature": $("#type_of_literature").val(),
-					"record_show_mode": $("#record_show_mode").val(),
+					"record_access_mode": $("#record_access_mode").val(),
 					"price": $("#price").val(),
 					"mode": localStorage.getItem("writer_record_mode"),
 				
