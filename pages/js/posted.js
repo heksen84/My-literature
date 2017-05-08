@@ -21,6 +21,27 @@ $(document).ready(function()
             i++;
         });       
 	}
+	
+	/* показаыть скрыть */
+	function SetRecordShow(show)
+	{
+		$.ajax
+		({
+			url: "..//server.php",
+			data: {	"func": "SRV_SetRecordShow", "show": show }, method: "POST",
+		}).done(function( data )				
+		{																
+			var obj = jQuery.parseJSON(data);					
+			switch(obj.answer)
+			{
+				case "error": error(obj.string); break;
+				case "warning": warning(obj.string); break;
+				case "success": 
+				{																		
+				}
+			}		
+		});
+	}
 
 	/* получить список работ */
 	$.ajax

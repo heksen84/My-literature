@@ -56,11 +56,9 @@ class Record
 		$price 	= $db->safe_string($_POST['price']);
 				
 		$table = $db->select("SELECT cover FROM `records` WHERE id='".$id."'");
-		
-		
+				
 		msg::success("ok!");
 	}
-
 
 	function del()
 	{		
@@ -85,6 +83,15 @@ class Record
 		$db	= DataBase::getDB();
 		$table = $db->select("SELECT * FROM `records` WHERE user_id='".$_SESSION["user_id"]."'");
 		msg::success($table);
+	}
+	
+	/* --- отобразить / скрыть  --- */
+	function show()
+	{
+		$db	= DataBase::getDB();
+		$show = $_GET['show'];        		
+		$item = $db->query("");
+		msg::success($item);
 	}
 }
 ?>

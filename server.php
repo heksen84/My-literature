@@ -113,6 +113,12 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$bookmark->set();
 					break;    		
 				}
+				
+				// 
+				case "SRV_SetRecordShow": {
+					$rec->show();
+					break;    		
+				}
 			}		
 		}
 	  break;
