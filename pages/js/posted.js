@@ -22,13 +22,13 @@ $(document).ready(function()
         });       
 	}
 	
-	/* показаыть скрыть */
-	function SetRecordShow(element, show)
+	/* показать скрыть */
+	function SetRecordShowMode(element, mode)
 	{
 		$.ajax
 		({
 			url: "..//server.php",
-			data: {	"func": "SRV_SetRecordShow", "show": show }, method: "POST",
+			data: {	"func": "SRV_SetRecordShowMode", "mode": mode }, method: "POST",
 		}).done(function( data )				
 		{																			
 			var obj = jQuery.parseJSON(data);					
@@ -38,7 +38,8 @@ $(document).ready(function()
 				case "warning": warning(obj.string); break;
 				case "success": 
 				{		
-					switch(show) {
+					switch(mode) 
+					{
 						case 0:
 						{
 							$(element).find(".eye_icon").hide();
@@ -80,9 +81,9 @@ $(document).ready(function()
 				$(".display_cell").click(function() 
 				{
 					if ($(this).html()!="&nbsp;") 
-						SetRecordShow($(this), 0);					
+						SetRecordShowMode($(this), 0);					
 					else 
-						SetRecordShow($(this), 1);
+						SetRecordShowMode($(this), 1);
 				});
 				
 				/* удалить запись */

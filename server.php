@@ -115,8 +115,8 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				}
 				
 				// 
-				case "SRV_SetRecordShow": {
-					$rec->show();
+				case "SRV_SetRecordShowMode": {
+					$rec->setShowMode();
 					break;    		
 				}
 			}		

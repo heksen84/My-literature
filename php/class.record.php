@@ -85,10 +85,10 @@ class Record
 	}
 	
 	/* --- отобразить / скрыть  --- */
-	function show()
+	function setShowMode()
 	{
-		$db	= DataBase::getDB();
-		$show = $_GET['show'];        		
+		$db   = DataBase::getDB();
+		$mode = $_GET['mode'];        		
 		//$item = $db->query("");
 		msg::success("$item");		
 	}
