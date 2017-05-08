@@ -3,7 +3,8 @@ include "class.image.php";
 
 class Record
 {	
-	private static $record = null;	
+	private static $record = null;
+	
 	
 	/* --- получить класс работы с записями --- */
 	public static function getRecord() {	
@@ -13,8 +14,6 @@ class Record
 		}
 	}
 		
-	
-
 	/* --- добавить запись --- */
 	function add()
 	{							
@@ -55,11 +54,11 @@ class Record
 		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 				
-		$table = $db->select("SELECT cover FROM `records` WHERE id='".$id."'");
-				
+		$table = $db->select("SELECT cover FROM `records` WHERE id='".$id."'");				
 		msg::success("ok!");
 	}
-
+	
+	/* --- удалить запись --- */
 	function del()
 	{		
 		$db	= DataBase::getDB();
