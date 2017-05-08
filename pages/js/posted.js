@@ -23,21 +23,30 @@ $(document).ready(function()
 	}
 	
 	/* показаыть скрыть */
-	function SetRecordShow(show)
+	function SetRecordShow(element, show)
 	{
 		$.ajax
 		({
 			url: "..//server.php",
 			data: {	"func": "SRV_SetRecordShow", "show": show }, method: "POST",
 		}).done(function( data )				
-		{																
+		{																			
 			var obj = jQuery.parseJSON(data);					
 			switch(obj.answer)
 			{
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
 				case "success": 
-				{																		
+				{		
+					switch(show) {
+						case 0:
+						{
+							$(element).find(".eye_icon").hide();
+							$(element).html("&nbsp;").attr("title","не отображается");
+							break;
+						}						
+						case 1: $(element).html("<img src='img/eye1.png' class='img-fluid eye_icon'>").attr("title","отображается"); break;
+					}
 				}
 			}		
 		});
@@ -56,8 +65,7 @@ $(document).ready(function()
 			case "error": error(obj.string); break;
 			case "warning": warning(obj.string); break;
 			case "success": 
-			{				
-				
+			{								
 				$.each(obj.string, function(i, item) {
 					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
 				});
@@ -69,13 +77,12 @@ $(document).ready(function()
 				});
 				
 				/* режим отображения */
-				$(".display_cell").click(function() {
-					if ($(this).html()!="&nbsp;")
-					{
-						$(this).find(".eye_icon").hide();
-						$(this).html("&nbsp;").attr("title","не отображается");
-					}
-					else $(this).html("<img src='img/eye1.png' class='img-fluid eye_icon'>").attr("title","отображается");;
+				$(".display_cell").click(function() 
+				{
+					if ($(this).html()!="&nbsp;") 
+						SetRecordShow($(this), 0);					
+					else 
+						SetRecordShow($(this), 1);
 				});
 				
 				/* удалить запись */

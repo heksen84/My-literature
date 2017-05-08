@@ -89,8 +89,8 @@ class Record
 	{
 		$db	= DataBase::getDB();
 		$show = $_GET['show'];        		
-		$item = $db->query("");
-		msg::success($item);
+		//$item = $db->query("");
+		msg::success("$item");		
 	}
 }
 ?>
