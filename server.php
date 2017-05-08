@@ -108,13 +108,13 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					break;    		
 				}				
 
-				// --- закладка ---
+				// -- закладка --
 				case "SRV_SetBookMark": {
 					$bookmark->set();
 					break;    		
 				}
 				
-				// 
+				// -- режим отображения записи --
 				case "SRV_SetRecordShowMode": {
 					$rec->setShowMode();
 					break;    		
