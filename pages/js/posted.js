@@ -11,7 +11,7 @@ $(document).ready(function()
 	---------------------------
      обновить таблицу
     --------------------------- */
-    function UpdateMyWorksTable()
+    function UpdatePostedTextsTable()
     {	
 		var i = 1;
         var num_strings = $("#posted_tabletr").length;
@@ -36,6 +36,7 @@ $(document).ready(function()
 			case "warning": warning(obj.string); break;
 			case "success": 
 			{				
+				
 				$.each(obj.string, function(i, item) {
 					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
 				});
@@ -47,8 +48,13 @@ $(document).ready(function()
 				});
 				
 				/* режим отображения */
-				$(".eye_icon").click(function() {
-					$(this).hide();
+				$(".display_cell").click(function() {
+					if ($(this).html()!="&nbsp;")
+					{
+						$(this).find(".eye_icon").hide();
+						$(this).html("&nbsp;").attr("title","не отображается");
+					}
+					else $(this).html("<img src='img/eye1.png' class='img-fluid eye_icon'>").attr("title","отображается");;
 				});
 				
 				/* удалить запись */
@@ -56,7 +62,7 @@ $(document).ready(function()
 					var element = $(this);										
 					swal
 					({	
-						title: "Удалить текст?",
+						title: "Удалить запись?",
 						text: $(this).parent().find(".table_item").text(),
 						type: "warning",
 						showCancelButton: true,
@@ -85,7 +91,7 @@ $(document).ready(function()
 									case "success": 
 									{	
 										element.parent().remove();
-										UpdateMyWorksTable();
+										UpdatePostedTextsTable();
 									}
 								}
 							});														
