@@ -12,14 +12,12 @@ $(document).ready(function()
 	----------------------
 	ForStatic
 	----------------------*/
-	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined)
-	{
-		localStorage.setItem("read_data_id", localStorage.getItem("recid"));
+	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined){
+		localStorage.setItem("read_data_id", localStorage.getItem("recid"));		
 		localStorage.setItem("recid","");
 		$(location).attr("href", "pages/read_text.php");
 	}
-
-	localStorage.setItem("read_data_id", "");	
+	else localStorage.setItem("read_data_id", "");	
 
 	/*
 	----------------------------------

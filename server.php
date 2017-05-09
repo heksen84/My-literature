@@ -115,8 +115,8 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				}
 				
 				// -- режим отображения записи --
-				case "SRV_SetRecordShowMode": {
-					$rec->setShowMode();
+				case "SRV_SetPrivateMode": {
+					$rec->setPrivateMode();
 					break;    		
 				}
 			}		

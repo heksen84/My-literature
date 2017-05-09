@@ -79,7 +79,7 @@ $(document).ready(function()
 	/*
 	----------------------------------
 	ПОЛУЧИТЬ ДАННЫЕ
-	----------------------------------*/	
+	----------------------------------*/		
 	$.ajax
 	({
         url: "..//server.php",
@@ -87,11 +87,11 @@ $(document).ready(function()
 		{
             "func": "SRV_ReadText",                    
             "record_id": localStorage.getItem("read_data_id"),
-        },		
+        },
     }).done(function( data ) 
 	{						
-		var obj = jQuery.parseJSON(data);								
-		switch(obj.answer)
+		var obj = jQuery.parseJSON(data);		
+		switch(obj.answer) 
 		{
 			case "error": error(obj.string); break;
 			case "warning": warning(obj.string); break;
@@ -119,7 +119,8 @@ $(document).ready(function()
 			}
 			$("#totop").fadeIn();			
 		} 
-		else { 
+		else 
+		{ 
 			$("#totop, #bookmark").fadeOut();
 		}
 	});

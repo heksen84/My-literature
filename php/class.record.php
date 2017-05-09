@@ -33,9 +33,9 @@ class Record
 		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 								
-		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW(),'0')");
+		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
 		
-		if ($mode!=1) util::GeneratePage($title, $desc, $record_id);				
+		if ($mode != 1) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");			
 	}
 	
@@ -84,8 +84,8 @@ class Record
 		msg::success($table);
 	}
 	
-	/* --- отобразить / скрыть  --- */
-	function setShowMode()
+	/* --- */
+	function setPrivateMode()
 	{
 		$db   = DataBase::getDB();
 		$mode = $_GET['mode'];        		

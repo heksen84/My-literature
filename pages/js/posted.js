@@ -22,13 +22,13 @@ $(document).ready(function()
         });       
 	}
 	
-	/* показать скрыть */
-	function SetRecordShowMode(element, mode)
+	/* -- режим отображения -- */
+	function SetPrivateMode(element, mode)
 	{
 		$.ajax
 		({
 			url: "..//server.php",
-			data: {	"func": "SRV_SetRecordShowMode", "mode": mode }, method: "POST",
+			data: {	"func": "SRV_SetPrivateMode", "mode": mode }, method: "POST",
 		}).done(function( data )				
 		{																			
 			var obj = jQuery.parseJSON(data);					
@@ -81,9 +81,9 @@ $(document).ready(function()
 				$(".display_cell").click(function() 
 				{
 					if ($(this).html()!="&nbsp;") 
-						SetRecordShowMode($(this), 0);					
+						SetPrivateMode($(this), 0);					
 					else 
-						SetRecordShowMode($(this), 1);
+						SetPrivateMode($(this), 1);
 				});
 				
 				/* удалить запись */
