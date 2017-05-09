@@ -14,7 +14,7 @@ $(document).ready(function()
     function UpdatePostedTextsTable()
     {	
 		var i = 1;
-        var num_strings = $("#posted_tabletr").length;
+        var num_strings = $("#posted_table tr").length;
         $("#posted_table tbody tr td:first-child").each(function() 
 		{
             if (i != num_strings) $(this).html(i);
@@ -78,8 +78,7 @@ $(document).ready(function()
 				});
 				
 				/* режим отображения */
-				$(".display_cell").click(function() 
-				{
+				$(".display_cell").click(function() {
 					if ($(this).html()!="&nbsp;") 
 						SetPrivateMode($(this), 0);					
 					else 
