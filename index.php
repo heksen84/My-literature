@@ -48,7 +48,7 @@ if (isset($_GET["recid"]))
 	</div>
 </div>
 </div>
-<?include "pages/auth_reg_form.php"?>
+<? include "pages/auth_reg_form.php" ?>
 <!-- контент -->
 <div class="row" id="main_row">	
 	<div class="col-md-12 text-center" id="main_col">		
