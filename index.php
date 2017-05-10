@@ -2,7 +2,8 @@
  Ilya Bobkov 2017(c) 
 ------------------------------>
 <?php 
-if (isset($_GET["recid"])) {
+if (isset($_GET["recid"])) 
+{
 	echo "<script>localStorage.setItem('recid','".$_GET["recid"]."');</script>"; 
 }
 ?>
