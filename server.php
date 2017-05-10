@@ -18,7 +18,7 @@ include "php/class.categories.php";
 
 session_start();
 /* ------------- [ одиночки ] ------------- */
-$db			= DataBase::getDB();
+$db		= DataBase::getDB();
 $user		= User::getUser();	
 $rec 		= Record::getRecord();	
 $search		= Search::getSearch();
