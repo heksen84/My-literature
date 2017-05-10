@@ -13,10 +13,10 @@
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- styles -->
-<link href = "css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
-<link href = "css/lib/tether.min.css"		     	rel = "stylesheet"/>
-<link href = "css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
-<link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
+<link href = "css/lib/bootstrap.min.css"	     			rel = "stylesheet"/>
+<link href = "css/lib/tether.min.css"		     			rel = "stylesheet"/>
+<link href = "css/lib/sweet-alert.css"   					rel	= "stylesheet"/>
+<link href = "css/lib/scroll.css"	             			rel = "stylesheet"/>
 <link href = "css/writer_settings.css?<?php echo time()?>" 	rel	= "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
