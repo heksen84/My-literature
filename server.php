@@ -17,7 +17,6 @@ include "php/class.writer.php";
 include "php/class.categories.php";
 
 session_start();
-
 /* ------------- [ одиночки ] ------------- */
 $db			= DataBase::getDB();
 $user		= User::getUser();	

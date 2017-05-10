@@ -99,8 +99,7 @@ $(document).ready(function()
 	авторизация
 	---------------------------------------*/
 	$("#reader_auth_link").click(function() 
-	{
-				
+	{				
 		$("#auth_email").val(localStorage.getItem("auth_email"));
 		$("#auth_password").val(localStorage.getItem("auth_password"));		
 		$("#AuthWindow").modal();
