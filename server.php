@@ -18,7 +18,7 @@ include "php/class.categories.php";
 
 session_start();
 
-/* ----------- одиночки  ----------- */
+/* ------------- [ одиночки ] ------------- */
 $db			= DataBase::getDB();
 $user		= User::getUser();	
 $rec 		= Record::getRecord();	
@@ -28,7 +28,7 @@ $bookmark	= BookMark::getBookMark();
 $writer		= Writer::getWriter();
 $categories	= Categories::getCategories();
 
-/* -------------- [ РОУТИНГ ] -------------- */
+/* -------------- [ роутинг ] -------------- */
 switch(strtoupper($_SERVER["REQUEST_METHOD"])) {	
 	case "GET": {	
 		if (isset($_GET["func"])) {    			    								
