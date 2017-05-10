@@ -24,7 +24,7 @@ $(document).ready(function()
 	----------------------------------
 	REGISTER
 	----------------------------------*/	
-	function RegisterDialogEventers()
+	function RegisterDialogEventers() 
 	{						
 		$("#reg").off().click(function() 
 		{							
@@ -98,7 +98,8 @@ $(document).ready(function()
 	---------------------------------------
 	авторизация
 	---------------------------------------*/
-	$("#reader_auth_link").click(function() {
+	$("#reader_auth_link").click(function() 
+	{
 				
 		$("#auth_email").val(localStorage.getItem("auth_email"));
 		$("#auth_password").val(localStorage.getItem("auth_password"));		
@@ -108,7 +109,7 @@ $(document).ready(function()
 	/*-------------------------------------
 	   поиск
 	-------------------------------------*/
-	$("#button_search").click(function()
+	$("#button_search").click(function() 
 	{		
 		localStorage.setItem("search_input", $("#search_input").val());
 		$("#search_input").val("");
@@ -124,8 +125,7 @@ $(document).ready(function()
 	});
 		
 	// --- авторизация через соц.сети ---
-	$(".social_img").click(function() 
-	{		
+	$(".social_img").click(function() {		
 		$("#reg_link").trigger("click");
 		$("#reg").off().click(function() 
 		{				
