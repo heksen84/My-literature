@@ -12,18 +12,17 @@ var max_text_size 	= 100;
 ----------------------------------*/	
 $(document).ready(function() 
 {								
+
 	sweetAlertInitialize();
 	BlurInput();
 	
 	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
 	
-	$("#writer_quit").click(function() 
-	{				
+	$("#writer_quit").click(function() {				
 		$(location).attr('href', "/");		
 	});				
 	
-	$( window ).resize(function() 
-	{			
+	$( window ).resize(function() {			
 		if ($(window).width() > 576)
 		{
 			$("#editor").css("height", $(window).height()-150);
@@ -34,8 +33,7 @@ $(document).ready(function()
 	
 	
 	/* --- редактор ввод --- */
-	$("#editor").keyup(function() 
-	{		
+	$("#editor").keyup(function() {		
 		var editor = $(this).val();
 		var length = editor.length;		
 		
@@ -137,10 +135,10 @@ $(document).ready(function()
 		}			
 	});	
 
-
-	// ---------------------------
-	// Меню
-	// ---------------------------
+    /*
+	-------------------------------
+	 Меню
+	------------------------------- */
 	$("#menu li").click(function() 
 	{
 		$("#menu li").css("font-weight", "");
@@ -202,7 +200,8 @@ $(document).ready(function()
 					"mode": localStorage.getItem("writer_record_mode"),
 				
 				}, method: "POST",
-			}).done(function( data ) {																
+			}).done(function( data ) 
+			{																
 				var obj = jQuery.parseJSON(data);				
 				switch(obj.answer) 
 				{
