@@ -86,7 +86,7 @@ class Record
 	/* --- режим доступа --- */
 	function setPrivateMode()
 	{
-		$db   	= DataBase::getDB();
+		$db = DataBase::getDB();
 		$record_id 	= $_GET['reccord_id'];
 		$mode		= $_GET['mode'];
 		$result = $db->query("UPDATE `records` SET access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
