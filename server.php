@@ -106,7 +106,6 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					}
 					break;    		
 				}				
-
 				// -- закладка --
 				case "SRV_SetBookMark": {
 					$bookmark->set();
