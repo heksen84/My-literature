@@ -210,7 +210,7 @@ opacity:0.9;
 @media (max-width: 576px) {
 #main_row
 {
- margin-top:0px;
+ margin-top:-5px;
 }
 #table
 {
