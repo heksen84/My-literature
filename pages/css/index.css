@@ -34,6 +34,13 @@ label
  -1px 1px 0 black, 
  1px 1px 0 black;
 }
+#desc
+{
+ margin-top:-10px; 
+ color:white;
+ font-size:17px;
+ letter-spacing: 5px;
+}
 #search_input
 {
  width:440px;
@@ -43,13 +50,6 @@ label
 {
  font-size:15px; 
  color:#4a78c4;
-}
-#desc
-{
- margin-top:-10px; 
- color:white;
- font-size:17px;
- letter-spacing: 5px;
 }
 #button_add_record
 {
@@ -220,5 +220,15 @@ opacity:0.9;
 .modal input
 {
  width:99%;
+}
+}
+@media (max-width: 320px) {
+#title
+{
+ font-size:50px;
+}
+#desc
+{
+ font-size:15px;
 }
 }

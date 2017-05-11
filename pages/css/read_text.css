@@ -11,10 +11,6 @@
 	color:rgb(80,80,80);
 	margin-bottom:10px;
 }
-#cover_image
-{
-	margin-bottom:10px;
-}
 #read_area
 {
 	font-size:20px;
@@ -56,4 +52,18 @@
 {
 	color:white;
 	background:rgb(58, 111, 209);
+}
+@media (max-width: 320px) {
+#title
+{
+ font-size:22px;
+}
+#description
+{
+ font-size:18px;
+}
+#read_area
+{
+ font-size:16px;
+}
 }
