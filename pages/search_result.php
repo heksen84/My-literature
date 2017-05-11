@@ -41,8 +41,9 @@
   <thead>
     <tr>      
       <th style="width:5%">№</th>      
-      <th style="width:80%">название</th>
-	  <th style="width:15%;text-align:center">разместил</th>	  	  
+      <th style="width:75%">название</th>
+      <th style="width:5%;text-align:center">нравится</th>
+      <th style="width:10%;text-align:center">разместил</th>	  	  
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
