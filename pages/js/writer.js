@@ -69,7 +69,6 @@ $(document).ready(function()
 	--------------------------------------------*/
 	function CheckEditMode()
 	{									
-
 		$("#title, #short_description, #editor, #price").val("");
 		localStorage.setItem("writer_record_mode", "new");		
 		
