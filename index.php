@@ -52,7 +52,7 @@ if (isset($_GET["recid"]))
 <!-- контент -->
 <div class="row" id="main_row">	
 	<div class="col-md-12 text-center" id="main_col">		
-	<h1 id="title">ТЕКСТЫ<span id="reg">&reg;</span></h1>
+	<h1 id="title">МОИ ТЕКСТЫ<span id="reg">&reg;</span></h1>
 	<div id="desc">литературный портал</div>
 	<hr class="small_line">	
 	</div>
