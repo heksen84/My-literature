@@ -40,5 +40,9 @@ body
  color:red;
 }
 /* mobile */
-@media (max-width: 576px) {
+@media (max-width: 320px) {
+#posted_table
+{
+ font-size:11px;
+}
 }

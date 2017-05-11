@@ -43,3 +43,9 @@ body
 	font-size:14px;
 }
 }
+@media (max-width: 320px) {
+#result_table
+{
+	font-size:11px;
+}
+}
