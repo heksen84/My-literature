@@ -1,9 +1,8 @@
 /* ------------------------------
    FlyEditor v1.0 
    By Ilya Bobkov
-   This is part of the-texts
+   This is part of my-texts
    Aksu. Kazakhstan 2017(c)
-   Free-For-All
   ------------------------------- */
 (function( $ ) {
   $.fn.flyeditor = function() 
