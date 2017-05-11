@@ -3,7 +3,8 @@
 class Record
 {	
 	private static $record = null;
-		
+	
+	
 	/* --- получить класс работы с записями --- */
 	public static function getRecord() {	
 		if (self::$record == null){			
@@ -86,8 +87,8 @@ class Record
 	function setPrivateMode()
 	{
 		$db   	= DataBase::getDB();
-		$id   	= $_GET['id'];
-		$mode	= $_GET['mode'];
+		$record_id 	= $_GET['reccord_id'];
+		$mode		= $_GET['mode'];
 		$result = $db->query("UPDATE `records` SET access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);			
 	}
