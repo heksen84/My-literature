@@ -12,7 +12,6 @@ var max_text_size 	= 100;
 ----------------------------------*/	
 $(document).ready(function() 
 {								
-
 	sweetAlertInitialize();
 	BlurInput();
 	
