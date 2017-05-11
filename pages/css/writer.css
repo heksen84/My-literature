@@ -54,6 +54,7 @@ textarea
  color:white;
  text-transform:uppercase; 
  font-weight:bold;
+ text-decoration:underline;
 }
 .cursor_default
 {
