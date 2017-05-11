@@ -1,5 +1,4 @@
 <?php
-include "class.image.php";
 
 class Record
 {	
@@ -54,7 +53,7 @@ class Record
 		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 				
-		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
+		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."', access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);
 	}
 	
@@ -84,13 +83,14 @@ class Record
 		msg::success($table);
 	}
 	
-	/* --- */
+	/* --- режим доступа --- */
 	function setPrivateMode()
 	{
-		$db   = DataBase::getDB();
-		$mode = $_GET['mode'];        		
-		//$item = $db->query("");
-		msg::success("$item");		
+		$db   	= DataBase::getDB();
+		$id   	= $_GET['id'];
+		$mode	= $_GET['mode'];
+		$result = $db->query("UPDATE `records` SET access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
+		msg::success($result);			
 	}
 }
 ?>
