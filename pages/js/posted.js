@@ -23,12 +23,12 @@ $(document).ready(function()
 	}
 	
 	/* -- режим отображения -- */
-	function SetPrivateMode(element, mode)
+	function SetPrivateMode(element, record_id, mode)
 	{
 		$.ajax
 		({
 			url: "..//server.php",
-			data: {	"func": "SRV_SetPrivateMode", "mode": mode }, method: "POST",
+			data: {	"func": "SRV_SetPrivateMode", "record_id": record_id, "mode": mode }, method: "POST",
 		}).done(function( data )				
 		{																			
 			var obj = jQuery.parseJSON(data);					
@@ -80,9 +80,9 @@ $(document).ready(function()
 				/* режим отображения */
 				$(".display_cell").click(function() {
 					if ($(this).html()!="&nbsp;") 
-						SetPrivateMode($(this), 0);					
+						SetPrivateMode($(this), $(this).parent().data("id"), 0);					
 					else 
-						SetPrivateMode($(this), 1);
+						SetPrivateMode($(this), $(this).parent().data("id"), 1);
 				});
 				
 				/* удалить запись */
