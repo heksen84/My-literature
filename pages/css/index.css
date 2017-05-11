@@ -21,7 +21,7 @@ label
 }
 #main_row
 {
- margin-top:5px;
+ margin-top:10px;
 }
 #title
 {
@@ -208,10 +208,14 @@ opacity:0.9;
 }
 /* mobile */
 @media (max-width: 576px) {
+#main_row
+{
+ margin-top:0px;
+}
 #table
 {
-	font-size:18px;
-	width:99%;
+ font-size:18px;
+ width:99%;
 }
 .modal
 {
