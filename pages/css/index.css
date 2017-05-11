@@ -227,9 +227,13 @@ opacity:0.9;
 }
 }
 @media (max-width: 320px) {
+#reg
+{ 
+ font-size:12px;
+}
 #title
 {
- font-size:50px;
+ font-size:40px;
 }
 #desc
 {
