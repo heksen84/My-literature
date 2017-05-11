@@ -54,8 +54,8 @@ class Record
 		$mode 	= $db->safe_string($_POST['record_access_mode']);
 		$price 	= $db->safe_string($_POST['price']);
 				
-		$table = $db->select("SELECT cover FROM `records` WHERE id='".$id."'");				
-		msg::success("ok!");
+		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
+		msg::success($result);
 	}
 	
 	/* --- удалить запись --- */

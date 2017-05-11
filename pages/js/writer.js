@@ -186,7 +186,7 @@ $(document).ready(function()
 		}		
 		else 
 		{			
-			NProgress.start();			
+			NProgress.start();						
 			$.ajax
 			({
 				url: "..//server.php",
@@ -203,17 +203,14 @@ $(document).ready(function()
 					"mode": localStorage.getItem("writer_record_mode"),
 				
 				}, method: "POST",
-			}).done(function( data )				
-			{												
-				alert(data);
+			}).done(function( data ) {																
 				var obj = jQuery.parseJSON(data);				
-				switch(obj.answer)
+				switch(obj.answer) 
 				{
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
-					case "success": 
-					{
-						success(obj.string);
+					case "success": {						
+						success("готово");
 						$("input:text, textarea").val("");						
 					}
 				}

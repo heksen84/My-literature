@@ -18,7 +18,13 @@ $(document).ready(function()
 		localStorage.setItem("recid","");
 		$(location).attr("href", "pages/read_text.php");
 	}
-	else localStorage.setItem("read_data_id", "");	
+	else
+	{
+		localStorage.setItem("read_data_id", "");
+	}
+	
+	// сбрасываю настройки
+	localStorage.setItem("writer_record_id","");	
 
 	/*
 	----------------------------------
