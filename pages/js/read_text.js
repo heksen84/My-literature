@@ -98,9 +98,9 @@ $(document).ready(function()
 			case "success": 
 			{	
 				/* данные записи */															
-				$("#col-title").append("<div id='title'>"+obj.string[0].title+"</div>");
-				$("#col-desc").append("<div id='description'>"+obj.string[0].description+"</div>");												
-				$("#col-text").append(obj.string[0].text);
+				$("#col-title").text(obj.string[0].title);
+				$("#col-desc").text(obj.string[0].description);												
+				$("#col-text").text(obj.string[0].text);
 				/* получить закладку */				
 				GetBookMark(); 
 			}

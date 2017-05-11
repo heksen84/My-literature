@@ -4,7 +4,7 @@
 <?php 
 if (isset($_GET["recid"])) 
 {
-	echo "<script>localStorage.setItem('recid','".$_GET["recid"]."');</script>"; 
+ echo "<script>localStorage.setItem('recid','".$_GET["recid"]."');</script>"; 
 }
 ?>
 <!DOCTYPE html>
