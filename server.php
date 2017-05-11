@@ -30,8 +30,7 @@ $categories	= Categories::getCategories();
 switch(strtoupper($_SERVER["REQUEST_METHOD"])) {	
 	case "GET": {	
 		if (isset($_GET["func"])) {    			    								
-			switch ($_GET["func"]) 	 {				
-			
+			switch ($_GET["func"]) 	 {							
 				// -- пользователь --
 				case "SRV_AuthUser": {
 					$user->auth(); 		
