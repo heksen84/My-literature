@@ -96,11 +96,13 @@ $(document).ready(function()
 			case "error": error(obj.string); break;
 			case "warning": warning(obj.string); break;
 			case "success": 
-			{																
+			{	
+				/* данные записи */															
 				$("#col-title").append("<div id='title'>"+obj.string[0].title+"</div>");
 				$("#col-desc").append("<div id='description'>"+obj.string[0].description+"</div>");												
 				$("#col-text").append(obj.string[0].text);
-				GetBookMark();				
+				/* получить закладку */				
+				GetBookMark(); 
 			}
 		} 
 	});

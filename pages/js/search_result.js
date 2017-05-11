@@ -31,7 +31,7 @@ $(document).ready(function()
 				{				
 					$.each(obj.string, function(i, item) 
 					{					
-					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td>"+item.title+"</td><td></td><td style='text-align:center'>"+item.surname+" "+item.name+"</td></tr>");					
+					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td>"+item.title+"</td><td style='text-align:center'>"+item.surname+" "+item.name+"</td></tr>");					
 					});
 					
 					/* отобразить текст */
