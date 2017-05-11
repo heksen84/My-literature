@@ -3,8 +3,7 @@
 class Record
 {	
 	private static $record = null;
-	
-	
+		
 	/* --- получить класс работы с записями --- */
 	public static function getRecord() {	
 		if (self::$record == null){			
