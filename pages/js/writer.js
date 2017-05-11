@@ -45,7 +45,7 @@ $(document).ready(function()
 	});	
 	
 	/* -- переключатель доступа записи -- */
-	$( "#record_acess_mode" ).change(function() 
+	$( "#record_access_mode" ).change(function() 
 	{
 		if ($(this).val() == 1) $("#button_add_record").text("сохранить");
 		else $("#button_add_record").text("опубликовать");
