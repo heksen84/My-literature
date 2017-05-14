@@ -209,8 +209,9 @@ $(document).ready(function()
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
 					case "success": {						
-						success("готово");
+						$("#record_access_mode").trigger("change");
 						$("input:text, textarea").val("");						
+						success("готово");
 					}
 				}
 				NProgress.done();		
