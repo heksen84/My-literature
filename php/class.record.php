@@ -24,9 +24,9 @@ class Record
 		|| !isset($_POST['text']) 			
 		|| !isset($_POST['record_access_mode'])) msg::error("нет данных");								
 		
-		$title 	= $_POST['title'];
-		$desc 	= $_POST['short_description'];
-		$text 	= $_POST['text'];
+		$title 	= (string)$_POST['title'];
+		$desc 	= (string)$_POST['short_description'];
+		$text 	= (string)$_POST['text'];
 		
 		$type 	= $db->safe_string($_POST['type_of_literature']);
 		$mode 	= $db->safe_string($_POST['record_access_mode']);
@@ -44,10 +44,10 @@ class Record
 		$db	= DataBase::getDB();		
 		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) msg::error("нет данных");
 		
-		$id 	= $_POST['id'];
-		$title 	= $_POST['title'];
-		$desc 	= $_POST['short_description'];
-		$text 	= $_POST['text'];
+		$id 	= (int)$_POST['id'];
+		$title 	= (string)$_POST['title'];
+		$desc 	= (string)$_POST['short_description'];
+		$text 	= (string)$_POST['text'];
 		
 		$type 	= $db->safe_string($_POST['type_of_literature']);
 		$mode 	= $db->safe_string($_POST['record_access_mode']);

@@ -20,11 +20,11 @@ class User
 		if (!isset($_GET['type']) || !isset($_GET['name']) || !isset($_GET['surname']) || !isset($_GET['email']) || !isset($_GET['password'])) 
 			msg::error("нет данных");
 				
-		$type 	  = $_GET['type'];
-		$name 	  = $_GET['name'];
-		$surname  = $_GET['surname'];
-        $email    = $_GET['email'];
-        $password = $_GET['password'];
+		$type 	  = (int)$_GET['type'];
+		$name 	  = (string)$_GET['name'];
+		$surname  = (string)$_GET['surname'];
+        	$email    = (string)$_GET['email'];
+        	$password = (string)$_GET['password'];
 						
 		// --- безопасность	---				
 		$name 		= $db->safe_string($name);		
@@ -78,8 +78,8 @@ class User
 		
 		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
 
-		$email		= $_GET['email'];        
-        $password 	= $_GET['password'];		
+		$email	  = (string)$_GET['email'];        
+        	$password = (string)$_GET['password'];		
 						
 		if (empty($email) || empty($password)) msg::warning("введите данные");				
 				
@@ -110,9 +110,9 @@ class User
 		
 		if (!isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email'])) msg::error("нет данных");
 		
-		$name		= $_POST["name"];
-		$surname	= $_POST["surname"];
-		$email		= $_POST["email"];
+		$name		= (string)$_POST["name"];
+		$surname	= (string)$_POST["surname"];
+		$email		= (string)$_POST["email"];
 		
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			msg::error("не - email!");	

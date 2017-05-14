@@ -16,7 +16,7 @@ class Search
 	function start()
 	{		
 		$db	= DataBase::getDB();		
-		$search_input = $_GET["search_input"];
+		$search_input = (string)$_GET["search_input"];
 		$records = $db->select(	"SELECT records.id, records.title, users.surname, users.name, users.surname FROM `records` 
 								INNER JOIN `users` ON records.user_id=users.id AND records.title LIKE '%".$search_input."%'");		
 		msg::success($records);

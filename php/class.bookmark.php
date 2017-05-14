@@ -18,8 +18,8 @@ class BookMark
 				
 		if (!isset($_POST["record_id"]) || !isset($_POST["position"])) msg::error("нет данных");				
 		
-		$record_id  = $_POST["record_id"];		
-		$position  	= $_POST["position"];
+		$record_id  = (int)$_POST["record_id"];		
+		$position   = (int)$_POST["position"];
 		
 		$data = $db->select("SELECT * FROM bookmarks WHERE record_id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");						
 		if ($data==false) 
@@ -39,7 +39,7 @@ class BookMark
 	{		
 		$db	= DataBase::getDB();				
 		if (!isset($_GET["record_id"])) msg::error("нет данных");				
-		$record_id  = $_GET["record_id"];				
+		$record_id  = (int)$_GET["record_id"];				
 
 		$pos = $db->select("SELECT position FROM bookmarks WHERE record_id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");						
 		msg::success($pos);
