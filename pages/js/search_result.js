@@ -4,10 +4,11 @@
 ----------------------------------*/	
 $(document).ready(function() 
 {						
+
 	sweetAlertInitialize(); // -- инит messages dialog
-	BlurInput();			// -- input потеря фокуса
+	BlurInput();		// -- input потеря фокуса
 	
-	/* загрузить результаты */
+	/* -- загрузить результаты -- */
 	function LoadResults(start)
 	{
 		NProgress.start();
