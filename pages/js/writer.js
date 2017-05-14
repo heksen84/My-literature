@@ -96,6 +96,7 @@ $(document).ready(function()
 						$("#info_panel").html("Символов:&nbsp;"+$("#editor").val().length);					
 						$("#type_of_literature").val(obj.string[0].type_literature);
 						$("#record_access_mode").val(obj.string[0].access_mode);
+						$("#button_add_record").text("обновить");
 					}
 				} 
 		
