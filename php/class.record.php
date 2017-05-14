@@ -28,9 +28,9 @@ class Record
 		$desc 	= (string)$_POST['short_description'];
 		$text 	= (string)$_POST['text'];
 		
-		$type 	= $db->safe_string($_POST['type_of_literature']);
-		$mode 	= $db->safe_string($_POST['record_access_mode']);
-		$price 	= $db->safe_string($_POST['price']);
+		$type 	= (int)$db->safe_string($_POST['type_of_literature']);
+		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
+		$price 	= (float)$db->safe_string($_POST['price']);
 								
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
 		
@@ -49,9 +49,9 @@ class Record
 		$desc 	= (string)$_POST['short_description'];
 		$text 	= (string)$_POST['text'];
 		
-		$type 	= $db->safe_string($_POST['type_of_literature']);
-		$mode 	= $db->safe_string($_POST['record_access_mode']);
-		$price 	= $db->safe_string($_POST['price']);
+		$type 	= (int)$db->safe_string($_POST['type_of_literature']);
+		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
+		$price 	= (float)$db->safe_string($_POST['price']);
 				
 		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."', access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);
