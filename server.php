@@ -62,7 +62,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$text->read();					
 					break;
 				}			
-				// --- закладки ---
+				// -- закладки --
 				case "SRV_GetBookMark": {		
 					$bookmark->get();					
 					break;
@@ -71,12 +71,12 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$bookmark->getBookMarks();					
 					break;
 				}
-				// --- работы автора ---
+				// -- работы автора --
 				case "SRV_GetWriterWorks": {		
 					$writer->getWorks();					
 					break;
 				}				
-				// --- категории ---
+				// -- категории --
 				case "SRV_GetCategories": {		
 					$categories->getAll();					
 					break;
