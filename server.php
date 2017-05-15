@@ -27,6 +27,7 @@ $text		= Text::getText();
 $bookmark	= BookMark::getBookMark();
 $writer		= Writer::getWriter();
 $categories	= Categories::getCategories();
+
 /* -------------- [ роутинг ] -------------- */
 switch(strtoupper($_SERVER["REQUEST_METHOD"])) {	
 	case "GET": {	
