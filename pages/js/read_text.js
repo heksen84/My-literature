@@ -95,6 +95,7 @@ $(document).ready(function()
     }).done(function( data ) 
 	{						
 		var obj = jQuery.parseJSON(data);		
+		localStorage.setItem("recid", ""); /* -- сбросить переход со статической страницы -- */
 		switch(obj.answer) 
 		{
 			case "error": error(obj.string); break;
@@ -104,13 +105,11 @@ $(document).ready(function()
 				/* данные записи */															
 				$("#col-title").text(obj.string[0].title);
 				$("#col-desc").text(obj.string[0].description);												
-				$("#col-text").text(obj.string[0].text);
-
-				localStorage.setItem("recid", "");
+				$("#col-text").text(obj.string[0].text);				
 				/* получить закладку */				
 				GetBookMark(); 				
 			}
-		} 
+		}		
 	});
 	
 	/*
