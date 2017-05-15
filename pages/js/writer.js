@@ -3,8 +3,8 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------*/
-var max_symbols 	= 100000;
-var max_text_size 	= 100;
+var max_symbols    = 100000;
+var max_text_size  = 100;
 
 /*
 ----------------------------------
@@ -17,12 +17,15 @@ $(document).ready(function()
 	BlurInput();
 	
 	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
-	
+
+	/* -- назад или выход -- */	
 	$("#writer_quit").click(function() {				
-		$(location).attr('href', "/");		
+		history.back();
 	});				
 	
-	$( window ).resize(function() {			
+	/* -- ресайз окна -- */
+	$( window ).resize(function() 
+	{			
 		if ($(window).width() > 576)
 		{
 			$("#editor").css("height", $(window).height()-150);
@@ -30,8 +33,7 @@ $(document).ready(function()
 		}
 		else $("#editor").css("height", "440px");					
 	}).trigger("resize");
-	
-	
+		
 	/* --- редактор ввод --- */
 	$("#editor").keyup(function() {		
 		var editor = $(this).val();
@@ -203,6 +205,7 @@ $(document).ready(function()
 				}, method: "POST",
 			}).done(function( data ) 
 			{																
+				alert(data);
 				var obj = jQuery.parseJSON(data);				
 				switch(obj.answer) 
 				{
