@@ -16,7 +16,6 @@ $(document).ready(function()
 	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined)
 	{
 		localStorage.setItem("read_data_id", localStorage.getItem("recid"));		
-		localStorage.setItem("recid","");
 		$(location).attr("href", "pages/read_text.php");
 	}
 	else

@@ -9,13 +9,17 @@ $(document).ready(function()
 	sweetAlertInitialize();
 	BlurInput();
 		
+	/* убрать переход назад */
+	if (localStorage.getItem("recid")!="") {
+	   localStorage.setItem("recid", "");
+	   $("#return_link").hide();
+	}
+
 	/*
 	-------------------------------------
 	 назад
 	-------------------------------------*/
 	$("#return_link").click(function() {
-//		alert(localStorage.getItem("read_data_id"));
-//		if (localStorage.getItem("read_data_id")!="")
 		window.history.back();
 	});
 	
@@ -104,6 +108,7 @@ $(document).ready(function()
 				$("#col-text").text(obj.string[0].text);
 				/* получить закладку */				
 				GetBookMark(); 
+				localStorage.setItem("static","");
 			}
 		} 
 	});
@@ -112,18 +117,14 @@ $(document).ready(function()
 	----------------------------------
 	ПОДНЯТЬСЯ ВВЕРХ
 	----------------------------------*/
-	$(window).scroll(function() 
-	{
-		if($(this).scrollTop() > 200) 
-		{
-			if (localStorage.getItem("user_name") != "") 
-			{
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 200) {
+			if (localStorage.getItem("user_name") != "") {
 				$("#bookmark").fadeIn();
 			}
 			$("#totop").fadeIn();			
 		} 
-		else 
-		{ 
+		else { 
 			$("#totop, #bookmark").fadeOut();
 		}
 	});
