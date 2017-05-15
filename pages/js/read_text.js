@@ -10,8 +10,7 @@ $(document).ready(function()
 	BlurInput();
 		
 	/* убрать переход назад */
-	if (localStorage.getItem("recid")!="") {
-	   localStorage.setItem("recid", "");
+	if (localStorage.getItem("recid")!="") {	   
 	   $("#return_link").hide();
 	}
 
@@ -106,9 +105,10 @@ $(document).ready(function()
 				$("#col-title").text(obj.string[0].title);
 				$("#col-desc").text(obj.string[0].description);												
 				$("#col-text").text(obj.string[0].text);
+
+				localStorage.setItem("recid", "");
 				/* получить закладку */				
-				GetBookMark(); 
-				localStorage.setItem("static","");
+				GetBookMark(); 				
 			}
 		} 
 	});
