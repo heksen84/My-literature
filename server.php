@@ -100,7 +100,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				}				
 				case "SRV_ProcessRecord": {				
 					switch($_POST["mode"]) {
-						case "new": $rec->add(); break;
+						case "new":  $rec->add();    break;
 						case "edit": $rec->update(); break;
 					}
 					break;    		
