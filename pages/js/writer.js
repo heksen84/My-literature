@@ -70,6 +70,7 @@ $(document).ready(function()
 	function CheckEditMode()
 	{									
 		$("#title, #short_description, #editor, #price").val("");
+
 		localStorage.setItem("writer_record_mode", "new");		
 		
 		if(localStorage.getItem("read_data_id") != "")
@@ -205,7 +206,7 @@ $(document).ready(function()
 				}, method: "POST",
 			}).done(function( data ) 
 			{																
-				alert(data);
+//				alert(data);
 				var obj = jQuery.parseJSON(data);				
 				switch(obj.answer) 
 				{
