@@ -14,7 +14,7 @@ $(document).ready(function()
 	});
 
 	/* -- убрать переход назад -- */
-	if (localStorage.getItem("recid")!="") {	   	
+	if (localStorage.getItem("rec_id")!="") {	   	
 			$("#return_link").off().click(function() {
 			$(location).attr('href','/')
 		});
@@ -93,7 +93,7 @@ $(document).ready(function()
     }).done(function( data ) 
 	{						
 		var obj = jQuery.parseJSON(data);		
-		localStorage.setItem("recid", ""); /* -- сбросить переход со статической страницы -- */
+		localStorage.setItem("rec_id", ""); /* -- сбросить переход со статической страницы -- */
 		switch(obj.answer) 
 		{
 			case "error": error(obj.string); break;

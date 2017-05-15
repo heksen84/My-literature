@@ -12,8 +12,8 @@ $(document).ready(function()
 	----------------------
 	static redirect
 	----------------------*/
-	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined) {
-		localStorage.setItem("read_data_id", localStorage.getItem("recid"));		
+	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) {
+		localStorage.setItem("read_data_id", localStorage.getItem("rec_id"));		
 		$(location).attr("href", "pages/read_text.php");
 	}
 	else {

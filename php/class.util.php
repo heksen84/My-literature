@@ -21,7 +21,7 @@ class util
 	fwrite($fp, "<meta name='robots' content='index, follow'/>");
 	fwrite($fp, "<title>".$title."</title>");
 	fwrite($fp, "</head>");
-	fwrite($fp, "<script>window.location='http://".$_SERVER['SERVER_NAME']."/?recid=".$id."'</script>");
+	fwrite($fp, "<script>window.location='http://".$_SERVER['SERVER_NAME']."/?rec_id=".$id."'</script>");
 	fwrite($fp, "<body>https://www.my-literature.com</body>");
 	fclose($fp);
  }
