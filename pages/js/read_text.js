@@ -5,23 +5,19 @@
 ------------------------------*/
 $(document).ready(function() 
 {								
-
 	sweetAlertInitialize();
 	BlurInput();
 		
-	/*
-	-------------------------------------
-	 назад
-	-------------------------------------*/
+	/* -- назад -- */
 	$("#return_link").click(function() {
 	 window.history.back();
 	});
 
 	/* -- убрать переход назад -- */
 	if (localStorage.getItem("recid")!="") {	   	
-	 $("#return_link").off().click(function() {
-	 $(location).attr('href','/')
-	});
+			$("#return_link").off().click(function() {
+			$(location).attr('href','/')
+		});
 	}
 	
 	/*
