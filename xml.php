@@ -1,4 +1,8 @@
 <?php
+
+//$str = file_get_contents('recipe.xml');
+//$xml = simplexml_load_string($str);
+
 include 'example.php';
 $movies = new SimpleXMLElement($xmlstr);
 
