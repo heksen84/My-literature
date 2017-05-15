@@ -20,7 +20,8 @@ $(document).ready(function()
 		BlurInput();
 		
 		/* --- сохранить личные данные --- */
-		$("#button_save").off().click(function() {
+		$("#button_save").off().click(function() 
+		{
 			if ($("#name").val()=="" || $("#surname").val()=="" || $("#email").val()=="") {				
 				error("заполните поля");
 			}
