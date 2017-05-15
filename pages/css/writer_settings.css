@@ -38,3 +38,23 @@ body
  width:300px;
  margin: 3px;
 }
+/* mobile */
+@media (max-width: 576px) {
+#content
+{
+ text-align:center;
+}
+#menu
+{	
+ text-align:center;
+}
+#button_save
+{
+ position:static;	
+}
+.input
+{
+ margin: 3px auto;
+ width:250px;
+}
+}
