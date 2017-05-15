@@ -54,14 +54,16 @@
  background:rgb(58, 111, 209);
 }
 /* mobile */
-@media (max-width: 320px) {
+@media (max-width: 576px) {
 #col-title
 {
  font-size:22px;
+ word-wrap: break-word;
 }
 #col-desc
 {
  font-size:18px;
+ word-wrap: break-word;
 }
 #col-text
 {
