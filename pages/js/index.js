@@ -13,18 +13,16 @@ $(document).ready(function()
 	----------------------
 	static redirect
 	----------------------*/
-	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined)
-	{
+	if (localStorage.getItem("recid") != "" && localStorage.getItem("recid") != undefined) {
 		localStorage.setItem("read_data_id", localStorage.getItem("recid"));		
 		$(location).attr("href", "pages/read_text.php");
 	}
-	else
-	{
+	else {
 		localStorage.setItem("read_data_id", "");
 	}
 	
-	// сбрасываю настройки
-	localStorage.setItem("writer_record_id","");	
+	// -- сбрасываю настройки --
+	localStorage.setItem("writer_record_id", "");	
 
 	/*
 	----------------------------------
