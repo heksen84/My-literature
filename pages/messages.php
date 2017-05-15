@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Литературный ресурс THE-TEXTS&reg (стихи, книги, прозы, рассказы)</title>
+<title>Литературный портал МОЯ ЛИТЕРАТУРА&reg (стихи, книги, прозы, рассказы)</title>
 <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 <meta charset = "utf-8">
 <meta name = "viewport" 	content	= "width=device-width"/>
