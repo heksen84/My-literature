@@ -67,9 +67,10 @@ $(document).ready(function()
 			case "error": error(obj.string); break;
 			case "warning": warning(obj.string); break;
 			case "success": 
-			{								
+			{												
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'><img src='img/eye1.png' class='img-fluid eye_icon'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
+					if (item.access_mode!=1) $(".display_cell").eq(i).html("<img src='img/eye1.png' class='img-fluid eye_icon'>");										
 				});
 				
 				/* показать запись в редакторе */

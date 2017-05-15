@@ -15,7 +15,7 @@ class Writer
 	function getWorks()
 	{
 		$db	= DataBase::getDB();
-		$records = $db->select("SELECT records.id, records.title FROM `records` WHERE user_id='".$_SESSION["user_id"]."'");		
+		$records = $db->select("SELECT * FROM `records` WHERE user_id='".$_SESSION["user_id"]."'");		
 		msg::success($records);		
 	}
 }
