@@ -27,8 +27,7 @@ $(document).ready(function()
 			$.ajax
 			({
 				url: "..//server.php",
-				data: 
-				{
+				data: {
 					"func": 	"SRV_UpdatePersonalInfo",
 					"name": 	$("#name").val(),
 					"surname": 	$("#surname").val(),
