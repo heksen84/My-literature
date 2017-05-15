@@ -51,7 +51,7 @@ $(document).ready(function()
 	// ---------------------------
 	function ShowUserData() {
 		$("#content").empty();		
-		$("#content").append("<h5 style='margin-left:8px'>Личные данные</h5>");
+		$("#content").append("<h5 style='margin-left:8px'>Личные данные читателя</h5>");
 		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");
 		$("#content").append("<input type='text' class='form-control input' placeholder='фамилия' id='surname'></input>");
 		$("#content").append("<input type='text' class='form-control input' placeholder='email' id='email'></input>");
