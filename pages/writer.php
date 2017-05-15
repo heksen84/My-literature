@@ -41,13 +41,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">            	  	  	
 	<li class="nav-item">
-        <a class="nav-link active" href="http://the-texts/pages/opros.php">Опрос</a>
+        <a class="nav-link active" href="/pages/opros.php">Опрос</a>
     </li>
 	<li class="nav-item active">
-        <a class="nav-link" href="http://the-texts/pages/posted.php">Моя литература</a>
+        <a class="nav-link" href="/pages/posted.php">Моя литература</a>
     </li>   		
 	<li class="nav-item active">
-        <a class="nav-link" href="http://the-texts/pages/writer_settings.php">Настройки</a>
+        <a class="nav-link" href="/pages/writer_settings.php">Настройки</a>
     </li>   
 	<li class="nav-item active">
         <a class="nav-link" href="#" id="writer_quit">Выход</a>
