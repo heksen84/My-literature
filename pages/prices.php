@@ -24,7 +24,7 @@
 <script src = "js/lib/tether.min.js"></script>
 <script src = "js/lib/bootstrap.min.js"></script>
 <script src = "js/lib/sweet-alert.min.js"></script>      
-<script src = "js/lib/jquery.util.js"></script>  
+<script src = "js/lib/jquery.util.js?<?php echo time()?>"></script>  
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/jquery.float.js"></script>          
 <script src = "js/lib/moment.min.js"></script>

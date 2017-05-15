@@ -30,7 +30,7 @@ if (isset($_GET["recid"]))
 <script src = "pages/js/lib/tether.min.js"></script>
 <script src = "pages/js/lib/bootstrap.min.js"></script>
 <script src = "pages/js/lib/sweet-alert.min.js"></script>      
-<script src = "pages/js/lib/jquery.util.js"></script>  
+<script src = "pages/js/lib/jquery.util.js?<?php echo time()?>"></script>  
 <script src = "pages/js/lib/jquery.msg.js"></script>          
 <script src = "pages/js/lib/jquery.float.js"></script>          
 <script src = "pages/js/lib/nprogress.js"></script>

@@ -17,7 +17,7 @@ $(document).ready(function()
 		$("#content").append("<input type='text' class='form-control input' placeholder='email' id='email'></input>");		
 		$("#content").append("<button class='btn btn-primary' data-toggle='modal' data-target='.bd-example-modal-lg' id='button_save'>сохранить</button>");
 
-		//BlurInput();
+		BlurInput();
 		
 		/* --- сохранить личные данные --- */
 		$("#button_save").off().click(function() {
