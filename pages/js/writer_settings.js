@@ -5,9 +5,8 @@
 ------------------------------*/
 $(document).ready(function() 
 {							
-
 	sweetAlertInitialize();
-//	BlurInput();
+	BlurInput();
 
 	// ---------------------------
 	// Меню

@@ -24,6 +24,7 @@
 <script src = "js/lib/bootstrap.min.js"></script>
 <script src = "js/lib/sweet-alert.min.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>          
+<script src = "js/lib/jquery.util.js"></script>
 <script src = "js/lib/moment.min.js"></script>
 <script src = "js/writer_settings.js?<?php echo time()?>"></script>
 </head>
