@@ -25,14 +25,11 @@ $(document).ready(function()
 	
 	/* -- режим отображения -- */
 	function SetPrivateMode(element, record_id, mode)
-	{
-		alert(mode);
+	{		
 		$.ajax
 		({
 			url: "..//server.php",
-			data: {	"func": "SRV_SetPrivateMode", "record_id": record_id, "mode": mode }, 
-			method: "POST", 
-			async:false,
+			data: {	"func": "SRV_SetPrivateMode", "record_id": record_id, "mode": mode }, method: "POST", async:false,
 		}).done(function( data )				
 		{																			
 			var obj = jQuery.parseJSON(data);					
@@ -41,17 +38,16 @@ $(document).ready(function()
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
 				case "success": 
-				{		
-					//alert(data);
+				{							
 					switch(mode) 
 					{
-						case 0:
+						case 0: $(element).html("<img src='img/eye1.png' class='img-fluid eye_icon'>").attr("title","отображается"); break;
+						case 1:
 						{
 							$(element).find(".eye_icon").hide();
-							$(element).html("&nbsp;").attr("title","не отображается");
+							$(element).html("&nbsp;").attr("title", "не отображается");
 							break;
-						}						
-						case 1: $(element).html("<img src='img/eye1.png' class='img-fluid eye_icon'>").attr("title","отображается"); break;
+						}												
 					}
 				}
 			}		
@@ -73,7 +69,7 @@ $(document).ready(function()
 			case "success": 
 			{												
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'></td><td class='delete_record' title='удалить запись'>X</td></tr>");
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell'>&nbsp;</td><td class='delete_record' title='удалить запись'>X</td></tr>");
 					if (item.access_mode!=1) $(".display_cell").eq(i).html("<img src='img/eye1.png' class='img-fluid eye_icon'>");										
 				});
 				
@@ -85,10 +81,12 @@ $(document).ready(function()
 				
 				/* режим отображения */
 				$(".display_cell").click(function() {
-					if ($(this).html()!="&nbsp;") 
-						SetPrivateMode($(this), $(this).parent().data("id"), 0 );					
-					else 
-						SetPrivateMode($(this), $(this).parent().data("id"), 1 );
+					if ($(this).html()!="&nbsp;") {												
+						SetPrivateMode($(this), $(this).parent().data("id"), 1 );						
+					}
+					else {						
+						SetPrivateMode($(this), $(this).parent().data("id"), 0 );
+					}
 				});
 				
 				/* удалить запись */
