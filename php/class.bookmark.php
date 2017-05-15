@@ -14,8 +14,7 @@ class BookMark
 	/* --- установить расположение закладки --- */
 	function set()
 	{				
-		$db	= DataBase::getDB();		
-				
+		$db	= DataBase::getDB();						
 		if (!isset($_POST["record_id"]) || !isset($_POST["position"])) msg::error("нет данных");				
 		
 		$record_id  = (int)$_POST["record_id"];		

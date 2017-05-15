@@ -15,8 +15,7 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{		
-		$db	= DataBase::getDB();		
-				
+		$db	= DataBase::getDB();						
 		if (!isset($_GET['type']) || !isset($_GET['name']) || !isset($_GET['surname']) || !isset($_GET['email']) || !isset($_GET['password'])) 
 			msg::error("нет данных");
 				
@@ -74,8 +73,7 @@ class User
 	/* --- авторизация --- */
 	function auth()
 	{						
-		$db	= DataBase::getDB();		
-		
+		$db	= DataBase::getDB();				
 		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
 
 		$email	  = (string)$_GET['email'];        

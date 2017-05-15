@@ -16,8 +16,7 @@ class Record
 	/* --- добавить запись --- */
 	function add()
 	{							
-		$db	= DataBase::getDB();		
-		
+		$db	= DataBase::getDB();				
 		if (!isset($_POST['title'])		
 		|| !isset($_POST['short_description']) 
 		|| !isset($_POST['type_of_literature'])
