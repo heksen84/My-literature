@@ -9,18 +9,20 @@ $(document).ready(function()
 	sweetAlertInitialize();
 	BlurInput();
 		
-	/* убрать переход назад */
-	if (localStorage.getItem("recid")!="") {	   
-	   $("#return_link").hide();
-	}
-
 	/*
 	-------------------------------------
 	 назад
 	-------------------------------------*/
 	$("#return_link").click(function() {
-		window.history.back();
+	 window.history.back();
 	});
+
+	/* -- убрать переход назад -- */
+	if (localStorage.getItem("recid")!="") {	   	
+	 $("#return_link").off().click(function() {
+	 $(location).attr('href','/')
+	});
+	}
 	
 	/*
 	----------------------------------
