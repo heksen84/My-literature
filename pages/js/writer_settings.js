@@ -16,8 +16,7 @@ $(document).ready(function()
 		$(this).css("font-weight","bold");
 		switch($(this).index())
 		{
-		//	case 0: ShowBookMarks(); break;
-			case 1: $(location).attr('href', "/"); break;
+		case 1: $(location).attr('href', "/"); break;
 		}
 	}).eq(0).click(); // сразу кликнуть
 });
