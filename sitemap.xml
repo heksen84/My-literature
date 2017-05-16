@@ -6,27 +6,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.my-literature.com/?rec_id=545</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=544</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=543</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=542</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.my-literature.com/?rec_id=541</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=549</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
