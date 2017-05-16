@@ -13,7 +13,9 @@ class BookMark
 
 	/* --- установить расположение закладки --- */
 	function set()
-	{				
+	{						
+		if (empty($_SESSION["user_id"])) msg::warning("требуется авторизация");
+		
 		$db	= DataBase::getDB();						
 		if (!isset($_POST["record_id"]) || !isset($_POST["position"])) msg::error("нет данных");				
 		

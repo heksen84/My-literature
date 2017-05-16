@@ -5,6 +5,7 @@
 ------------------------------*/
 $(document).ready(function() 
 {								
+	
 	sweetAlertInitialize();
 	BlurInput();
 		
@@ -52,7 +53,8 @@ $(document).ready(function()
 		}
 	
 		/* --- установить закладку --- */	
-		$("#bookmark").click(function() {		
+		$("#bookmark").click(function() 
+		{		
 			$.ajax
 			({
 				url: "..//server.php",
@@ -64,7 +66,7 @@ $(document).ready(function()
 				}, 	
 				method: "POST",
 			}).done(function( data ) 
-			{						
+			{										
 				var obj = jQuery.parseJSON(data);				
 				switch(obj.answer)
 				{
@@ -77,7 +79,7 @@ $(document).ready(function()
 			});
 		});	
 	}
-					
+						
 	/*
 	----------------------------------
 	ПОЛУЧИТЬ ДАННЫЕ
@@ -103,9 +105,8 @@ $(document).ready(function()
 				/* данные записи */															
 				$("#col-title").text(obj.string[0].title);
 				$("#col-desc").text(obj.string[0].description);												
-				$("#col-text").text(obj.string[0].text);				
-				/* получить закладку */				
-				GetBookMark(); 				
+				$("#col-text").text(obj.string[0].text);								
+				GetBookMark(); /* получить закладку */
 			}
 		}		
 	});
