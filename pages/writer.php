@@ -40,9 +40,6 @@
   <a class="navbar-brand" href="#" id="user_name">&nbsp;</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">            	  	  	
-	<li class="nav-item">
-        <a class="nav-link active" href="/pages/opros.php">Опрос</a>
-    </li>
 	<li class="nav-item active">
         <a class="nav-link" href="/pages/posted.php">Моя литература</a>
     </li>   		
