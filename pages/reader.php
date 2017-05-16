@@ -42,6 +42,6 @@
 </menu>
 </div>
 <div class="col-md-7" id="content"></div>
-<div class="col-md-2" style="color:black"><h5>РЕКЛАМА</h5></div>
+<div class="col-md-2" style="color:black"><h5></h5></div> <!-- РЕКЛАМА -->
 </div>
 </div>

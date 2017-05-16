@@ -55,7 +55,7 @@
 <!-- контейнер -->
 <div class="container-fluid" id="work_container">
 <div class="row">
-<div class="col-md-2">РЕКЛАМА</div>
+<div class="col-md-2"></div> <!-- РЕКЛАМА -->
 <div class="col-md-7">
 <!--<label for="load_text" id="label_cover" class="grey_shadow_text">загрузить текст</label>
 <input type="file" id="load_text" name="fileupload" accept=".txt" style="margin-bottom:7px"/>-->

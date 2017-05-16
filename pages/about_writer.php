@@ -58,7 +58,7 @@
 <!-- контейнер -->
 <div class="container-fluid" id="work_container">
 <div class="row">
-<div class="col-md-2"><ins>РЕКЛАМА</ins></div>
+<div class="col-md-2"><ins></ins></div> <!-- РЕКЛАМА -->
 <div class="col-md-7">
 <textarea class="form-control" id="editor" placeholder="текст..."></textarea>
 <div id="info_panel">&nbsp;</div>
