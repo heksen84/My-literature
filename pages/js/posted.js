@@ -117,8 +117,8 @@ $(document).ready(function()
 								var obj = jQuery.parseJSON(data);					
 								switch(obj.answer)
 								{
-									case "error": error(obj.string); break;
-									case "warning": warning(obj.string); break;
+									case "error":   alert(obj.string); break;
+									case "warning": alert(obj.string); break;
 									case "success": 
 									{	
 										element.parent().remove();

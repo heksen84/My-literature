@@ -6,8 +6,8 @@ class util
  // -------------------------------------------
  static function GeneratePage($title, $desc, $id)
  {			
-    	$year  = date("Y");
-    	$month = date("m");
+    $year  = date("Y");
+    $month = date("m");
 	$name  = uniqid();
 
 	$fp = fopen("index/ru/".$year."/".$name.'.html', 'w+');	
