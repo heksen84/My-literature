@@ -27,6 +27,18 @@ class util
 		fwrite($fp, "<body>https://www.my-literature.com</body>");
 		fclose($fp);
 
+		$sitemap = simplexml_load_file("sitemap.xml");
+
+		$url = $sitemap->addChild('url');
+		$url->addChild("loc", "https://www.".$_SERVER['SERVER_NAME']."/?rec_id=".$id);
+		$url->addChild("changefreq", "daily");
+		$url->addChild("priority", "0.5");
+		$dom = new DOMDocument('1.0');
+		$dom->preserveWhiteSpace = false;
+		$dom->formatOutput = true;
+		$dom->loadXML($sitemap->asXML());
+		$dom->save('sitemap.xml');
+
 		// СДЕЛАТЬ ПРОВЕРКУ НА ОШИБКИ
 		$db = DataBase::getDB();
 		$result = $db->query("INSERT INTO `index-pages` VALUES (NULL, '".$id."', '".$name."')");		
