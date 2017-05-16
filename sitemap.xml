@@ -35,4 +35,14 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=545</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=546</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

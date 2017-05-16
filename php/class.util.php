@@ -6,10 +6,18 @@ class util
  // -------------------------------------------
  static function GeneratePage($title, $desc, $id)
  {			
-    $year  = date("Y");
+    
+	$year  = date("Y");
     $month = date("m");
-	$name  = uniqid();
+    $name  = uniqid();
+    $dir   = "index/ru/".$year;
 
+	/* создать директорию если её нет */
+	if (!file_exists($dir)) {
+	    mkdir($dir, 0777, true);
+	}
+
+	/* сгенерировать страницу редиректа */
 	$fp = fopen("index/ru/".$year."/".$name.'.html', 'w+');	
 	if ($fp)
 	{
