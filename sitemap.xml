@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.my-literature.com/?rec_id=538</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=539</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=540</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=541</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=542</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=543</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/?rec_id=544</loc>
+    <loc>https://www.my-literature.com/?rec_id=547</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -41,7 +11,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.my-literature.com/?rec_id=546</loc>
+    <loc>https://www.my-literature.com/?rec_id=544</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=543</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=542</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/?rec_id=541</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

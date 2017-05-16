@@ -1,30 +1,19 @@
 <?php
-$xmlstr = <<<XML
-<?xml version='1.0' standalone='yes'?>
-<movies>
- <movie>
-  <title>PHP: Появление Парсера</title>
-  <characters>
-   <character>
-    <name>Ms. Coder</name>
-    <actor>Onlivia Actora</actor>
-   </character>
-   <character>
-    <name>Mr. Coder</name>
-    <actor>El Act&#211;r</actor>
-   </character>
-  </characters>
-  <plot>
-   Таким образом, это язык. Это все равно язык программирования. Или
-   это скриптовый язык? Все раскрывается в этом документальном фильме,
-   похожем на фильм ужасов.
-  </plot>
-  <great-lines>
-   <line>PHP решает все мои проблемы в web</line>
-  </great-lines>
-  <rating type="thumbs">7</rating>
-  <rating type="stars">5</rating>
- </movie>
-</movies>
-XML;
+
+$sitemap = simplexml_load_file("sitemap.xml");
+foreach ($sitemap->url as $url_list) {
+    $url = $url_list->loc;
+    if (strpos($url, "546"))
+    {
+      unset($url_list[0]); 
+    }
+}
+
+
+$dom = new DOMDocument('1.0');
+$dom->preserveWhiteSpace = false;
+$dom->formatOutput = true;
+$dom->loadXML($sitemap->asXML());
+$dom->save('sitemap.xml');
+
 ?>
