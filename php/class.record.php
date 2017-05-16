@@ -68,8 +68,9 @@ class Record
 
 		$file = "index/ru/".date("Y")."/".$result[0]["name"].".html";
 		if (file_exists($file)){
-			unlink($file);
-		}
+			$db->query("DELETE FROM `index-pages` WHERE record_id='".$record_id."'");
+			unlink($file);			
+		}				
 		
         msg::success($item);
 	}
