@@ -1,6 +1,7 @@
 <?php
 class BookMark
 {	
+	
 	private static $bookmark = null;	
 	
 	/* --- получить закладку --- */
@@ -23,13 +24,11 @@ class BookMark
 		$position   = (int)$_POST["position"];
 		
 		$data = $db->select("SELECT * FROM bookmarks WHERE record_id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");						
-		if ($data==false) 
-		{
+		if ($data==false) {
 			$bookmark_id = $db->query("INSERT INTO `bookmarks` VALUES (NULL,'".$record_id."','".$_SESSION["user_id"]."','".$position."')");						
 			msg::success($bookmark_id);		
 		}
-		else 
-		{			
+		else {			
 			$data = $db->query("UPDATE `bookmarks` SET position='".$position."' WHERE record_id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");
 			msg::success($data);
 		}
