@@ -13,13 +13,13 @@ class Record
 	}
         
         /* --- проверка на плагиат --- */
-	private function compareText($string1) 
+	private function compareText($str) 
 	{		
 		$db = DataBase::getDB();
 		$result = $db->select("SELECT text FROM `records`");						
 		foreach ($result as $value) {
 		    if (!empty($value["text"])){
-		       similar_text($value["text"], $string1, $percent); 		    
+		       similar_text($value["text"], $str, $percent); 		    
 		       if ( $percent > 40 ) 
                        return false;
                     }
@@ -44,13 +44,10 @@ class Record
 
 		$text_length = strlen($text);
 
-		if ( $text_length > 15) {			
-			if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");			
-			$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
-			if ($mode != 1 && $text_length > 100) util::GeneratePage($title, $desc, $record_id);				
-			msg::success("опубликовано!");			
-		}
-		else msg::warning("Слишком мало текста для публикации!");							
+		if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");			
+		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
+		if ($mode != 1 && $text_length > 100) util::GeneratePage($title, $desc, $record_id);				
+		msg::success("опубликовано!");
 	}
 	
 	/* --- обновить запись --- */
