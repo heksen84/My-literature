@@ -11,6 +11,19 @@ class Record
 			return self::$record;
 		}
 	}
+        
+        /* --- проверка на плагиат --- */
+	private function compareText($string1) 
+	{
+		$db = DataBase::getDB();
+		$result = $db->select("SELECT text FROM `records`");						
+		foreach ($result as $value) 
+		{
+		    similar_text($value["text"], $string1, $percent); 		    
+		    if ( $percent > 60 ) return false;
+		}
+		return true;
+	}
 		
 	/* --- добавить запись --- */
 	function add()
@@ -26,6 +39,8 @@ class Record
 		$type 	= (int)$db->safe_string($_POST['type_of_literature']);
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
+
+		if (!$this->compareText($text)) msg::error("Похожий текст уже присутсвует в базе!");
 								
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
 		
