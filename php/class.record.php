@@ -20,7 +20,7 @@ class Record
 		foreach ($result as $value) {
 		    if (!empty($value["text"])){
 		       similar_text($value["text"], $string1, $percent); 		    
-		       if ( $percent > 50 ) 
+		       if ( $percent > 40 ) 
                        return false;
                     }
 		}
