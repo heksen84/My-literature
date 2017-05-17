@@ -71,8 +71,8 @@ class Record
 		
 		if (file_exists($file)) 
 		{
-			$db->query("DELETE FROM `index-pages` WHERE record_id='".$record_id."'");
-			unlink($file);			
+	  	   $db->query("DELETE FROM `index-pages` WHERE record_id='".$record_id."'");
+		   unlink($file);			
 		}
 
 		$sitemap = simplexml_load_file("sitemap.xml");
