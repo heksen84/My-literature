@@ -42,11 +42,15 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
-		if (!$this->compareText($text)) msg::error("Похоже, что данный текст уже присутсвует в базе!");
+		$text_length = strlen($text);
+
+		if ( $text_length > 100) {
+			if (!$this->compareText($text)) msg::error("Похоже, что данный текст уже присутсвует в базе!");
+		}
 								
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
 		
-		if (strlen($text) > 500 && $mode != 1) util::GeneratePage($title, $desc, $record_id);				
+		if ($text_length > 500 && $mode != 1) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");			
 	}
 	
