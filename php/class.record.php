@@ -44,14 +44,14 @@ class Record
 
 		$text_length = strlen($text);
 
-		if ( $text_length > 100) {
-			if (!$this->compareText($text)) msg::error("Похоже, что данный текст уже присутсвует в базе!");
+		if ( $text_length > 50) {			
+			if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");
+			
+			$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
+			if ($mode != 1) util::GeneratePage($title, $desc, $record_id);				
+			msg::success("опубликовано!");			
 		}
-								
-		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
-		
-		if ($text_length > 500 && $mode != 1) util::GeneratePage($title, $desc, $record_id);				
-		msg::success("опубликовано!");			
+		else msg::warning("Слишком мало текста для публикации!");							
 	}
 	
 	/* --- обновить запись --- */
