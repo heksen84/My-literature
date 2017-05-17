@@ -60,6 +60,11 @@
 #col-desc
 { 
  word-wrap: break-word;
+ font-size:16px; 
+}
+#col-like
+{
+ margin-top:0px;
 }
 #col-text
 {
@@ -73,7 +78,7 @@
 }
 #col-desc
 {
- font-size:18px; 
+ font-size:15px; 
 }
 #col-text
 {

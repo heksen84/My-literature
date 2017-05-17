@@ -86,6 +86,12 @@ $(document).ready(function()
 			});
 		});	
 	}
+
+	$("#like").click(function() 
+	{
+		swal("like!");
+	});		
+	
 						
 	/*
 	----------------------------------
