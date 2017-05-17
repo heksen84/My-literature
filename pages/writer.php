@@ -59,7 +59,7 @@
 <div class="col-md-7">
 <!--<label for="load_text" id="label_cover" class="grey_shadow_text">загрузить текст</label>
 <input type="file" id="load_text" name="fileupload" accept=".txt" style="margin-bottom:7px"/>-->
-<textarea class="form-control" id="editor" placeholder="текст..."></textarea>
+<textarea class="form-control" id="editor" placeholder="текст..." maxlength="100000"></textarea>
 <div id="info_panel">&nbsp;</div>
 </div>
 <!-- ROW2 -->

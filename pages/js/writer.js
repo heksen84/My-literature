@@ -3,7 +3,8 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------*/
-var max_symbols    = 100000;
+//var max_symbols    = 100000;
+var max_symbols    = 100;
 var max_text_size  = 100;
 
 /*
@@ -34,8 +35,9 @@ $(document).ready(function()
 		else $("#editor").css("height", "440px");					
 	}).trigger("resize");
 		
+
 	/* --- редактор ввод --- */
-	$("#editor").keyup(function() {		
+/*	$("#editor").keyup(function() {		
 		var editor = $(this).val();
 		var length = editor.length;		
 		
@@ -43,9 +45,10 @@ $(document).ready(function()
 			$("#info_panel").html("Символов:&nbsp;"+length);
 		}
 		else {			
-			swal('Места больше нет!!!');			
+			swal("достигнут предел");			
 		}		
 	});	
+*/
 	
 	/* -- переключатель доступа записи -- */
 	$( "#record_access_mode" ).change(function() 
