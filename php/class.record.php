@@ -44,9 +44,8 @@ class Record
 
 		$text_length = strlen($text);
 
-		if ( $text_length > 50) {			
-			if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");
-			
+		if ( $text_length > 30) {			
+			if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");			
 			$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
 			if ($mode != 1) util::GeneratePage($title, $desc, $record_id);				
 			msg::success("опубликовано!");			
