@@ -6,7 +6,6 @@ $newxml = new SimpleXMLElement("<urlset xmlns='http://www.sitemaps.org/schemas/s
 foreach ($sitemap->url as $url_list) 
 {
     if (!strstr($url_list->loc, "52")) 
-//    if (preg_match("/1/", $url_list->loc)==1)
     {
       $newurl = $newxml->addChild("url");
       $newurl->addChild("loc",        $url_list->loc);
@@ -19,6 +18,6 @@ $dom = new DOMDocument('1.0');
 $dom->preserveWhiteSpace = false;
 $dom->formatOutput = true;
 $dom->loadXML($newxml->asXML());
-$dom->save('sitemap2.xml');
+$dom->save('sitemap.xml');
 
 ?>
