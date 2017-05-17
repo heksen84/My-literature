@@ -15,7 +15,7 @@ class Record
 	/* --- добавить запись --- */
 	function add()
 	{							
-		$db	= DataBase::getDB();				
+		$db = DataBase::getDB();				
 		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) 
 			msg::error("нет данных");								
 		
@@ -36,7 +36,7 @@ class Record
 	/* --- обновить запись --- */
 	function update()
 	{										
-		$db	= DataBase::getDB();		
+		$db = DataBase::getDB();		
 		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) msg::error("нет данных");
 		
 		$id 	= (int)$_POST['id'];
@@ -96,7 +96,7 @@ class Record
 	/* --- получить список --- */
 	function getList()
 	{		
-		$db	= DataBase::getDB();
+		$db = DataBase::getDB();
 		$table = $db->select("SELECT id AS value, text AS label FROM `records` WHERE user_id='".$_SESSION["user_id"]."' ORDER BY text ASC");		
 		msg::success($table);		
 	}
@@ -104,7 +104,7 @@ class Record
 	/* --- получить записи --- */
 	function getRecords()
 	{
-		$db	= DataBase::getDB();
+		$db = DataBase::getDB();
 		$table = $db->select("SELECT * FROM `records` WHERE user_id='".$_SESSION["user_id"]."'");
 		msg::success($table);
 	}

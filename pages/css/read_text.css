@@ -31,7 +31,6 @@
  color:rgb(80,80,80);
  font-family:verdana;
  font-size:14px;
- border-radius:6px;	
 }
 #bookmark
 {
@@ -48,12 +47,11 @@
  color:rgb(80,80,80);
  font-family:verdana;
  font-size:14px;	
- border-radius:6px;
 }
 #bookmark:hover, #totop:hover
 {
- color:black;
- background:rgb(150, 250, 150);
+ color:white;
+ background:rgb(100, 100, 200);
 }
 #col-title
 { 
