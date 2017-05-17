@@ -15,6 +15,7 @@ include "php/class.text.php";
 include "php/class.bookmark.php";
 include "php/class.writer.php";
 include "php/class.categories.php";
+include "php/class.like.php";
 
 session_start();
 
@@ -27,6 +28,7 @@ $text		= Text::getText();
 $bookmark	= BookMark::getBookMark();
 $writer		= Writer::getWriter();
 $categories	= Categories::getCategories();
+$like		= Like::getLike();
 
 /* -------------- [ роутинг ] -------------- */
 switch(strtoupper($_SERVER["REQUEST_METHOD"])) {	

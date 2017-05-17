@@ -89,7 +89,26 @@ $(document).ready(function()
 
 	$("#like").click(function() 
 	{
-		swal("like!");
+		$.ajax
+		({
+			url: "..//server.php",
+			data: 
+			{
+				"func": "SRV_SetLike",                    
+				"record_id": localStorage.getItem("read_data_id"),				
+			}, 			
+		}).done(function( data ) 
+		{										
+			var obj = jQuery.parseJSON(data);				
+			switch(obj.answer)
+			{
+				case "error": error(obj.string); break;
+				case "warning": warning(obj.string); break;
+				case "success": 
+				{
+				}
+			} 
+		});
 	});		
 	
 						
