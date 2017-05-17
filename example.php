@@ -5,12 +5,12 @@ $newxml = new SimpleXMLElement("<urlset xmlns='http://www.sitemaps.org/schemas/s
 
 foreach ($sitemap->url as $url_list) 
 {
-    $url = $url_list->loc;
-    if (!strpos($url, "549")) {
-    $myNewUri = $newxml->addChild("url");
-    $myNewUri->addChild("loc", $url_list->loc);
-    $myNewUri->addChild("changefreq", $url_list->changefreq);
-    $myNewUri->addChild("priority", $url_list->priority);
+    if (!strstr($url_list->loc, "52")) 
+    {
+      $newurl = $newxml->addChild("url");
+      $newurl->addChild("loc",        $url_list->loc);
+      $newurl->addChild("changefreq", $url_list->changefreq);
+      $newurl->addChild("priority",   $url_list->priority);
     }
 }
 
