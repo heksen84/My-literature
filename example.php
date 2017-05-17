@@ -1,19 +1,23 @@
 <?php
 
 $sitemap = simplexml_load_file("sitemap.xml");
+$newxml = new SimpleXMLElement("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'></urlset>");
 
 foreach ($sitemap->url as $url_list) 
 {
     $url = $url_list->loc;
-    if (strpos($url, "545")) {
-      unset($url_list[0]); 
+    if (!strpos($url, "549")) {
+    $myNewUri = $newxml->addChild("url");
+    $myNewUri->addChild("loc", $url_list->loc);
+    $myNewUri->addChild("changefreq", $url_list->changefreq);
+    $myNewUri->addChild("priority", $url_list->priority);
     }
 }
 
 $dom = new DOMDocument('1.0');
 $dom->preserveWhiteSpace = false;
 $dom->formatOutput = true;
-$dom->loadXML($sitemap->asXML());
+$dom->loadXML($newxml->asXML());
 $dom->save('sitemap.xml');
 
 ?>
