@@ -89,9 +89,16 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$categories->getFromId();					
 					break;
 				}
-				/* -- like -- */
+
+				/* -- лайк -- */
 				case "SRV_SetLike": {		
 					$like->set();					
+					break;
+				}
+				
+				/* -- кол-во лайков -- */
+				case "SRV_GetRecordLikes": {		
+					//$like->set();					
 					break;
 				}
 			}

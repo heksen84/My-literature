@@ -137,5 +137,13 @@ class Record
 		$result = $db->query("UPDATE `records` SET access_mode='".$mode."' WHERE id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");
 		msg::success($result);			
 	}
+
+	function setLike()
+	{
+	}
+	
+	function getLikes()
+	{
+	}
 }
 ?>
