@@ -29,7 +29,7 @@ class Record
 								
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");
 		
-		if (strlen($text) > 1000 && $mode != 1) util::GeneratePage($title, $desc, $record_id);				
+		if (strlen($text) > 500 && $mode != 1) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");			
 	}
 	

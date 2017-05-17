@@ -37,18 +37,16 @@ $(document).ready(function()
 		
 
 	/* --- редактор ввод --- */
-/*	$("#editor").keyup(function() {		
+	$("#editor").keyup(function() {		
 		var editor = $(this).val();
 		var length = editor.length;		
-		
-		if(editor.length <= max_symbols) {
+		$("#info_panel").html("Символов:&nbsp;"+length);
+
+/*		if(editor.length <= max_symbols) {
 			$("#info_panel").html("Символов:&nbsp;"+length);
-		}
-		else {			
-			swal("достигнут предел");			
-		}		
+		}*/
 	});	
-*/
+
 	
 	/* -- переключатель доступа записи -- */
 	$( "#record_access_mode" ).change(function() 
