@@ -80,7 +80,7 @@ class Record
 		
 		foreach ($sitemap->url as $url_list) 
 		{
-		    if (!strpos($url_list->loc, (string)$record_id))
+		    if (!strpos($url_list->loc, $result[0]["name"]))
 		    {
 		      $newurl = $newxml->addChild("url");
 		      $newurl->addChild("loc",        $url_list->loc);
