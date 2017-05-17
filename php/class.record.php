@@ -2,9 +2,9 @@
 
 class Record
 {	
+	
 	private static $record = null;
-	
-	
+		
 	/* --- получить класс работы с записями --- */
 	public static function getRecord() {	
 		if (self::$record == null){			
@@ -59,7 +59,8 @@ class Record
 	/* --- удалить запись --- */
 	function del()
 	{		
-		$db	= DataBase::getDB();
+	
+		$db = DataBase::getDB();
 		if (!isset($_GET['record_id'])) msg::error("нет данных");		
 		$record_id = (int)$_GET['record_id'];        		
 
@@ -67,7 +68,9 @@ class Record
 		$result = $db->select("SELECT name FROM `index-pages` WHERE record_id='".$record_id."'");		
 
 		$file = "index/ru/".date("Y")."/".$result[0]["name"].".html";
-		if (file_exists($file)){
+		
+		if (file_exists($file)) 
+		{
 			$db->query("DELETE FROM `index-pages` WHERE record_id='".$record_id."'");
 			unlink($file);			
 		}
@@ -92,7 +95,7 @@ class Record
 		$dom->loadXML($newxml->asXML());
 		$dom->save('sitemap.xml');				
 		
-        msg::success($item);
+        	msg::success($item);
 	}
 	
 	/* --- получить список --- */
