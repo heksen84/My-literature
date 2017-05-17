@@ -5,4 +5,19 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591c0e2c3d090.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591c0f821982c.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591c101ab3877.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

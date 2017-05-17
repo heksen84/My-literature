@@ -4,10 +4,12 @@
  https://github.com/heksen84
 ------------------------------*/
 $(document).ready(function() 
-{								
-	
+{									
 	sweetAlertInitialize();
 	BlurInput();
+
+	var reader=null;
+	if (localStorage.getItem("rec_id") != "") reader="web";
 		
 	/* -- назад -- */
 	$("#return_link").click(function() {
@@ -91,6 +93,7 @@ $(document).ready(function()
 		{
             "func": "SRV_ReadText",                    
             "record_id": localStorage.getItem("read_data_id"),
+	    "reader": reader,
         },
     }).done(function( data ) 
 	{						

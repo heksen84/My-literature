@@ -173,13 +173,7 @@ $(document).ready(function()
 			$("#title").focus();	
 			warning("введите название");
 		}
-		else
-		if ($("#short_description").val()=="")
-		{
-			$("#short_description").focus();	
-			warning("введите описание");
-		}		
-		else
+		else		
 		if ($("#price").val()=="" && $( "#record_access_mode" ).val() == 2) 
 		{
 			$("#price").focus();
