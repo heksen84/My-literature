@@ -89,6 +89,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$categories->getFromId();					
 					break;
 				}
+				/* -- like -- */
+				case "SRV_SetLike": {		
+					$like->set();					
+					break;
+				}
 			}
 		}
 	break;

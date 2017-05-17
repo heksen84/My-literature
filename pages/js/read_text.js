@@ -104,6 +104,7 @@ $(document).ready(function()
 				case "warning": warning(obj.string); break;
 				case "success": 
 				{
+					alert(data);
 				}
 			} 
 		});
