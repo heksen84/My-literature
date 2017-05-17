@@ -19,6 +19,11 @@ label
 {
  margin:5px;
 }
+#alert_opros
+{
+ width:300px;
+ margin:auto;
+}
 #main_row
 {
  margin-top:10px;
@@ -101,9 +106,9 @@ opacity:0.9;
  margin-top:0px;
  text-align:left;
 }
-.no_display
+.no-display
 {
- display: none !important;
+ display: none;
 }
 .short_line
 {

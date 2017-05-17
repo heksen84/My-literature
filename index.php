@@ -35,14 +35,6 @@
 <body>
 <div class="container-fluid">
 <a class="nav-link active" href="#" id="reader_auth_link">ВХОД</a>
-<div class="row no_display" id="alert_opros">
-<div class="col-md-12 text-center">
-	<div class="alert alert-success" role="alert">
-	<strong>Заполните небольшую форму опроса. Это поможет нам в дальнейшем.</strong>
-	<br><button type="button" class="btn btn-danger">заполнить форму</button>
-	</div>
-</div>
-</div>
 <? include "pages/auth_reg_form.php" ?>
 <!-- контент -->
 <div class="row" id="main_row">	
@@ -57,4 +49,13 @@
   	<tbody id="tbody"></tbody>
 	</table>
 	</div>
+</div>
+<div class="row no-display" id="alert_opros">
+<div class="col-md-12 text-center">
+<div class="alert alert-success" role="alert">
+Благодарим Вас за использование сервиса. Это поможет нам в дальнейшем.
+<button type="button" class="btn btn-success" style="margin-top:10px">заполнить форму</button>
+</div>
+</div>
+</div>
 </body>
