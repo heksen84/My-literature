@@ -4,7 +4,7 @@
  https://github.com/heksen84
 ------------------------------*/
 $(document).ready(function() 
-{									
+{										
 	var reader=null;
 	if (localStorage.getItem("rec_id") != "") reader="web";
 
@@ -17,8 +17,10 @@ $(document).ready(function()
 	});
 
 	/* -- убрать переход назад -- */
-	if (localStorage.getItem("rec_id")!="") {	   	
-			$("#return_link").off().click(function() {
+	if (localStorage.getItem("rec_id")!="") 
+	{	   	
+		$("#return_link").off().click(function() 
+		{
 			$(location).attr('href','/')
 		});
 	}
@@ -54,7 +56,10 @@ $(document).ready(function()
 			});
 		}
 	
-		/* --- установить закладку --- */	
+		/*
+		----------------------------------
+		закладка
+		----------------------------------*/		
 		$("#bookmark").click(function() 
 		{		
 			$.ajax
@@ -84,18 +89,18 @@ $(document).ready(function()
 						
 	/*
 	----------------------------------
-	ПОЛУЧИТЬ ДАННЫЕ
+	читать текст
 	----------------------------------*/		
 	$.ajax
 	({
         url: "..//server.php",
-        data: 
-		{
+        data:		
+	{
             "func": "SRV_ReadText",                    
             "record_id": localStorage.getItem("read_data_id"),
 	    "reader": reader,
         },
-    }).done(function( data ) 
+    	}).done(function( data ) 
 	{						
 		var obj = jQuery.parseJSON(data);		
 		localStorage.setItem("rec_id", ""); /* -- сбросить переход со статической страницы -- */
@@ -116,7 +121,7 @@ $(document).ready(function()
 	
 	/*
 	----------------------------------
-	ПОДНЯТЬСЯ ВВЕРХ
+	вверх
 	----------------------------------*/
 	$(window).scroll(function() {
 		if($(this).scrollTop() > 200) {
@@ -125,15 +130,10 @@ $(document).ready(function()
 			}
 			$("#totop").fadeIn();			
 		} 
-		else { 
-			$("#totop, #bookmark").fadeOut();
-		}
+		else $("#totop, #bookmark").fadeOut();
 	});
  
-	/*
-	------------------------------
-	 вверх
-	------------------------------*/
+
 	$("#totop").click(function() {
 		$("body,html").animate({scrollTop:0},0);
 	});	
