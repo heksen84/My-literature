@@ -140,6 +140,8 @@ class Record
 
 	function setLike()
 	{
+		$db = DataBase::getDB();
+		msg::success("ok");
 	}
 	
 	function getLikes()
