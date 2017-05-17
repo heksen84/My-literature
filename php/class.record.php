@@ -20,7 +20,7 @@ class Record
 		foreach ($result as $value) {
 		    if (!empty($value["text"])){
 		       similar_text($value["text"], $string1, $percent); 		    
-		       if ( $percent > 50 ) 
+		       if ( $percent > 30 ) 
                        return false;
                     }
 		}
@@ -65,7 +65,7 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
-		if (!$this->compareText($text)) msg::error("Похожий текст уже присутсвует в базе!");
+		//if (!$this->compareText($text)) msg::error("Похожий текст уже присутсвует в базе!");
 				
 		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."', access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);
