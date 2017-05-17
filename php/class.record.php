@@ -1,5 +1,7 @@
 <?php
-
+// -------------------------
+//  By Ilya Bobkov 2017 (c)
+// -------------------------
 class Record
 {		
 	private static $record = null;
