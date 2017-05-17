@@ -5,11 +5,11 @@
 ------------------------------*/
 $(document).ready(function() 
 {									
-	sweetAlertInitialize();
-	BlurInput();
-
 	var reader=null;
 	if (localStorage.getItem("rec_id") != "") reader="web";
+
+	sweetAlertInitialize();
+	BlurInput();
 		
 	/* -- назад -- */
 	$("#return_link").click(function() {
