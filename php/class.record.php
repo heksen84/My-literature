@@ -89,6 +89,9 @@ class Record
 		   unlink($file);			
 		}
 
+		// ---------------------------
+		//  удалить из sitemap'a
+		// ---------------------------		
 		$sitemap = simplexml_load_file("sitemap.xml");
 		$newxml = new SimpleXMLElement("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'></urlset>");
 		
@@ -109,7 +112,8 @@ class Record
 		$dom->loadXML($newxml->asXML());
 		$dom->save('sitemap.xml');				
 		
-        	msg::success($item);
+		// готово
+        	msg::success($item);  
 	}
 	
 	/* --- получить список --- */
