@@ -32,7 +32,7 @@ $(document).ready(function()
 				{				
 					$.each(obj.string, function(i, item) 
 					{					
-					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td>"+item.title+"</td><td style='text-align:center'>"+item.surname+" "+item.name+"</td></tr>");					
+					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td><div class='cell'>"+item.title+"</div></td><td class='like'>1020</td><td style='text-align:center'>"+item.surname+" "+item.name+"</td></tr>");					
 					});
 					
 					/* отобразить текст */

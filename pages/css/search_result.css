@@ -28,11 +28,17 @@ body
 {
  font-weight:bold;
 }
+.cell
+{
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; 
+}
 #load_more
 {
  margin-bottom:10px;
 }
-.like_cell
+.like
 {
  cursor:pointer;
  text-align:center;
