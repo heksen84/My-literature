@@ -17,10 +17,8 @@ $(document).ready(function()
 	});
 
 	/* -- убрать переход назад -- */
-	if (localStorage.getItem("rec_id")!="") 
-	{	   	
-		$("#return_link").off().click(function() 
-		{
+	if (localStorage.getItem("rec_id")!="") {	   	
+		$("#return_link").off().click(function() {
 			$(location).attr('href','/')
 		});
 	}
