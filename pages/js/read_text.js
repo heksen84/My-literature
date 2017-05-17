@@ -4,8 +4,8 @@
  https://github.com/heksen84
 ------------------------------*/
 $(document).ready(function() 
-{										
-	var reader=null;
+{											
+	var reader = null;
 	if (localStorage.getItem("rec_id") != "") reader="web";
 
 	sweetAlertInitialize();
@@ -87,13 +87,13 @@ $(document).ready(function()
 		});	
 	}
 
+	/* -- лайк -- */
 	$("#like").click(function() 
 	{
 		$.ajax
 		({
 			url: "..//server.php",
-			data: 
-			{
+			data: {
 				"func": "SRV_SetLike",                    
 				"record_id": localStorage.getItem("read_data_id"),				
 			}, 			
@@ -120,30 +120,32 @@ $(document).ready(function()
 	({
         url: "..//server.php",
         data:		
-	{
+		{
             "func": "SRV_ReadText",                    
             "record_id": localStorage.getItem("read_data_id"),
-	    "reader": reader,
+			"reader": reader,
         },
     	}).done(function( data ) 
-	{						
-		var obj = jQuery.parseJSON(data);		
-		localStorage.setItem("rec_id", ""); /* -- сбросить переход со статической страницы -- */
-		switch(obj.answer) 
-		{
-			case "error": error(obj.string); break;
-			case "warning": warning(obj.string); break;
-			case "success": 
-			{	
-				/* данные записи */															
-				$("#col-title").text(obj.string[0].title);
-				$("#col-desc").text(obj.string[0].description);												
-				$("#col-text").text(obj.string[0].text);								
-				GetBookMark(); /* получить закладку */
-			}
-		}		
-	});
-	
+		{						
+			var obj = jQuery.parseJSON(data);		
+			localStorage.setItem("rec_id", ""); /* -- сбросить переход со статической страницы -- */
+			switch(obj.answer) 
+			{
+				case "error": error(obj.string); break;
+				case "warning": warning(obj.string); break;
+				case "success": 
+				{					
+					/* данные записи */															
+					$("#col-title").text(obj.string[0].title);
+					$("#col-desc").text(obj.string[0].description);												
+					$("#col-text").text(obj.string[0].text);								
+				
+					/* получить закладку */
+					GetBookMark();
+				}
+			}		
+		});
+		
 	/*
 	----------------------------------
 	вверх
@@ -158,7 +160,7 @@ $(document).ready(function()
 		else $("#totop, #bookmark").fadeOut();
 	});
  
-
+ 
 	$("#totop").click(function() {
 		$("body,html").animate({scrollTop:0},0);
 	});	
