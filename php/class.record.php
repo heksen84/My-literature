@@ -138,12 +138,14 @@ class Record
 		msg::success($result);			
 	}
 
+	/* --- установить лайк --- */
 	function setLike()
 	{
 		$db = DataBase::getDB();
 		msg::success("ok");
 	}
-	
+
+	/* --- получить лайки --- */	
 	function getLikes()
 	{
 	}
