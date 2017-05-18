@@ -40,7 +40,7 @@ class Record
 		
 		$title 	= (string)$_POST['title'];
 		$desc 	= (string)$_POST['short_description'];
-		$text 	= str_replace("'", "", (string)$_POST['text']);
+		$text 	= str_replace("'", '"', (string)$_POST['text']);
 		
 		$type 	= (int)$db->safe_string($_POST['type_of_literature']);
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);

@@ -1,16 +1,6 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c079f59682.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c0e2c3d090.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.my-literature.com/index/ru/2017/591c0f821982c.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -22,16 +12,6 @@
   </url>
   <url>
     <loc>https://www.my-literature.com/index/ru/2017/591c1fa781390.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c5f997bfa4.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c5fd093d1c.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -111,27 +91,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591d859de4e1c.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591d85ab02dc6.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.my-literature.com/index/ru/2017/591d85d2c5a62.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.my-literature.com/index/ru/2017/591d85f07a4f0.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591d860e1cd94.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -227,6 +192,21 @@
   </url>
   <url>
     <loc>https://www.my-literature.com/index/ru/2017/591d917202255.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591d9eab36990.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591d9f079a41b.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591d9fad6a92b.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
