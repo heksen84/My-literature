@@ -6,10 +6,11 @@
 $(document).ready(function() 
 {											
 	var reader = null;
-	if (localStorage.getItem("rec_id") != "") reader="web";
-
 	sweetAlertInitialize();
 	BlurInput();
+
+	if (localStorage.getItem("rec_id") != "") reader="web";
+	if (localStorage.getItem("user_type") == 1) $("#bookmark").remove();
 		
 	/* -- назад -- */
 	$("#return_link").click(function() {

@@ -52,10 +52,13 @@ $(document).ready(function()
 					case "warning": warning(obj.string); break;
 					case "success": 
 					{														
-						localStorage.setItem("auth_email", 		$("#reg_email").val());
+
+						localStorage.setItem("auth_email", 	$("#reg_email").val());
 						localStorage.setItem("auth_password", 	$("#reg_password").val());						
-						localStorage.setItem("user_name", 		$("#reg_name").val());						
-						switch($("#reg_user_type").val()){
+						localStorage.setItem("user_name", 	$("#reg_name").val());						
+						localStorage.setItem("user_type", 	$("#reg_user_type").val());						
+
+						switch($("#reg_user_type").val()){						
 						case "0": $(location).attr('href', "pages/reader.php"); break;
 						case "1": $(location).attr('href', "pages/writer.php"); break;
 						}
@@ -164,7 +167,9 @@ $(document).ready(function()
 				{															
 					localStorage.setItem("auth_email", $("#auth_email").val());
 					localStorage.setItem("auth_password", $("#auth_password").val());
-					localStorage.setItem("user_name", obj.string[0].name);					
+					localStorage.setItem("user_name", obj.string[0].name);
+					localStorage.setItem("user_type", obj.string[0].type);											
+					//alert(localStorage.getItem("user_type"));
 					switch(obj.string[0].type){
 					case "0": $(location).attr('href', "pages/reader.php"); break;
 					case "1": $(location).attr('href', "pages/writer.php"); break;
