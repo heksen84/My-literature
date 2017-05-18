@@ -12,7 +12,7 @@ class Writer
 	}
 
 	/* --- получить перечень работ --- */
-	function getWorks()
+	function getWorks() 
 	{
 		$db	= DataBase::getDB();
 		$records = $db->select("SELECT * FROM `records` WHERE user_id='".$_SESSION["user_id"]."'");		
