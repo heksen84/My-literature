@@ -25,7 +25,7 @@ class User
         	$email    = (string)$_GET['email'];
         	$password = (string)$_GET['password'];
 						
-		// --- безопасность	---				
+		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		
 		$name 		= trim($name);
 		
@@ -45,8 +45,7 @@ class User
 			msg::warning("укажите корректный email"); 						
 		
 		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
-		if ($table!=false) 
-			msg::warning("пользователь уже существует");
+		if ($table!=false) msg::warning("пользователь уже существует");
 				
 		if (strlen($password) < 5) msg::error("плохой пароль");
 		$hash_password = password_hash($password, PASSWORD_BCRYPT); 	
@@ -60,20 +59,13 @@ class User
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
 		
-		if ($type == 1)	
-		{
-			$path="static/"; 
-			$hash = substr(md5($user_id), 0, 10); 
-			if(!is_dir($path.$hash)) mkdir($path.$hash); 	
-		}
-				
 		msg::success($name);
 	}
  
 	/* --- авторизация --- */
 	function auth()
 	{						
-		$db	= DataBase::getDB();				
+		$db = DataBase::getDB();				
 		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
 
 		$email	  = (string)$_GET['email'];        
@@ -123,7 +115,7 @@ class User
 	/* --- авторизация через VK --- */	
 	function authFromVK()
 	{						
-		$db	= DataBase::getDB();										
+	  $db = DataBase::getDB();										
 	}
 	
 	/* --- восстановить пароль --- */
