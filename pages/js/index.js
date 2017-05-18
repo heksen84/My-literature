@@ -5,23 +5,34 @@
 ------------------------------*/
 $(document).ready(function() 
 {			
+	
 	sweetAlertInitialize();
 	BlurInput();
 	
-	/*
-	----------------------
-	static redirect
-	----------------------*/
-	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) {
+	/* -- redirect -- */
+	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) 
+	{
 		localStorage.setItem("read_data_id", localStorage.getItem("rec_id"));		
 		$(location).attr("href", "pages/read_text.php");
 	}
-	else {
+	else 
+	{
 		localStorage.setItem("read_data_id", "");
 	}
 	
-	// -- сбрасываю настройки --
+	// -- сбрасить настройки --
 	localStorage.setItem("writer_record_id", "");	
+		
+	/*
+	----------------------------------------------------------
+	сохранить данные в localstorage
+	----------------------------------------------------------*/
+	function SaveAuthSettingsInStorage(email,pass,name,type){
+		localStorage.setItem("auth_email", email);
+		localStorage.setItem("auth_password", pass);
+		localStorage.setItem("user_name", name);
+		localStorage.setItem("user_type", type);		
+	}
 
 	/*
 	----------------------------------
@@ -50,14 +61,8 @@ $(document).ready(function()
 				{				
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
-					case "success": 
-					{														
-
-						localStorage.setItem("auth_email", 	$("#reg_email").val());
-						localStorage.setItem("auth_password", 	$("#reg_password").val());						
-						localStorage.setItem("user_name", 	$("#reg_name").val());						
-						localStorage.setItem("user_type", 	$("#reg_user_type").val());						
-
+					case "success": {																			
+						SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_name").val(), $("#reg_user_type").val());
 						switch($("#reg_user_type").val()){						
 						case "0": $(location).attr('href', "pages/reader.php"); break;
 						case "1": $(location).attr('href', "pages/writer.php"); break;
@@ -103,7 +108,7 @@ $(document).ready(function()
 	/* 
 	---------------------------------------
 	авторизация
-	---------------------------------------*/
+	--------------------------------------- */
 	$("#reader_auth_link").click(function() 
 	{				
 		$("#auth_email").val(localStorage.getItem("auth_email"));
@@ -111,9 +116,10 @@ $(document).ready(function()
 		$("#AuthWindow").modal();
 	});
 	
-	/*-------------------------------------
+	/*
+	-------------------------------------
 	   поиск
-	-------------------------------------*/
+	------------------------------------- */
 	$("#button_search").click(function() 
 	{		
 		localStorage.setItem("search_input", $("#search_input").val());
@@ -163,12 +169,8 @@ $(document).ready(function()
 			{
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
-				case "success": 
-				{															
-					localStorage.setItem("auth_email", $("#auth_email").val());
-					localStorage.setItem("auth_password", $("#auth_password").val());
-					localStorage.setItem("user_name", obj.string[0].name);
-					localStorage.setItem("user_type", obj.string[0].type);											
+				case "success": {																				
+					SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
 					switch(obj.string[0].type){
 					case "0": $(location).attr('href', "pages/reader.php"); break;
 					case "1": $(location).attr('href', "pages/writer.php"); break;
