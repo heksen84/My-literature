@@ -92,7 +92,7 @@ class Record
 	  	   $db->query("DELETE FROM `index-pages` WHERE record_id='".$record_id."'");
 		   unlink($file);			
 		}
-
+		
 		// ---------------------------
 		//  удалить из sitemap'a
 		// ---------------------------		
