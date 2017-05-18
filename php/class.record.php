@@ -18,14 +18,19 @@ class Record
 	}
         
         /* --- проверка на плагиат --- */
-	private function compareText($str) 
+	private function compareText($str,$id) 
 	{		
 		$db = DataBase::getDB();
+/*		switch($id)
+		{
+
+		}
+*/
 		$result = $db->select("SELECT text, SUBSTRING(text, 0, ".self::NUM_BYTES_FOR_CHECK.") FROM `records`");						
 		foreach ($result as $value) {
 		       similar_text($value["text"], substr($str, 0, self::NUM_BYTES_FOR_CHECK), $percent); 		    		     
 		       if ( $percent > self::PERCENT_LEVEL_FOR_CHECK ) { 
-			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ТЕКСТ\nПохоже, что такая запись уже присутсвует в базе");			
+			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ТЕКСТ\nПохоже, что данная запись уже присутсвует в базе");			
 			 break;
 		       }
 		}
@@ -48,7 +53,7 @@ class Record
 
 		$text_length = strlen($text);
 
-		$this->compareText($text);
+		$this->compareText($text,null);
 		
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."',".$type.",'0','".$text."',".$mode.",".$price.",NOW())");		
 		if (!$record_id) msg::error($db->error());
@@ -71,7 +76,7 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
-		//if (!$this->compareText($text)) msg::error("Похожий текст уже присутсвует в базе!");
+		if (!$this->compareText($text, $id)) msg::error("Похожий текст уже присутсвует в базе!");
 				
 		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."', access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);
