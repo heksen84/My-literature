@@ -21,7 +21,7 @@ class Record
 	private function compareText($str) 
 	{		
 		$db = DataBase::getDB();
-		$result = $db->select("SELECT text, SUBSTRING(text,0,".self::NUM_BYTES_FOR_CHECK.") FROM `records`");						
+		$result = $db->select("SELECT text, SUBSTRING(text, 0, ".self::NUM_BYTES_FOR_CHECK.") FROM `records`");						
 		foreach ($result as $value) {
 		       similar_text($value["text"], substr($str, 0, self::NUM_BYTES_FOR_CHECK), $percent); 		    		     
 		       if ( $percent > self::PERCENT_LEVEL_FOR_CHECK ) { 
