@@ -52,12 +52,9 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
-
 		$text_length = strlen($text);
-//		msg::error($text_length);
 		
-		if ($text_length < self::MIN_TEXT_SIZE_IN_BYTES) msg::warning("Тест должен быть размером не менее ".self::MIN_TEXT_SIZE_IN_BYTES." символов!");
-
+		if ($text_length < self::MIN_TEXT_SIZE_IN_BYTES) msg::warning("Тест должен быть размером не менее ".self::MIN_TEXT_SIZE_IN_BYTES." символов");
 		$this->compareText($text,null);
 		
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."',".$type.",'0','".$text."',".$mode.",".$price.",NOW())");		
