@@ -4,6 +4,7 @@
 ----------------------------------*/	
 $(document).ready(function() 
 {						
+	var show_max_records = 100;
 
 	sweetAlertInitialize(); // -- инит messages dialog
 	BlurInput();		// -- input потеря фокуса
@@ -48,10 +49,10 @@ $(document).ready(function()
 					{
 						$(this).remove();
 						$("#tbody").empty();						
-						LoadResults(start+=50);						
+						LoadResults(start+=show_max_records);						
 					});
 
-					if ($("#tbody tr").length < 20) $("#load_more").remove();					
+					if ($("#tbody tr").length < show_max_records) $("#load_more").remove();					
 				}
 			}
 			NProgress.done();		
