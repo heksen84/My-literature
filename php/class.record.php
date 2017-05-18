@@ -18,15 +18,17 @@ class Record
 	private function compareText($str) 
 	{		
 		$db = DataBase::getDB();
-		$result = $db->select("SELECT text FROM `records`");						
+		$result = $db->select("SELECT id,user_id,text FROM `records`");						
 		foreach ($result as $value) {
-		    if (!empty($value["text"])){
-		       similar_text($value["text"], $str, $percent); 		    
-		       if ( $percent > 50 ) 
-                       return false;
+		    if (!empty($value["text"])) 
+		    {		     
+		       similar_text($value["text"], $str, $percent); 		    		     
+		       if ( $percent > 50 ) { 
+			 msg::error("Похоже, что такой текст уже присутсвует в базе!\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
+			 break;
+		       }
                     }
 		}
-		return true;
 	}
 		
 	/* --- добавить запись --- */
@@ -46,7 +48,8 @@ class Record
 
 		$text_length = strlen($text);
 
-		if (!$this->compareText($text)) msg::error("Похоже, что такой текст уже присутсвует в базе!");			
+		if ($text_length > 100) $this->compareText($text);
+		
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
 		if ($mode != 1 && $text_length > 100) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");
