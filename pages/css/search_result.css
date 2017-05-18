@@ -29,11 +29,12 @@ body
 {
  font-weight:bold;
 }
-.cell
+.title_cell, .author_cell
 {
   white-space: nowrap; /* Запрещаем перенос строк */
   overflow: hidden; /* Обрезаем все, что не помещается в область */
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
+  width:100%; 
 }
 #load_more
 {
@@ -45,12 +46,28 @@ body
  text-align:center;
 }
 @media (max-width: 576px) {
+.title_cell
+{ 
+  width:200px; 
+}
+.author_cell
+{ 
+  width:60px; 
+}
 #result_table
 {
  font-size:13px;
 }
 }
 @media (max-width: 320px) {
+.title_cell
+{ 
+  width:150px; 
+}
+.author_cell
+{ 
+  width:60px; 
+}
 #result_table
 {
  font-size:11px;

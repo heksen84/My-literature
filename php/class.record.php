@@ -99,10 +99,8 @@ class Record
 		$sitemap = simplexml_load_file("sitemap.xml");
 		$newxml = new SimpleXMLElement("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'></urlset>");
 		
-		foreach ($sitemap->url as $url_list) 
-		{
-		    if (!strpos($url_list->loc, $result[0]["name"]))
-		    {
+		foreach ($sitemap->url as $url_list) {
+		    if (!strpos($url_list->loc, $result[0]["name"])) {
 		      $newurl = $newxml->addChild("url");
 		      $newurl->addChild("loc",        $url_list->loc);
 		      $newurl->addChild("changefreq", $url_list->changefreq);
