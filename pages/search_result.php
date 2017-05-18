@@ -41,8 +41,8 @@
   <thead>
     <tr>      
       <th style="width:5%">№</th>      
-      <th style="width:65%">название</th>
-      <th style="width:23%;text-align:center">разместил</th>	  	  
+      <th style="width:70%">название</th>
+      <th style="width:18%;text-align:center">разместил</th>	  	  
       <th style="width:20%;text-align:center">&#10084;</th>
     </tr>
   </thead>
