@@ -136,9 +136,9 @@ $(document).ready(function()
 				case "success": 
 				{					
 					/* данные записи */															
-					$("#col-title").text(obj.string[0].title);
-					$("#col-desc").text(obj.string[0].description);												
-					$("#col-text").text(obj.string[0].text);								
+					$("#col-title").html(obj.string[0].title);
+					$("#col-desc").html(obj.string[0].description);												
+					$("#col-text").html(obj.string[0].text);								
 				
 					/* получить закладку */
 					GetBookMark();
