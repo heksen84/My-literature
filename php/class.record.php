@@ -20,11 +20,10 @@ class Record
 		$db = DataBase::getDB();
 		$result = $db->select("SELECT id,user_id,text FROM `records`");						
 		foreach ($result as $value) {
-		    if (!empty($value["text"])) 
-		    {		     
+		    if (!empty($value["text"])) {		     
 		       similar_text($value["text"], $str, $percent); 		    		     
 		       if ( $percent > 50 ) { 
-			 msg::error("Похоже, что такой текст уже присутсвует в базе!\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
+			 msg::error("Похоже, что аналогичный текст уже присутсвует в базе!\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
 			 break;
 		       }
                     }
