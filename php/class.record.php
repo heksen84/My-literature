@@ -4,6 +4,9 @@
 // -------------------------
 class Record
 {		
+	const NUM_BYTES_FOR_CHECK 	= 1024;
+	const PERCENT_LEVEL_FOR_CHECK 	= 50;
+
 	private static $record = null;
 		
 	/* --- получить класс работы с записями --- */
@@ -20,14 +23,11 @@ class Record
 		$db = DataBase::getDB();
 		$result = $db->select("SELECT text FROM `records`");						
 		foreach ($result as $value) {
-		    if (!empty($value["text"])) {		     
-		       similar_text($value["text"], $str, $percent); 		    		     
-		       if ( $percent > 50 ) { 
-//			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ЗАПИСЬ\nПохоже, что аналогичный текст уже присутсвует в базе.\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
+		       similar_text(substr($value["text"], 0, self::NUM_BYTES_FOR_CHECK), substr($str, 0, self::NUM_BYTES_FOR_CHECK), $percent); 		    		     
+		       if ( $percent > self::PERCENT_LEVEL_FOR_CHECK ) { 
 			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ТЕКСТ\nПохоже, что аналогичная запись уже присутсвует в базе");			
 			 break;
 		       }
-                    }
 		}
 	}
 		
@@ -40,7 +40,7 @@ class Record
 		
 		$title 	= (string)$_POST['title'];
 		$desc 	= (string)$_POST['short_description'];
-		$text 	= (string)$_POST['text'];
+		$text 	= str_replace("'", "", (string)$_POST['text']);
 		
 		$type 	= (int)$db->safe_string($_POST['type_of_literature']);
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
@@ -50,7 +50,8 @@ class Record
 
 		$this->compareText($text);
 		
-		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
+		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."',".$type.",'0','".$text."',".$mode.",".$price.",NOW())");		
+		if (!$record_id) msg::error($db->error());
 		if ($mode != 1 && $text_length > 100) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");
 	}

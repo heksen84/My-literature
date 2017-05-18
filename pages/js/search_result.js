@@ -4,7 +4,7 @@
 ----------------------------------*/	
 $(document).ready(function() 
 {						
-	var show_max_records = 100;
+	var show_max_records = 200;
 
 	sweetAlertInitialize(); // -- инит messages dialog
 	BlurInput();		// -- input потеря фокуса

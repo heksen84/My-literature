@@ -12,6 +12,11 @@ class DataBase {
     return self::$db;
   }
      
+  /* --- */	 
+  public function error() {
+  return $this->mysqli->error;
+  }
+
   /* безопасная строка */	 
   public function safe_string($param) {
 	$param = stripslashes($param);

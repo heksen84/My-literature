@@ -201,7 +201,6 @@ $(document).ready(function()
 				}, method: "POST",
 			}).done(function( data ) 
 			{																
-//				alert(data);
 				var obj = jQuery.parseJSON(data);				
 				switch(obj.answer) 
 				{
