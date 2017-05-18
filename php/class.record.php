@@ -23,7 +23,7 @@ class Record
 		    if (!empty($value["text"])) {		     
 		       similar_text($value["text"], $str, $percent); 		    		     
 		       if ( $percent > 50 ) { 
-			 msg::error("Похоже, что аналогичный текст уже присутсвует в базе!\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
+			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ЗАПИСЬ\nПохоже, что аналогичный текст уже присутсвует в базе.\nId-записи: ".$value["id"]." Пользователь: ".$value["user_id"]);			
 			 break;
 		       }
                     }
@@ -47,7 +47,7 @@ class Record
 
 		$text_length = strlen($text);
 
-		if ($text_length > 100) $this->compareText($text);
+		$this->compareText($text);
 		
 		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."','".$type."','0','".$text."','".$mode."','".$price."',NOW())");		
 		if ($mode != 1 && $text_length > 100) util::GeneratePage($title, $desc, $record_id);				
