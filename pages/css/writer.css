@@ -19,6 +19,10 @@ textarea
 {
  text-align:left;
 }
+#load_text
+{
+ font-size:15px;
+}
 #work_container
 {
  margin-top:5px;

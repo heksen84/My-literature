@@ -7,6 +7,30 @@
 var max_symbols    = 100;
 var max_text_size  = 100;
 
+function load_text(evt)
+{			
+	var reader = new FileReader();
+	var files = evt.target.files;
+	f = files[0];
+	reader.onload = (function(theFile) 
+	{
+		return function(e) 
+		{            
+		
+			var str = e.target.result.trim();			
+			if (str.length > max_image_size)
+			{
+				error("Большой размер");				
+			}
+			//else
+			//$("#cover_image").attr("src", e.target.result );
+		};
+	})(f);
+	
+	reader.readAsDataURL(f);
+}
+
+
 /*
 ----------------------------------
  JQUERY
@@ -18,6 +42,7 @@ $(document).ready(function()
 	BlurInput();
 	
 	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
+	document.getElementById("load_text").addEventListener("change", load_text, false);	
 
 	/* -- назад или выход -- */	
 	$("#writer_quit").click(function() {				
