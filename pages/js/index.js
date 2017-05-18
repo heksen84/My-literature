@@ -169,7 +169,6 @@ $(document).ready(function()
 					localStorage.setItem("auth_password", $("#auth_password").val());
 					localStorage.setItem("user_name", obj.string[0].name);
 					localStorage.setItem("user_type", obj.string[0].type);											
-					//alert(localStorage.getItem("user_type"));
 					switch(obj.string[0].type){
 					case "0": $(location).attr('href', "pages/reader.php"); break;
 					case "1": $(location).attr('href', "pages/writer.php"); break;
