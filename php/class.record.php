@@ -4,7 +4,7 @@
 // -------------------------
 class Record
 {		
-	const NUM_BYTES_FOR_CHECK 	= 1024;
+	const NUM_BYTES_FOR_CHECK 	= 512;
 	const PERCENT_LEVEL_FOR_CHECK 	= 50;
 
 	private static $record = null;
