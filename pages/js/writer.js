@@ -60,18 +60,11 @@ $(document).ready(function()
 		else $("#editor").css("height", "440px");					
 	}).trigger("resize");
 		
-
-	/* --- редактор ввод --- */
+	/* -- редактор ввод -- */
 	$("#editor").keyup(function() {		
-		var editor = $(this).val();
-		var length = editor.length;		
-		$("#info_panel").html("Символов:&nbsp;"+length);
-
-/*		if(editor.length <= max_symbols) {
-			$("#info_panel").html("Символов:&nbsp;"+length);
-		}*/
+		var editor = $(this).val();		
+		$("#info_panel").html("Символов:&nbsp;"+ByteCount(editor));
 	});	
-
 	
 	/* -- переключатель доступа записи -- */
 	$( "#record_access_mode" ).change(function() 

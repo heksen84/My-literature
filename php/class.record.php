@@ -6,6 +6,7 @@ class Record
 {		
 	const NUM_BYTES_FOR_CHECK 	= 512;
 	const PERCENT_LEVEL_FOR_CHECK 	= 50;
+	const MIN_TEXT_SIZE_IN_BYTES 	= 300;
 
 	private static $record = null;
 		
@@ -51,7 +52,11 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
+
 		$text_length = strlen($text);
+//		msg::error($text_length);
+		
+		if ($text_length < self::MIN_TEXT_SIZE_IN_BYTES) msg::warning("Тест должен быть размером не менее ".self::MIN_TEXT_SIZE_IN_BYTES." символов!");
 
 		$this->compareText($text,null);
 		
@@ -76,7 +81,7 @@ class Record
 		$mode 	= (int)$db->safe_string($_POST['record_access_mode']);
 		$price 	= (float)$db->safe_string($_POST['price']);
 
-		if (!$this->compareText($text, $id)) msg::error("Похожий текст уже присутсвует в базе!");
+		//if (!$this->compareText($text, $id)) msg::error("Похожий текст уже присутсвует в базе!");
 				
 		$result = $db->query("UPDATE `records` SET title='".$title."', description='".$desc."', type_literature='".$type."', text='".$text."', access_mode='".$mode."' WHERE id='".$id."' AND user_id='".$_SESSION["user_id"]."'");				
 		msg::success($result);
