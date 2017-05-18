@@ -30,7 +30,7 @@ class Record
 		foreach ($result as $value) {
 		       similar_text($value["text"], substr($str, 0, self::NUM_BYTES_FOR_CHECK), $percent); 		    		     
 		       if ( $percent > self::PERCENT_LEVEL_FOR_CHECK ) { 
-			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ ТЕКСТ\nПохоже, что данная запись уже присутсвует в базе");			
+			 msg::error("НЕВОЗМОЖНО СОХРАНИТЬ\nПохоже, что данный текст уже присутсвует в базе");			
 			 break;
 		       }
 		}
