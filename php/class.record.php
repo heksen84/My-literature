@@ -156,8 +156,20 @@ class Record
 	/* --- установить лайк --- */
 	function setLike()
 	{
+		if (empty($_SESSION["user_id"])) msg::warning("требуется авторизация");
+
 		$db = DataBase::getDB();
-		msg::success("ok");
+		$record_id = (int)$_GET['record_id'];
+		$result = $db->select("SELECT * FROM `likes` WHERE user_id=".$_SESSION["user_id"]." && record_id=".$record_id);
+		
+		if(empty($result)) 
+		{		
+		 $id = $db->query("INSERT INTO `likes` VALUES (NULL,'".$_SESSION["user_id"]."',".$record_id.")");		
+		 if (!$id) msg::error($db->error());
+		 msg::success($id);
+		}
+
+		msg::success("like is ready!");		
 	}
 
 	/* --- получить лайки --- */	
