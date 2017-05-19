@@ -17,7 +17,6 @@ class util
 	    mkdir($dir, 0777, true);
 	}
 
-
 	/* сгенерировать страницу редиректа */
 	$fp = fopen("index/ru/".$year."/".$name.'.html', 'w+');	
 
