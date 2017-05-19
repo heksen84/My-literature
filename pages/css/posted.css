@@ -59,7 +59,21 @@ body
 }
 .title_cell
 {
-  width:220px; 
+  width:200px; 
+}
+#posted_table
+{
+ font-size:12px;
+}
+}
+@media (max-width: 320px) {
+.like_cell
+{
+  width:30px; 
+}
+.title_cell
+{
+  width:160px; 
 }
 #posted_table
 {
