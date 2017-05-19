@@ -35,7 +35,6 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 	case "GET": {	
 		if (isset($_GET["func"])) {    			    								
 			switch ($_GET["func"]) 	 {							
-
 				/* -- пользователь -- */
 				case "SRV_AuthUser": {
 					$user->auth(); 		
@@ -89,13 +88,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$categories->getFromId();					
 					break;
 				}
-
 				/* -- лайк -- */
 				case "SRV_SetLike": {		
 					$rec->setLike();					
 					break;
 				}
-				
 				/* -- кол-во лайков -- */
 				case "SRV_GetLikes": {		
 					$rec->getLikes();					
@@ -115,7 +112,6 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$user->update(); 	
 					break;
 				}				
-
 			        /* -- загрузка или обновление записи -- */
 				case "SRV_ProcessRecord": {				
 					switch($_POST["mode"]) {
