@@ -37,7 +37,7 @@
   <thead>
     <tr>      
       <th style="width:5%">№</th>      
-      <th style="width:70%">название</th>
+      <th style="width:60%">название</th>
       <th style="width:5%;text-align:center">&#10084;</th>
       <th style="width:5%;text-align:center">статус</th>
       <th style="width:5%;text-align:center"></th>
