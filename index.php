@@ -44,7 +44,6 @@
 	<hr class="small_line">	
 	</div>
 	<div class="col-md-12 text-center" id="categories_column">
-	<!--<menu id="categories_menu"></menu>-->
 	<table class="table table-bordered table-hover" id="table">	
   	<tbody id="tbody"></tbody>
 	</table>
