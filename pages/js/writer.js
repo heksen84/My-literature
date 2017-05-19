@@ -7,29 +7,19 @@
 var max_symbols    = 100;
 var max_text_size  = 100;
 
-function load_text(evt)
-{			
+/* загрузить текст */
+function load_text(evt) {			
 	var reader = new FileReader();
-	var files = evt.target.files;
-	f = files[0];
+	f = this.files[0];
 	reader.onload = (function(theFile) 
 	{
-		return function(e) 
-		{            
-		
-			var str = e.target.result.trim();			
-			if (str.length > max_image_size)
-			{
-				error("Большой размер");				
-			}
-			//else
-			//$("#cover_image").attr("src", e.target.result );
+		return function(e) {            		        
+   		   $("#editor").val(e.target.result).trigger("keyup");
 		};
 	})(f);
 	
-	reader.readAsDataURL(f);
+	reader.readAsText(f, 'CP1251');
 }
-
 
 /*
 ----------------------------------

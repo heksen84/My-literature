@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c0f821982c.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.my-literature.com/index/ru/2017/591c101ab3877.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -227,6 +222,16 @@
   </url>
   <url>
     <loc>https://www.my-literature.com/index/ru/2017/591dfd3396ae3.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591ea104835e5.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591ea1bfa4824.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
