@@ -110,10 +110,13 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 		{    			    							
 			switch ($_POST["func"]) 
 			{
+			        /* -- обновить информацию -- */
 				case "SRV_UpdatePersonalInfo": {
 					$user->update(); 	
 					break;
 				}				
+
+			        /* -- загрузка или обновление записи -- */
 				case "SRV_ProcessRecord": {				
 					switch($_POST["mode"]) {
 						case "new":  $rec->add();    break;
