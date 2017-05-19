@@ -2,7 +2,8 @@
 /* 
 -----------------------------------
  This is Server Part
- from Ilya Bobkov 2017
+ Серверная часть
+ Ilya Bobkov 2017
 ----------------------------------- */
 include "php/class.msg.php";
 include "php/class.mysqli.php";
@@ -20,7 +21,7 @@ session_start();
 
 /* ------------- [ одиночки ] ------------- */
 
-$db		= DataBase::getDB();
+$db			= DataBase::getDB();
 $user		= User::getUser();	
 $rec 		= Record::getRecord();	
 $search		= Search::getSearch();
@@ -35,7 +36,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 		if (isset($_GET["func"])) {    			    								
 			switch ($_GET["func"]) 	 {							
 
-				// -- пользователь --
+				/* -- пользователь -- */
 				case "SRV_AuthUser": {
 					$user->auth(); 		
 					break;
@@ -44,7 +45,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$user->register(); 	
 					break;
 				}				
-				// -- записи --
+				/* -- записи -- */
 				case "SRV_UpdateRecord": {
 					$rec->update();		
 					break;	
@@ -65,7 +66,7 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$text->read();					
 					break;
 				}			
-				// -- закладки --
+				/* -- закладки -- */
 				case "SRV_GetBookMark": {		
 					$bookmark->get();					
 					break;
@@ -74,12 +75,12 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$bookmark->getBookMarks();					
 					break;
 				}
-				// -- работы автора --
+				/* -- работы автора -- */
 				case "SRV_GetWriterWorks": {		
 					$writer->getWorks();					
 					break;
 				}				
-				// -- категории --
+				/* -- категории -- */
 				case "SRV_GetCategories": {		
 					$categories->getAll();					
 					break;
@@ -120,13 +121,13 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					}
 					break;    		
 				}				
-				// -- закладка --
+				/* -- закладка -- */
 				case "SRV_SetBookMark": {
 					$bookmark->set();
 					break;    		
 				}
 				
-				// -- режим отображения записи --
+				/* -- режим отображения записи -- */
 				case "SRV_SetPrivateMode": {
 					$rec->setPrivateMode();
 					break;    		
