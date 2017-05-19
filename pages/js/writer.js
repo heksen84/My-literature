@@ -14,9 +14,10 @@ var max_text_size  = 100;
 $(document).ready(function() 
 {								
 	sweetAlertInitialize();
-	BlurInput();
+	BlurInput();	
 	
-	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
+	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");
+	$("#price").float(); // форматирование цены
 
 	/* -- загрузить текст -- */
 	$("#load_text").on("change", function(evt)
@@ -25,8 +26,9 @@ $(document).ready(function()
 		f = this.files[0];
 		reader.onload = (function(theFile) 
 		{
-			return function(e) {            		        
-			$("#editor").val(e.target.result).trigger("keyup");
+			return function(e) 
+			{            		        
+				$("#editor").val(e.target.result).trigger("keyup");
 			};
 		})(f);	
 		reader.readAsText(f, 'CP1251');	
@@ -51,7 +53,7 @@ $(document).ready(function()
 	/* -- редактор ввод -- */
 	$("#editor").keyup(function() {		
 		var editor = $(this).val();		
-		$("#info_panel").html("Символов:&nbsp;"+ByteCount(editor));
+		$("#info_panel").html("cимволов&nbsp;"+ByteCount(editor));
 	});	
 	
 	/* -- переключатель доступа записи -- */
@@ -65,15 +67,11 @@ $(document).ready(function()
 		else 		
 			$("#price_label, #price, #currency").hide();		
 	}).trigger("change");
-	
-	$("#price").float();
-	
+			
 	/*
-	--------------------------------------------	
-	
+	-----------------------
 	РЕЖИМ РЕДАКТИРОВАНИЯ		
-
-	--------------------------------------------*/
+	-----------------------*/
 	function CheckEditMode()
 	{									
 		$("#title, #short_description, #editor, #price").val("");
