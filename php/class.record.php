@@ -6,7 +6,7 @@ class Record
 {		
 	const NUM_BYTES_FOR_CHECK 	= 512;
 	const PERCENT_LEVEL_FOR_CHECK 	= 50;
-	const MIN_TEXT_SIZE_IN_BYTES 	= 300;
+	const MIN_TEXT_SIZE_IN_BYTES 	= 100;
 
 	private static $record = null;
 		
