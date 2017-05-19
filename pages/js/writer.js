@@ -7,32 +7,30 @@
 var max_symbols    = 100;
 var max_text_size  = 100;
 
-/* загрузить текст */
-function load_text(evt) {			
-	var reader = new FileReader();
-	f = this.files[0];
-	reader.onload = (function(theFile) 
-	{
-		return function(e) {            		        
-   		   $("#editor").val(e.target.result).trigger("keyup");
-		};
-	})(f);
-	
-	reader.readAsText(f, 'CP1251');
-}
-
 /*
 ----------------------------------
  JQUERY
 ----------------------------------*/	
 $(document).ready(function() 
 {								
-
 	sweetAlertInitialize();
 	BlurInput();
 	
 	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");			
-	document.getElementById("load_text").addEventListener("change", load_text, false);	
+
+	/* -- загрузить текст -- */
+	$("#load_text").on("change", function(evt)
+	{
+		var reader = new FileReader();
+		f = this.files[0];
+		reader.onload = (function(theFile) 
+		{
+			return function(e) {            		        
+			$("#editor").val(e.target.result).trigger("keyup");
+			};
+		})(f);	
+		reader.readAsText(f, 'CP1251');	
+	});
 
 	/* -- назад или выход -- */	
 	$("#writer_quit").click(function() {				

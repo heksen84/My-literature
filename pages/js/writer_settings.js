@@ -10,7 +10,6 @@ $(document).ready(function()
 	/* -- настройки писателя -- */
 	function ShowWriterSettings()
 	{
-
 		$("#content").empty();		
 		$("#content").append("<h5 style='margin-left:8px'>Личные данные писателя</h5>");
 		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");
