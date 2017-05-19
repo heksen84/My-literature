@@ -175,6 +175,10 @@ class Record
 	/* --- получить лайки --- */	
 	function getLikes()
 	{
+		$db = DataBase::getDB();
+		$record_id = (int)$_GET['record_id'];
+		$result = $db->select("SELECT COUNT(*) AS count FROM `likes` WHERE record_id=".$record_id);
+		msg::success($result[0]["count"]);		
 	}
 }
 ?>

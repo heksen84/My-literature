@@ -31,9 +31,38 @@ $(document).ready(function()
 				case "warning": warning(obj.string); break;
 				case "success": 
 				{				
+					
+					/* -- основные данные -- */
 					$.each(obj.string, function(i, item) 
 					{					
-					$("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td><div class='title_cell'>"+item.title+"</div></td><td style='text-align:center'><div class='author_cell'>"+item.surname+"&nbsp;"+item.name+"</div></td><td><div class='like_cell'>9999</div></td></tr>");					
+					  $("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td><div class='title_cell'>"+item.title+"</div></td><td style='text-align:center'><div class='author_cell'>"+item.surname+"&nbsp;"+item.name+"</div></td><td><div class='like_cell'>0</div></td></tr>");					
+					});
+										
+					/* -- лайки -- */
+					$.each(obj.string, function(i, item) 
+					{					
+						$.ajax
+						({
+							url: "..//server.php",
+							data: 
+							{
+								"func": "SRV_GetLikes",                    
+								"record_id": item.id,			
+							},			
+						}).done(function( data ) 
+						{						
+							var obj = jQuery.parseJSON(data);				
+							switch(obj.answer) 
+							{
+								case "error": error(obj.string); break;
+								case "warning": warning(obj.string); break;
+								case "success": 
+								{																			
+									$("#tbody tr").eq(i).find(".like_cell").text(obj.string);
+									break;
+								}
+							} 
+						});					
 					});
 					
 					/* отобразить текст */

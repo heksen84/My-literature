@@ -106,9 +106,7 @@ $(document).ready(function()
 			{
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
-				case "success": 
-				{
-					alert(data);
+				case "success": {
 				}
 			} 
 		});
