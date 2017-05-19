@@ -41,6 +41,7 @@ class Record
 	function add()
 	{							
 		$db = DataBase::getDB();				
+
 		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) 
 			msg::error("нет данных");								
 		
@@ -67,6 +68,7 @@ class Record
 	function update()
 	{										
 		$db = DataBase::getDB();		
+
 		if (!isset($_POST['title'])	|| !isset($_POST['short_description']) || !isset($_POST['type_of_literature']) || !isset($_POST['text']) || !isset($_POST['record_access_mode'])) msg::error("нет данных");
 		
 		$id 	= (int)$_POST['id'];
@@ -88,6 +90,7 @@ class Record
 	function del()
 	{			
 		$db = DataBase::getDB();
+
 		if (!isset($_GET['record_id'])) msg::error("нет данных");		
 		$record_id = (int)$_GET['record_id'];        		
 

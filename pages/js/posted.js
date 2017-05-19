@@ -68,7 +68,7 @@ $(document).ready(function()
 			case "success": 
 			{												
 				$.each(obj.string, function(i, item) {
-					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='display_cell' title='не отображается'>&nbsp;</td><td class='delete_record' title='удалить запись'>X</td></tr>");
+					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'>"+item.title+"</td><td class='like_cell'>0</td><td class='display_cell' title='не отображается'>&nbsp;</td><td class='delete_record' title='удалить запись'>X</td></tr>");
 					if (item.access_mode!=1) $(".display_cell").eq(i).html("<img src='img/eye1.png' class='img-fluid eye_icon' title='отображается'>");										
 				});
 				

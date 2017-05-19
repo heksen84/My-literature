@@ -27,6 +27,11 @@ body
 {
 	font-weight:bold;
 }
+.like_cell
+{
+ cursor:pointer;
+ text-align:center;
+}
 .display_cell
 {
  text-align:center;
