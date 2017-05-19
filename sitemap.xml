@@ -11,11 +11,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.my-literature.com/index/ru/2017/591c6077632ea.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.my-literature.com/index/ru/2017/591c62a198d38.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -242,6 +237,11 @@
   </url>
   <url>
     <loc>https://www.my-literature.com/index/ru/2017/591ea2c69e124.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.my-literature.com/index/ru/2017/591ea342057bc.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
