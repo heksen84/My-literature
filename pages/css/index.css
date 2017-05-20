@@ -240,6 +240,10 @@ opacity:0.9;
 }
 }
 @media (max-width: 320px) {
+.modal
+{
+ width:300px;
+}
 #reg
 { 
  font-size:10px;
