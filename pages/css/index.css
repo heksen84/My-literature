@@ -215,7 +215,7 @@ opacity:0.9;
 @media (max-width: 576px) {
 #main_row
 {
- margin-top:-5px;
+ margin-top:-15px;
 }
 #title
 {
@@ -250,10 +250,10 @@ opacity:0.9;
 }
 #title
 {
- font-size:35px;
+ font-size:25px;
 }
 #desc
 {
- font-size:17px;
+ font-size:15px;
 }
 }
