@@ -85,7 +85,7 @@ class User
 			}
 			else 
 			{				
-				msg::success($result[0]["count"]);
+			  msg::success($result[0]["count"]);
 			}
 		}
 		else
