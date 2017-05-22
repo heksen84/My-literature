@@ -15,6 +15,16 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{		
+
+	 $to      = 'heksen84@yandex.ru';
+	 $subject = 'the subject';
+	 $message = 'hello';
+	 $headers = 'From: webmaster@example.com' . "\r\n" .
+		    'Reply-To: webmaster@example.com' . "\r\n" .
+		    'X-Mailer: PHP/' . phpversion();
+
+		mail($to, $subject, $message, $headers);
+
 		$db	= DataBase::getDB();						
 		if (!isset($_GET['type']) || !isset($_GET['name']) || !isset($_GET['surname']) || !isset($_GET['email']) || !isset($_GET['password'])) 
 			msg::error("нет данных");
@@ -59,13 +69,13 @@ class User
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
 
-		$subject = '123123123123';
+/*		$subject = '123123123123';
 		$message = 'hello';
 		$headers = 'From: webmaster@example.com' . "\r\n" .
 		    'Reply-To: webmaster@example.com' . "\r\n" .
 		    'X-Mailer: PHP/' . phpversion();
 
-		mail($email, $subject, $message, $headers);
+		mail($email, $subject, $message, $headers);*/
 		
 		msg::success($name);
 	}
