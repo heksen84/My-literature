@@ -22,8 +22,8 @@ class User
 		$type 	  = (int)$_GET['type'];
 		$name 	  = (string)$_GET['name'];
 		$surname  = (string)$_GET['surname'];
-        $email    = (string)$_GET['email'];
-        $password = (string)$_GET['password'];
+                $email    = $_GET['email'];
+                $password = (string)$_GET['password'];
 						
 		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		
@@ -32,8 +32,8 @@ class User
 		$surname	= $db->safe_string($surname);		
 		$surname	= trim($surname);
 		
-		$email		= $db->safe_string($email);		
-		$email 		= trim($email);
+		/*$email		= $db->safe_string($email);		
+		$email 		= trim($email);*/
 		
 		$password	= $db->safe_string($password);					
 		$password 	= trim($password);
@@ -41,8 +41,8 @@ class User
 		if (empty($name) || empty($surname) || empty($email) || empty($password)) 
 			msg::warning("поля должны быть заполнены");
 		
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-			msg::warning("укажите корректный email"); 						
+		/*if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+			msg::warning("укажите корректный email");*/ 						
 		
 		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
 		if ($table!=false) msg::warning("пользователь уже существует");
@@ -58,6 +58,14 @@ class User
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
+
+		$subject = $email;
+		$message = 'hello';
+		$headers = 'From: webmaster@example.com' . "\r\n" .
+		    'Reply-To: webmaster@example.com' . "\r\n" .
+		    'X-Mailer: PHP/' . phpversion();
+
+		mail($email, $subject, $message, $headers);
 		
 		msg::success($name);
 	}
