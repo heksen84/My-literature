@@ -151,12 +151,13 @@ $(document).ready(function()
 								case "warning": warning(obj.string); break;
 								case "success": 
 								{																				
-									SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
+									/*SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
 									switch(obj.string[0].type)
 									{
 										case "0": $(location).attr('href', "pages/reader.php"); break;
 										case "1": $(location).attr('href', "pages/writer.php"); break;
-									}
+									}*/
+									if (obj.string==0) warning("регистрация");
 								}
 							}						
 						});

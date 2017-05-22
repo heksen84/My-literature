@@ -24,6 +24,12 @@ class DataBase {
     return $this->mysqli->real_escape_string($param);
   }
 
+  public function isConnected()
+  {
+	if ($this->mysqli->connect_error) return false;
+	return true;
+  }
+
   /* private-конструктор, подключающийся к базе данных, устанавливающий локаль и кодировку соединения */
   private function __construct() {
 	$this->settings = parse_ini_file("db.cfg");        

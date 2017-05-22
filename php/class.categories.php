@@ -17,6 +17,7 @@ class Categories
 	function getAll()
 	{
 		$db	= DataBase::getDB();								
+		if (!$db->isConnected()) msg::error("нет подключения");
 		$data = $db->select("SELECT * FROM categories");						
 		msg::success($data);
 	}

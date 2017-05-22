@@ -22,8 +22,8 @@ class User
 		$type 	  = (int)$_GET['type'];
 		$name 	  = (string)$_GET['name'];
 		$surname  = (string)$_GET['surname'];
-        	$email    = (string)$_GET['email'];
-        	$password = (string)$_GET['password'];
+        $email    = (string)$_GET['email'];
+        $password = (string)$_GET['password'];
 						
 		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		
@@ -65,37 +65,46 @@ class User
 	/* --- авторизация --- */
 	function auth()
 	{						
-		$db = DataBase::getDB();				
-		
-		//if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
+		$db = DataBase::getDB();		
+		$vk_id = (int)$_GET['vk_id'];
+		if (!empty($vk_id))
+		{
+			$result = $db->select("SELECT COUNT(*) as count FROM `users` WHERE vk_id=".$vk_id);
+			if ($result[0]["count"] > 0) 
+			{				
+			}
+			else 
+			{				
+				msg::success($result[0]["count"]);
+			}
+		}
+		else
+		{			
+			if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");					
 
-		$vk_id	  = (int)$_GET['vk_id'];        
-		$email	  = (string)$_GET['email'];        
-        $password = (string)$_GET['password'];		
-		
-		if (empty($vk_id)) msg::error("1");
-			else msg::error("1");
-						
-		if (empty($email) || empty($password)) msg::warning("введите данные");				
+			$email	  = (string)$_GET['email'];        
+			$password = (string)$_GET['password'];		
+			
+			if (empty($email) || empty($password)) msg::warning("введите данные");										
 				
-		$email 		= $db->safe_string($email);
-		$email 	  	= trim($email);		
-		
-		$password 	= $db->safe_string($password);
-		$password 	= trim($password);				
+			$email 		= $db->safe_string($email);
+			$email 	  	= trim($email);				
+			$password 	= $db->safe_string($password);
+			$password 	= trim($password);				
 						
-		$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."' LIMIT 1");
-		if (!$result) msg::error("внутренняя ошибка");
+			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."' LIMIT 1");
+			if (!$result) msg::error("внутренняя ошибка");
 		
-		if (!password_verify($password, $result[0]["password"])) 
+			if (!password_verify($password, $result[0]["password"])) 
 			msg::error("не верные данные");	
 		
-		$_SESSION["user_id"] 	= $result[0]["id"];
-		$_SESSION["user_name"]  = $result[0]["name"];						
+			$_SESSION["user_id"] 	= $result[0]["id"];
+			$_SESSION["user_name"]  = $result[0]["name"];						
 
-		if(!$db->query("UPDATE `users` SET last_visit=NOW() WHERE id='".$_SESSION["user_id"]."'")) msg::error("last_visit error");
+			if(!$db->query("UPDATE `users` SET last_visit=NOW() WHERE id='".$_SESSION["user_id"]."'")) msg::error("last_visit error");
 	
-		msg::success($result);		
+			msg::success($result);		
+		}
 	}
 	
 	/* --- обновить информацию --- */
