@@ -66,10 +66,15 @@ class User
 	function auth()
 	{						
 		$db = DataBase::getDB();				
-		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
+		
+		//if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");
 
+		$vk_id	  = (int)$_GET['vk_id'];        
 		$email	  = (string)$_GET['email'];        
-        	$password = (string)$_GET['password'];		
+        $password = (string)$_GET['password'];		
+		
+		if (empty($vk_id)) msg::error("1");
+			else msg::error("1");
 						
 		if (empty($email) || empty($password)) msg::warning("введите данные");				
 				

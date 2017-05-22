@@ -127,58 +127,42 @@ $(document).ready(function()
 				{                 
 					if (r.response[0].first_name) 
 					{	
+						
 						$("#reg_name").val(r.response[0].first_name);
 						$("#reg_surname").val(r.response[0].last_name);
-						/*$.ajax
+						
+						//alert(response.session.mid);
+						
+						$.ajax
 						({
 							url: "server.php",
 							data: 
 							{
-								"func": "AuthVKUser",
-								"vk_id": response.session.mid,
-								"login": r.response[0].first_name+" "+r.response[0].last_name
-							},
-							method: "POST",
-							async: false,
-							error: function(jqXHR, textStatus)
+								"func": "SRV_AuthUser",                    
+								"vk_id": response.session.mid,								
+							}, 
+							async:false,
+						}).done(function( data ) 
+						{											
+							var obj = jQuery.parseJSON(data);				
+							switch(obj.answer)
 							{
-								if(textStatus == 'timeout') TimeOutError();												
-							},					
-							success: function(data) 
-							{						
-								obj = jQuery.parseJSON(cleanString(data));                        
-								if (obj.answer == "warning") warning(obj.string);
-								if (obj.answer == "error") error(obj.string);
-								if (obj.answer == "success") 
-								{																	
-									NProgress.done();														
-									SRV_SetVar("resolution", $(window).width()+"x"+$(window).height());
-									UserName = obj.string;																												
-									noty 
-									({
-										text         : 'Вы вошли через ВКонтакт',
-										type         : 'information',
-										dismissQueue : true,
-										killer       : true,
-										layout       : 'topCenter',
-										theme        : 'defaultTheme',
-										timeout		 : 4000,
-										animation: 
-										{
-											open:  'animated bounceInRight',   // Animate.css class names
-											close: 'animated bounceOutLeft',   // Animate.css class names				
-										},
-										callback: 
-										{
-											onShow: function() 
-											{																					
-											}
-										}
-									});
-									ShowPersonasScreen();																						
+								case "error": error(obj.string); break;
+								case "warning": warning(obj.string); break;
+								case "success": 
+								{																				
+									SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
+									switch(obj.string[0].type)
+									{
+										case "0": $(location).attr('href', "pages/reader.php"); break;
+										case "1": $(location).attr('href', "pages/writer.php"); break;
+									}
 								}
-							}, timeout:timeout
-						});	*/													
+							}						
+						});
+						
+						//response.session.mid						
+						
 					}         
 				}         
 			});																
@@ -192,7 +176,8 @@ $(document).ready(function()
 	function ShowRegisterDialog(launcher)
 	{
 		$("#RegWindow").modal().find("input").val("");
-		if (launcher==1){			
+		if (launcher==1)
+		{			
 			VK.init({ apiId: 6041492 });
 			VK.Auth.login(authInfo);
 		}				
