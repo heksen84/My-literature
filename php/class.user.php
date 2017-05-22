@@ -50,16 +50,16 @@ class User
 		if (strlen($password) < 5) msg::error("плохой пароль");
 		$hash_password = password_hash($password, PASSWORD_BCRYPT); 	
 		
-		$vk_id=0; 
-		$ok_id=0; 
-		$fb_id=0;		
+		$vk_id = 0; 
+		$ok_id = 0; 
+		$fb_id = 0;		
 		
 		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$name."','".$surname."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
 
-		$subject = $email;
+		$subject = '123123123123';
 		$message = 'hello';
 		$headers = 'From: webmaster@example.com' . "\r\n" .
 		    'Reply-To: webmaster@example.com' . "\r\n" .
