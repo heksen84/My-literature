@@ -14,12 +14,12 @@ class User
 						
 	/* --- регистрация --- */
 	function register()
-	{		
-
-	 $to      = 'heksen84@yandex.ru';
-	 $subject = 'the subject';
-	 $message = 'hello';
-	 $headers = 'From: webmaster@example.com' . "\r\n" .
+	{	
+	
+	 	$to      = 'heksen84@yandex.ru';
+	 	$subject = 'the subject';
+	 	$message = 'hello';
+	 	$headers = 'From: webmaster@example.com' . "\r\n" .
 		    'Reply-To: webmaster@example.com' . "\r\n" .
 		    'X-Mailer: PHP/' . phpversion();
 
@@ -68,14 +68,6 @@ class User
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
-
-/*		$subject = '123123123123';
-		$message = 'hello';
-		$headers = 'From: webmaster@example.com' . "\r\n" .
-		    'Reply-To: webmaster@example.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
-
-		mail($email, $subject, $message, $headers);*/
 		
 		msg::success($name);
 	}
