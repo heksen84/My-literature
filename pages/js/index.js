@@ -4,10 +4,9 @@
  https://github.com/heksen84
 ------------------------------*/
 $(document).ready(function() 
-{			
-	
+{				
 	sweetAlertInitialize();
-	BlurInput();
+	BlurInput();		
 	
 	/* -- redirect -- */
 	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) 
@@ -39,7 +38,7 @@ $(document).ready(function()
 	REGISTER
 	----------------------------------*/	
 	function RegisterDialogEventers() 
-	{						
+	{									
 		$("#reg").off().click(function() 
 		{							
 			$.ajax
@@ -62,15 +61,15 @@ $(document).ready(function()
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
 					case "success": {																			
-						SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_name").val(), $("#reg_user_type").val());
-						switch($("#reg_user_type").val()){						
-						case "0": $(location).attr('href', "pages/reader.php"); break;
-						case "1": $(location).attr('href', "pages/writer.php"); break;
+							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_name").val(), $("#reg_user_type").val());
+							switch($("#reg_user_type").val()){						
+							case "0": $(location).attr('href', "pages/reader.php"); break;
+							case "1": $(location).attr('href', "pages/writer.php"); break;
 						}
 					}
 				}			
 			});
-		});
+		});		
 	}
 	
 	/*
@@ -116,32 +115,100 @@ $(document).ready(function()
 		$("#AuthWindow").modal();
 	});
 	
-	/*
-	-------------------------------------
-	   поиск
-	------------------------------------- */
-	$("#button_search").click(function() 
-	{		
-		localStorage.setItem("search_input", $("#search_input").val());
-		$("#search_input").val("");
-		$(location).attr('href', "pages/search_result.php");
-	});
+	/* vk auth */
+	function authInfo(response)
+	{			
+		if (response.session) 
+		{				
+			VK.Api.call('users.get', { uids: response.session.mid, fields: 'contacts' }, 
+			function(r) 
+			{             
+				if (r.response) 
+				{                 
+					if (r.response[0].first_name) 
+					{	
+						$("#reg_name").val(r.response[0].first_name);
+						$("#reg_surname").val(r.response[0].last_name);
+						/*$.ajax
+						({
+							url: "server.php",
+							data: 
+							{
+								"func": "AuthVKUser",
+								"vk_id": response.session.mid,
+								"login": r.response[0].first_name+" "+r.response[0].last_name
+							},
+							method: "POST",
+							async: false,
+							error: function(jqXHR, textStatus)
+							{
+								if(textStatus == 'timeout') TimeOutError();												
+							},					
+							success: function(data) 
+							{						
+								obj = jQuery.parseJSON(cleanString(data));                        
+								if (obj.answer == "warning") warning(obj.string);
+								if (obj.answer == "error") error(obj.string);
+								if (obj.answer == "success") 
+								{																	
+									NProgress.done();														
+									SRV_SetVar("resolution", $(window).width()+"x"+$(window).height());
+									UserName = obj.string;																												
+									noty 
+									({
+										text         : 'Вы вошли через ВКонтакт',
+										type         : 'information',
+										dismissQueue : true,
+										killer       : true,
+										layout       : 'topCenter',
+										theme        : 'defaultTheme',
+										timeout		 : 4000,
+										animation: 
+										{
+											open:  'animated bounceInRight',   // Animate.css class names
+											close: 'animated bounceOutLeft',   // Animate.css class names				
+										},
+										callback: 
+										{
+											onShow: function() 
+											{																					
+											}
+										}
+									});
+									ShowPersonasScreen();																						
+								}
+							}, timeout:timeout
+						});	*/													
+					}         
+				}         
+			});																
+		}
+		else 
+		{
+			warning("Для продолжения требуется авторизация в ВКонтакте!");
+		}
+	}
+	
+	function ShowRegisterDialog(launcher)
+	{
+		$("#RegWindow").modal().find("input").val("");
+		if (launcher==1){			
+			VK.init({ apiId: 6041492 });
+			VK.Auth.login(authInfo);
+		}				
+		RegisterDialogEventers();
+	}
 					
 	// --- регистрация ---
 	$("#reg_link").click(function() 
-	{		
-		$("#RegWindow input").val("");	
-		$("#RegWindow").modal();		
-		RegisterDialogEventers();
+	{
+		ShowRegisterDialog(0);
 	});
 		
-	// --- авторизация через соц.сети ---
-	$(".social_img").click(function() {		
-		$("#reg_link").trigger("click");
-		$("#reg").off().click(function() 
-		{				
-			$("#RegWindow").modal("hide");			
-		});
+	// --- VK! ---
+	$(".social_img").click(function() 
+	{				
+		ShowRegisterDialog(1);	
 	});
 	
 	/*
@@ -179,5 +246,5 @@ $(document).ready(function()
 			}			
 			NProgress.done();
 		});
-	});	
+	});
 });

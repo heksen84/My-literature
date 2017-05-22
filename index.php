@@ -30,6 +30,7 @@
 <script src = "pages/js/lib/jquery.float.js"></script>          
 <script src = "pages/js/lib/nprogress.js"></script>
 <script src = "pages/js/lib/moment.min.js"></script>
+<script src = "https://vk.com/js/api/openapi.js?136" type="text/javascript"></script>
 <script src = "pages/js/index.js?<?php echo time()?>"></script>
 </head>
 <body>

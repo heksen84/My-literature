@@ -1,7 +1,12 @@
+html
+{
+ height:100%;
+}
 body
 {
+ height:100%;
  color:white;
- background:rgb(70,70,100);
+ background:rgb(70,70,70);
  text-align:center;
  margin:0;
  padding:0;
@@ -45,11 +50,6 @@ label
  color:white;
  font-size:17px;
  letter-spacing: 5px;
-}
-#search_input
-{
- width:440px;
- display:inline;
 }
 #reg_link
 {
@@ -167,8 +167,7 @@ opacity:0.9;
 {
  color:grey;
  width:330px;
- height:600px;
- margin:30px auto;
+ margin:10px auto;
 }
 .modal-header
 {
@@ -186,30 +185,6 @@ opacity:0.9;
 .modal-title
 {
  font-size:18px; 
-}
-/* mobile */
-@media (max-width: 576px) {
-#button_search
-{
- margin-top:5px;
-}
-#search_input
-{
- width:90%;
- margin:auto;
-}	
-#title
-{
- font-size:55px;
-}
-#desc
-{
- font-size:18px;
-}
-.modal
-{
- margin:0px auto;
-}
 }
 /* mobile */
 @media (max-width: 576px) {
@@ -240,9 +215,13 @@ opacity:0.9;
 }
 }
 @media (max-width: 320px) {
-.modal
+#RegWindow
 {
- width:300px;
+ width:330px;
+}
+#table
+{
+ font-size:15px;
 }
 #reg
 { 
