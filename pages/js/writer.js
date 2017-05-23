@@ -21,14 +21,17 @@ $(document).ready(function()
 
 	/* -- загрузить текст -- */
 	$("#load_text").on("change", function(evt)
-	{
+	{		
 		var reader = new FileReader();
 		f = this.files[0];
-		reader.onload = (function(theFile) 
-		{
+		reader.onloadstart = (function(theFile) {
+		   NProgress.start();							
+		})(f);	
+		reader.onload = (function(theFile) {
 			return function(e) 
 			{            		        
 				$("#editor").val(e.target.result).trigger("keyup");
+				NProgress.done();						
 			};
 		})(f);	
 		reader.readAsText(f, 'CP1251');	
