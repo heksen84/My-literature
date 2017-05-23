@@ -3,9 +3,7 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------*/
-//var max_symbols    = 100000;
-var max_symbols    = 100;
-var max_text_size  = 100;
+var max_symbols = 100000;
 
 /*
 ----------------------------------
@@ -24,17 +22,15 @@ $(document).ready(function()
 	{		
 		var reader = new FileReader();
 		f = this.files[0];
-		reader.onloadstart = (function(theFile) {
-		   NProgress.start();							
-		})(f);	
 		reader.onload = (function(theFile) {
-			return function(e) 
-			{            		        
+			return function(e) {            		        
+				if (ByteCount(e.target.result) > max_symbols) 
+					error("не более "+max_symbols+" символов");
+				else
 				$("#editor").val(e.target.result).trigger("keyup");
-				NProgress.done();						
 			};
 		})(f);	
-		reader.readAsText(f, 'CP1251');	
+		reader.readAsText(f, "CP1251");	
 	});
 
 	/* -- назад или выход -- */	
@@ -109,8 +105,7 @@ $(document).ready(function()
 						$("#record_access_mode").val(obj.string[0].access_mode);
 						$("#button_add_record").text("обновить");
 					}
-				} 
-		
+				} 		
 				localStorage.setItem("writer_record_mode", "edit");
 				localStorage.setItem("read_data_id", "");
 			});		
