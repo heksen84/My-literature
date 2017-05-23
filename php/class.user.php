@@ -16,14 +16,14 @@ class User
 	function register()
 	{	
 	
-	 	$to      = 'heksen84@yandex.ru';
+	 	/*$to      = 'heksen84@yandex.ru';
 	 	$subject = 'the subject';
 	 	$message = 'hello';
 	 	$headers = 'From: webmaster@example.com' . "\r\n" .
 		    'Reply-To: webmaster@example.com' . "\r\n" .
 		    'X-Mailer: PHP/' . phpversion();
 
-		mail($to, $subject, $message, $headers);
+		mail($to, $subject, $message, $headers);*/
 
 		$db	= DataBase::getDB();						
 		if (!isset($_GET['type']) || !isset($_GET['name']) || !isset($_GET['surname']) || !isset($_GET['email']) || !isset($_GET['password'])) 
@@ -103,7 +103,7 @@ class User
 			$password 	= trim($password);				
 						
 			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."' LIMIT 1");
-			if (!$result) msg::error("внутренняя ошибка");
+			if (!$result) msg::error("email - не найден!");
 		
 			if (!password_verify($password, $result[0]["password"])) 
 			msg::error("не верные данные");	
