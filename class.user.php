@@ -17,20 +17,18 @@ class User
 	function register()
 	{	
 
-/*		$mail = new Mail("no-reply@my-literature.com");
-		$mail->setFromName("Моя литература");
-		$mail->send(htmlspecialchars($_POST["reg_email"]), "Данные регистрации в портале МОЯ ЛИТЕРАТУРА", "!!!");
-		msg::error($_POST['email']);*/
 
 		$db	= DataBase::getDB();						
+
 		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
-		$type 	  = (int)$_POST['type'];
-		$name 	  = (string)$_POST['name'];
-		$surname  = (string)$_POST['surname'];
-        $email    = $_POST['email'];
-        $password = (string)$_POST['password'];
+		$type 	  = $_POST['type'];
+		$name 	  = $_POST['name'];
+		$surname  = $_POST['surname'];
+	        $email    = $_POST['email'];
+        	$password = $_POST['password'];
+
 						
 		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		
@@ -39,8 +37,8 @@ class User
 		$surname	= $db->safe_string($surname);		
 		$surname	= trim($surname);
 		
-		/*$email		= $db->safe_string($email);		
-		$email 		= trim($email);*/
+		$email		= $db->safe_string($email);		
+		$email 		= trim($email);
 		
 		$password	= $db->safe_string($password);					
 		$password 	= trim($password);
@@ -49,7 +47,7 @@ class User
 			msg::warning("поля должны быть заполнены");
 		
 		/*if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-			msg::warning("укажите корректный email");*/ 						
+			msg::warning("укажите корректный email");*/
 		
 		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
 		if ($table!=false) msg::warning("пользователь уже существует");
@@ -62,10 +60,17 @@ class User
 		$fb_id = 0;		
 		
 		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$name."','".$surname."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
+
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
-		
+
+		$mail = new Mail("no-reply@my-literature.com");
+		$mail->setFromName("Моя литература");
+
+		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти</a></center>";
+
+		$mail->send($email, "Данные регистрации", $content);		
 		msg::success($name);
 	}
  
@@ -99,7 +104,7 @@ class User
 			$password 	= $db->safe_string($password);
 			$password 	= trim($password);				
 						
-			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."' LIMIT 1");
+			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."'");
 			if (!$result) msg::error("email - не найден!");
 		
 			if (!password_verify($password, $result[0]["password"])) 
