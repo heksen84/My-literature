@@ -90,7 +90,7 @@ class Record
 		if (!isset($_GET['record_id'])) msg::error("нет данных");		
 		$record_id = (int)$_GET['record_id'];        		
 
-		$item = $db->query("DELETE FROM `records` WHERE id='".$record_id."'");		
+		$item = $db->query("DELETE FROM `records` WHERE id='".$record_id."' AND user_id='".$_SESSION["user_id"]."'");		
 		$result = $db->select("SELECT name FROM `index-pages` WHERE record_id='".$record_id."'");		
 
 		$file = "index/ru/".date("Y")."/".$result[0]["name"].".html";

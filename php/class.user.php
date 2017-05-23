@@ -23,11 +23,11 @@ class User
 		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
-		$type 	  = $_POST['type'];
-		$name 	  = $_POST['name'];
-		$surname  = $_POST['surname'];
-	        $email    = $_POST['email'];
-        	$password = $_POST['password'];
+		$type 	  = (int)$_POST['type'];
+		$name 	  = (string)$_POST['name'];
+		$surname  = (string)$_POST['surname'];
+	        $email    = (string)$_POST['email'];
+        	$password = (string)$_POST['password'];
 
 						
 		// --- безопасность ---				
@@ -45,12 +45,9 @@ class User
 		
 		if (empty($name) || empty($surname) || empty($email) || empty($password)) 
 			msg::warning("поля должны быть заполнены");
-		
-		/*if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-			msg::warning("укажите корректный email");*/
-		
-		/*$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
-		if ($table!=false) msg::warning("пользователь уже существует");*/
+				
+		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
+		if ($table!=false) msg::warning("пользователь уже существует");
 				
 		if (strlen($password) < 5) msg::error("плохой пароль");
 		$hash_password = password_hash($password, PASSWORD_BCRYPT); 	
@@ -68,9 +65,9 @@ class User
 		$mail = new Mail("no-reply@my-literature.com");
 		$mail->setFromName("Моя литература");
 
-		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти</a></center>";
+		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
 
-		$mail->send($email, "Данные регистрации для портала МОЯ ЛИТЕРАТУРА", $content);		
+		$mail->send($email, "Данные регистрации", $content);		
 		msg::success($name);
 	}
  
@@ -104,7 +101,7 @@ class User
 			$password 	= $db->safe_string($password);
 			$password 	= trim($password);				
 						
-			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."' LIMIT 1");
+			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."'");
 			if (!$result) msg::error("email - не найден!");
 		
 			if (!password_verify($password, $result[0]["password"])) 
