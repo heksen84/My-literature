@@ -9,9 +9,9 @@
         </button>
       </div>
       <div class="modal-body">	          				
-		<label for="email">Email</label>
+		<label for="auth_email">Email</label>
 		<input type="email" class="form-control input" id="auth_email" placeholder="Введи email">
-		<label for="password">Пароль</label>
+		<label for="auth_password">Пароль</label>
 		<input type="password" class="form-control input" id="auth_password" placeholder="Введи пароль">
 		<a href="#" class="nav-link" id="reg_link">регистрация</a>
       </div>		
@@ -37,13 +37,13 @@
 		<option value="0">Я читатель</option>			
 		<option value="1">Я писатель</option>		
 		</select>
-		<label for="name" id="label_name">Имя</label>
+		<label for="reg_name" id="label_name">Имя</label>
 		<input type="text" class="form-control input" id="reg_name" placeholder="Введи имя">		
-		<label for="login" id="label_surname">Фамилия</label>
+		<label for="reg_surname" id="label_surname">Фамилия</label>
 		<input type="text" class="form-control input" id="reg_surname" placeholder="Введи фамилию">		
-		<label for="email">Email</label>
-		<input type="text" class="form-control input" id="reg_email" placeholder="Введи email">
-		<label for="password">Пароль</label>
+		<label for="reg_email">Email</label>
+		<input type="email" class="form-control input" id="reg_email" placeholder="Введи email">
+		<label for="reg_password">Пароль</label>
 		<input type="password" class="form-control input" id="reg_password" placeholder="Введи пароль">
       </div>
       <div class="modal-footer" style="margin:auto">
