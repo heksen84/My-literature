@@ -42,7 +42,7 @@
 		<label for="login" id="label_surname">Фамилия</label>
 		<input type="text" class="form-control input" id="reg_surname" placeholder="Введи фамилию">		
 		<label for="email">Email</label>
-		<input type="email" class="form-control input" id="reg_email" placeholder="Введи email">
+		<input type="text" class="form-control input" id="reg_email" placeholder="Введи email">
 		<label for="password">Пароль</label>
 		<input type="password" class="form-control input" id="reg_password" placeholder="Введи пароль">
       </div>

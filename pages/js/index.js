@@ -50,9 +50,12 @@ $(document).ready(function()
 					"type": $("#reg_user_type").val(),
 					"name": $("#reg_name").val(),
 					"surname": $("#reg_surname").val(),
-					"email": $("#reg_email").val(),
-					"password":	$("#reg_password").val()
-				}, async:false,
+					"reg_email": $("#reg_email").val(),
+//					"reg_email": "heksen84@yandex.ru",
+					"password": $("#reg_password").val(),					
+				}, 
+				method: "POST", 
+				async:false,
 			}).done(function( data ) 
 			{			
 				var obj = jQuery.parseJSON(data);

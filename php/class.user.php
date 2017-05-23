@@ -1,4 +1,5 @@
 <?php
+include "class.mail.php";
 
 class User
 {	
@@ -15,25 +16,21 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{	
-	
-	 	/*$to      = 'heksen84@yandex.ru';
-	 	$subject = 'the subject';
-	 	$message = 'hello';
-	 	$headers = 'From: webmaster@example.com' . "\r\n" .
-		    'Reply-To: webmaster@example.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
 
-		mail($to, $subject, $message, $headers);*/
+/*		$mail = new Mail("no-reply@my-literature.com");
+		$mail->setFromName("Моя литература");
+		$mail->send(htmlspecialchars($_POST["reg_email"]), "Данные регистрации в портале МОЯ ЛИТЕРАТУРА", "!!!");
+		msg::error($_POST['reg_email']);*/
 
 		$db	= DataBase::getDB();						
-		if (!isset($_GET['type']) || !isset($_GET['name']) || !isset($_GET['surname']) || !isset($_GET['email']) || !isset($_GET['password'])) 
+		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
-		$type 	  = (int)$_GET['type'];
-		$name 	  = (string)$_GET['name'];
-		$surname  = (string)$_GET['surname'];
-                $email    = $_GET['email'];
-                $password = (string)$_GET['password'];
+		$type 	  = (int)$_POST['type'];
+		$name 	  = (string)$_POST['name'];
+		$surname  = (string)$_POST['surname'];
+                $email    = $_POST['email'];
+                $password = (string)$_POST['password'];
 						
 		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		

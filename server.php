@@ -18,7 +18,6 @@ include "php/class.writer.php";
 include "php/class.categories.php";
 
 session_start();
-
 /* ------------- [ одиночки ] ------------- */
 
 $db			= DataBase::getDB();
@@ -38,10 +37,6 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				/* -- пользователь -- */
 				case "SRV_AuthUser": {
 					$user->auth(); 		
-					break;
-				}
-				case "SRV_RegUser": {
-					$user->register(); 	
 					break;
 				}				
 				/* -- записи -- */
@@ -107,7 +102,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 		{    			    							
 			switch ($_POST["func"]) 
 			{
-			        /* -- обновить информацию -- */
+			        case "SRV_RegUser": {
+					$user->register(); 	
+					break;
+				}				
+				/* -- обновить информацию -- */
 				case "SRV_UpdatePersonalInfo": {
 					$user->update(); 	
 					break;

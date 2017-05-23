@@ -1,10 +1,4 @@
 <?php
-$to      = 'heksen84@yandex.ru';
-$subject = 'the subject';
-$message = 'hello';
-$headers = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
-mail($to, $subject, $message, $headers);
+mail('heksen84@yandex.ru', 'the subject', 'the message', null,
+   'no-reply@my-literature.com');
 ?>
