@@ -74,9 +74,9 @@
 <!-- ROW2 -->
 <div class="col-md-3">
 <label for="text" style="margin-top:10px" class="grey_shadow_text">Название</label>
-<input type="text" class="form-control" maxlength="100" id="title">
+<input type="text" class="form-control" maxlength="100" id="title" placeholder="Название текста">
 <label for="short_description" class="grey_shadow_text">Примечание</label>
-<textarea class="form-control" id="short_description"></textarea>
+<textarea class="form-control" id="short_description" placeholder="Здесь, можно указать имя автора или другую информацию"></textarea>
 <label for="type_of_literature" class="grey_shadow_text">Тип литературы</label>
 <select class="form-control" id="type_of_literature">
 </select>

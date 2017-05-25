@@ -45,7 +45,7 @@
 		<input type="password" class="form-control input" id="reg_password" placeholder="Введи пароль">
       </div>
       <div class="modal-footer" style="margin:auto">
-        <button type="button" class="btn btn-primary" id="reg">продолжить</button>        
+        <button type="button" class="btn btn-primary" id="button_reg">продолжить</button>        
       </div>
     </div>
   </div>

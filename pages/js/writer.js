@@ -14,7 +14,7 @@ $(document).ready(function()
 	sweetAlertInitialize();
 	BlurInput();	
 	
-	$("#user_name").text("Привет, "+localStorage.getItem("user_name")+"!");
+	$("#user_login").text("Привет, "+localStorage.getItem("user_login")+"!");
 	$("#price").float(); // форматирование цены
 
 	/* -- загрузить текст -- */

@@ -32,7 +32,7 @@ $(document).ready(function()
 	function SaveAuthSettingsInStorage(email,pass,login,type){
 		localStorage.setItem("auth_email", email);
 		localStorage.setItem("auth_password", pass);
-		localStorage.setItem("user_login", name);
+		localStorage.setItem("user_login", login);
 		localStorage.setItem("user_type", type);		
 	}
 
@@ -42,7 +42,7 @@ $(document).ready(function()
 	----------------------------------*/	
 	function RegisterDialogEventers() 
 	{									
-		$("#reg").off().click(function() 
+		$("#button_reg").off().click(function() 
 		{							
 			$.ajax
 			({
@@ -223,7 +223,7 @@ $(document).ready(function()
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
 				case "success": {																				
-					SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
+					SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].login, obj.string[0].type);
 					switch(obj.string[0].type){
 					case "0": $(location).attr('href', "pages/reader.php"); break;
 					case "1": $(location).attr('href', "pages/writer.php"); break;

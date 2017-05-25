@@ -31,7 +31,7 @@ label
 }
 #main_row
 {
- margin-top:10px;
+ margin-top:5px;
 }
 #title
 {
@@ -75,7 +75,7 @@ color:black;
 width:350px;
 margin: 5px auto;
 cursor:default;
-font-size:18px;
+font-size:20px;
 opacity:0.9;
 }
 #reg
