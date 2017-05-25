@@ -31,6 +31,13 @@
 <script src = "js/lib/moment.min.js"></script>
 <script src = "js/writer.js?<?php echo time()?>"></script>
 </head>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8074944108437227",
+    enable_page_level_ads: true
+  });
+</script>
 <!-- меню -->
 <nav class="navbar navbar-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 

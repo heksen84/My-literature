@@ -1,4 +1,8 @@
 <?php
- mail($_GET["mail"], 'the subject', 'the message', null,
-   'no-reply@my-literature.com');
+include "php/class.mail.php";
+
+$mail = new Mail("no-reply@my-literature.com");
+$mail->setFromName("Моя литература");
+$mail->send($_GET["mail"], "Данные регистрации в портале МОЯ ЛИТЕРАТУРА", "!!!");
+
 ?>

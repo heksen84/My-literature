@@ -12,8 +12,7 @@ $(document).ready(function()
 	{
 		$("#content").empty();		
 		$("#content").append("<h5 style='margin-left:8px'>Личные данные писателя</h5>");
-		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");
-		$("#content").append("<input type='text' class='form-control input' placeholder='фамилия' id='surname'></input>");
+		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");		
 		$("#content").append("<input type='text' class='form-control input' placeholder='email' id='email'></input>");		
 		$("#content").append("<button class='btn btn-primary' data-toggle='modal' data-target='.bd-example-modal-lg' id='button_save'>сохранить</button>");
 
@@ -22,7 +21,7 @@ $(document).ready(function()
 		/* --- сохранить личные данные --- */
 		$("#button_save").off().click(function() 
 		{
-			if ($("#name").val()=="" || $("#surname").val()=="" || $("#email").val()=="") {				
+			if ($("#name").val()=="" || $("#email").val()=="") {				
 				error("заполните поля");
 			}
 			else
@@ -31,8 +30,7 @@ $(document).ready(function()
 				url: "..//server.php",
 				data: {
 					"func": 	"SRV_UpdatePersonalInfo",
-					"name": 	$("#name").val(),
-					"surname": 	$("#surname").val(),
+					"name": 	$("#name").val(),					
 					"email": 	$("#email").val(),					
 				}, 				
 				method: "POST",					

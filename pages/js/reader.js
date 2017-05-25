@@ -52,8 +52,7 @@ $(document).ready(function()
 	function ShowUserData() {
 		$("#content").empty();		
 		$("#content").append("<h5 style='margin-left:8px'>Личные данные читателя</h5>");
-		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");
-		$("#content").append("<input type='text' class='form-control input' placeholder='фамилия' id='surname'></input>");
+		$("#content").append("<input type='text' class='form-control input' placeholder='имя' id='name'></input>");		
 		$("#content").append("<input type='text' class='form-control input' placeholder='email' id='email'></input>");
 		//$("#content").append("<input type='text' class='form-control input' placeholder='старый пароль'></input>");
 		//$("#content").append("<input type='text' class='form-control input' placeholder='новый пароль'></input>");
@@ -62,7 +61,8 @@ $(document).ready(function()
 		/* --- сохранить личные данные --- */
 		$("#button_save").off().click(function() {
 
-			if ($("#name").val()=="" || $("#surname").val()=="" || $("#email").val()=="") {				
+			if ($("#name").val()=="" || $("#email").val()=="") 
+			{				
 				error("заполните поля");
 			}
 			else
@@ -72,8 +72,7 @@ $(document).ready(function()
 				data: 
 				{
 					"func": 	"SRV_UpdatePersonalInfo",
-					"name": 	$("#name").val(),
-					"surname": 	$("#surname").val(),
+					"name": 	$("#name").val(),					
 					"email": 	$("#email").val(),					
 				}, 				
 				method: "POST",					

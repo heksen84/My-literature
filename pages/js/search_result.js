@@ -35,7 +35,7 @@ $(document).ready(function()
 					/* -- основные данные -- */
 					$.each(obj.string, function(i, item) 
 					{					
-					  $("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td><div class='title_cell'>"+item.title+"</div></td><td style='text-align:center'><div class='author_cell'>"+item.surname+"&nbsp;"+item.name+"</div></td><td><div class='like_cell'>0</div></td></tr>");					
+					  $("#tbody").append("<tr data-id='"+item.id+"' class='table_item'><td>"+(i+1)+"</td><td><div class='title_cell'>"+item.title+"</div></td><td style='text-align:center'><div class='author_cell'>"+item.name+"</div></td><td><div class='like_cell'>0</div></td></tr>");					
 					});
 										
 					/* -- лайки -- */

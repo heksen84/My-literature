@@ -61,6 +61,13 @@
 <script src = "https://vk.com/js/api/openapi.js?136" type="text/javascript"></script>
 <script src = "pages/js/index.js?<?php echo time()?>"></script>
 </head>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8074944108437227",
+    enable_page_level_ads: true
+  });
+</script>
 <body>
 <div class="container-fluid">
 <a class="nav-link active" href="#" id="reader_auth_link">ВХОД</a>
@@ -77,6 +84,9 @@
   	<tbody id="tbody"></tbody>
 	</table>
 	</div>
+	<div class="col-md-12 text-center" style="margin-top:80px">		
+	<a href="site/articles/ru/history.html" style="color:white;">история литературы</a>
+	</div>
 </div>
 <div class="row no-display" id="alert_opros">
 <div class="col-md-12 text-center">
@@ -87,3 +97,4 @@
 </div>
 </div>
 </body>
+</html>

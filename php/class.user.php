@@ -16,34 +16,28 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{	
-
-
 		$db	= DataBase::getDB();						
 
-		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email']) || !isset($_POST['password'])) 
+		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
 		$type 	  = (int)$_POST['type'];
-		$name 	  = (string)$_POST['name'];
-		$surname  = (string)$_POST['surname'];
-	        $email    = (string)$_POST['email'];
-        	$password = (string)$_POST['password'];
+		$name 	  = (string)$_POST['name'];		
+	    $email    = (string)$_POST['email'];
+        $password = (string)$_POST['password'];
 
 						
 		// --- безопасность ---				
 		$name 		= $db->safe_string($name);		
 		$name 		= trim($name);
-		
-		$surname	= $db->safe_string($surname);		
-		$surname	= trim($surname);
-		
+				
 		$email		= $db->safe_string($email);		
 		$email 		= trim($email);
 		
 		$password	= $db->safe_string($password);					
 		$password 	= trim($password);
 		
-		if (empty($name) || empty($surname) || empty($email) || empty($password)) 
+		if (empty($name) || empty($email) || empty($password)) 
 			msg::warning("поля должны быть заполнены");
 				
 		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
@@ -56,8 +50,7 @@ class User
 		$ok_id = 0; 
 		$fb_id = 0;		
 		
-		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$name."','".$surname."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
-
+		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$name."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
@@ -121,17 +114,16 @@ class User
 	{
 		$db	= DataBase::getDB();
 		
-		if (!isset($_POST['name']) || !isset($_POST['surname']) || !isset($_POST['email'])) msg::error("нет данных");
+		if (!isset($_POST['name']) || !isset($_POST['email'])) msg::error("нет данных");
 		
-		$name		= (string)$_POST["name"];
-		$surname	= (string)$_POST["surname"];
-		$email		= (string)$_POST["email"];
+		$name	= (string)$_POST["name"];		
+		$email	= (string)$_POST["email"];
 		
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			msg::error("не - email!");	
 		}
  						
-		$table = $db->query("UPDATE `users` SET name='".$name."', surname='".$surname."', email='".$email."' WHERE id='".$_SESSION["user_id"]."'");
+		$table = $db->query("UPDATE `users` SET name='".$name."', email='".$email."' WHERE id='".$_SESSION["user_id"]."'");
 		msg::success($table);	
 	}
 	

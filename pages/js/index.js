@@ -48,8 +48,7 @@ $(document).ready(function()
 				{
 					"func": "SRV_RegUser",
 					"type": $("#reg_user_type").val(),
-					"name": $("#reg_name").val(),
-					"surname": $("#reg_surname").val(),
+					"name": $("#reg_name").val(),					
 					"email": $("#reg_email").val(),
 					"password": $("#reg_password").val(),					
 				}, 
@@ -130,8 +129,7 @@ $(document).ready(function()
 					if (r.response[0].first_name) 
 					{	
 						
-						$("#reg_name").val(r.response[0].first_name);
-						$("#reg_surname").val(r.response[0].last_name);
+						$("#reg_name").val(r.response[0].first_name+" "+r.response[0].last_name);						
 						
 						//alert(response.session.mid);
 						

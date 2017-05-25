@@ -38,9 +38,7 @@
 		<option value="1">Я писатель</option>		
 		</select>
 		<label for="reg_name" id="label_name">Имя</label>
-		<input type="text" class="form-control input" id="reg_name" placeholder="Введи имя">		
-		<label for="reg_surname" id="label_surname">Фамилия</label>
-		<input type="text" class="form-control input" id="reg_surname" placeholder="Введи фамилию">		
+		<input type="text" class="form-control input" id="reg_name" placeholder="Введи имя">				
 		<label for="reg_email">Email</label>
 		<input type="email" class="form-control input" id="reg_email" placeholder="Введи email">
 		<label for="reg_password">Пароль</label>

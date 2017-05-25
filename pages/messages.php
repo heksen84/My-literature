@@ -26,3 +26,4 @@
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/moment.min.js"></script>
 </head>
+</html>
