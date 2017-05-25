@@ -16,7 +16,7 @@
 		<a href="#" class="nav-link" id="reg_link">регистрация</a>
 		<a href="#" class="nav-link" id="password_restore_link">не помню пароль</a>
       </div>		
-		<div class="col-md-12 text-center" id="label_auth_col"><img src="pages/img/vk_logo.png" class="social_img"/></div>
+		<div class="col-md-12 text-center" id="label_auth_col"><div style="font-size:12px">вход через</div><img src="pages/img/vk_logo.png" class="social_img"/></div>
       <div class="modal-footer" style="margin: -15px auto;">
         <button type="button" class="btn btn-primary" id="button_auth">вход</button>        
       </div>
