@@ -206,6 +206,7 @@ opacity:0.9;
 }
 .modal
 {
+ margin-top:-3px;
  width:320px;
 }
 .modal input
