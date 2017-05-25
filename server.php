@@ -39,6 +39,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$user->auth(); 		
 					break;
 				}				
+				/* -- пользователь -- */
+				case "SRV_AuthFromVK": {
+					$user->authFromVK(); 		
+					break;
+				}	
 				/* -- записи -- */
 				case "SRV_UpdateRecord": {
 					$rec->update();		

@@ -18,18 +18,18 @@ class User
 	{	
 		$db	= DataBase::getDB();						
 
-		if (!isset($_POST['type']) || !isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['password'])) 
+		if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
 		$type 	  = (int)$_POST['type'];
-		$name 	  = (string)$_POST['name'];		
+		$login 	  = (string)$_POST['login'];		
 	    $email    = (string)$_POST['email'];
         $password = (string)$_POST['password'];
 
 						
 		// --- безопасность ---				
-		$name 		= $db->safe_string($name);		
-		$name 		= trim($name);
+		$login 		= $db->safe_string($login);		
+		$login 		= trim($login);
 				
 		$email		= $db->safe_string($email);		
 		$email 		= trim($email);
@@ -37,7 +37,7 @@ class User
 		$password	= $db->safe_string($password);					
 		$password 	= trim($password);
 		
-		if (empty($name) || empty($email) || empty($password)) 
+		if (empty($login) || empty($email) || empty($password)) 
 			msg::warning("поля должны быть заполнены");
 				
 		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
@@ -50,63 +50,49 @@ class User
 		$ok_id = 0; 
 		$fb_id = 0;		
 		
-		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$name."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
+		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$login."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
 		
 		$_SESSION["user_id"] 	= $user_id;
 		$_SESSION["user_email"] = $email;
 
 		$mail = new Mail("no-reply@my-literature.com");
-		$mail->setFromName("Моя литература");
+		$mail->setFromlogin("Моя литература");
 
 		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
 
 		$mail->send($email, "Данные регистрации", $content);		
-		msg::success($name);
+		msg::success($login);
 	}
  
 	/* --- авторизация --- */
 	function auth()
 	{						
-		$db = DataBase::getDB();		
-		$vk_id = (int)$_GET['vk_id'];
-		if (!empty($vk_id))
-		{
-			$result = $db->select("SELECT COUNT(*) as count FROM `users` WHERE vk_id=".$vk_id);
-			if ($result[0]["count"] > 0) 
-			{				
-			}
-			else 
-			{				
-			  msg::success($result[0]["count"]);
-			}
-		}
-		else
-		{			
-			if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");					
+		$db = DataBase::getDB();				
+		
+		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");					
 
-			$email	  = (string)$_GET['email'];        
-			$password = (string)$_GET['password'];		
+		$email	  = (string)$_GET['email'];        
+		$password = (string)$_GET['password'];		
+		
+		if (empty($email) || empty($password)) msg::warning("введите данные");										
 			
-			if (empty($email) || empty($password)) msg::warning("введите данные");										
-				
-			$email 		= $db->safe_string($email);
-			$email 	  	= trim($email);				
-			$password 	= $db->safe_string($password);
-			$password 	= trim($password);				
-						
-			$result = $db->select("SELECT id,type,name,password FROM `users` WHERE email='".$email."'");
-			if (!$result) msg::error("email - не найден!");
+		$email 		= $db->safe_string($email);
+		$email 	  	= trim($email);				
+		$password 	= $db->safe_string($password);
+		$password 	= trim($password);				
+					
+		$result = $db->select("SELECT id,type,login,password FROM `users` WHERE email='".$email."'");
+		if (!$result) msg::error("email - не найден!");
 		
-			if (!password_verify($password, $result[0]["password"])) 
-			msg::error("не верные данные");	
+		if (!password_verify($password, $result[0]["password"])) 
+		msg::error("не верные данные");	
 		
-			$_SESSION["user_id"] 	= $result[0]["id"];
-			$_SESSION["user_name"]  = $result[0]["name"];						
+		$_SESSION["user_id"] 	= $result[0]["id"];
+		$_SESSION["user_login"] = $result[0]["login"];						
 
-			if(!$db->query("UPDATE `users` SET last_visit=NOW() WHERE id='".$_SESSION["user_id"]."'")) msg::error("last_visit error");
+		if(!$db->query("UPDATE `users` SET last_visit=NOW() WHERE id='".$_SESSION["user_id"]."'")) msg::error("last_visit error");
 	
-			msg::success($result);		
-		}
+		msg::success($result);				
 	}
 	
 	/* --- обновить информацию --- */
@@ -114,23 +100,29 @@ class User
 	{
 		$db	= DataBase::getDB();
 		
-		if (!isset($_POST['name']) || !isset($_POST['email'])) msg::error("нет данных");
+		if (!isset($_POST['login']) || !isset($_POST['email'])) msg::error("нет данных");
 		
-		$name	= (string)$_POST["name"];		
+		$login	= (string)$_POST["login"];		
 		$email	= (string)$_POST["email"];
 		
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			msg::error("не - email!");	
 		}
  						
-		$table = $db->query("UPDATE `users` SET name='".$name."', email='".$email."' WHERE id='".$_SESSION["user_id"]."'");
+		$table = $db->query("UPDATE `users` SET login='".$login."', email='".$email."' WHERE id='".$_SESSION["user_id"]."'");
 		msg::success($table);	
 	}
 	
 	/* --- авторизация через VK --- */	
 	function authFromVK()
 	{						
-	  $db = DataBase::getDB();										
+		$db = DataBase::getDB();
+		$vk_id = (int)$_GET['vk_id'];
+		if (!empty($vk_id))
+		{
+			$result = $db->select("SELECT COUNT(*) as count FROM `users` WHERE vk_id=".$vk_id);
+			msg::success($result[0]["count"]);			
+		}	  
 	}
 	
 	/* --- восстановить пароль --- */

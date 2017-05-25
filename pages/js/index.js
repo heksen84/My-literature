@@ -7,6 +7,8 @@ $(document).ready(function()
 {				
 	sweetAlertInitialize();
 	BlurInput();		
+
+    $(".link_article").hide();
 	
 	/* -- redirect -- */
 	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) 
@@ -21,15 +23,16 @@ $(document).ready(function()
 	
 	// -- сбрасить настройки --
 	localStorage.setItem("writer_record_id", "");	
+
 		
 	/*
 	----------------------------------------------------------
 	сохранить данные в localstorage
 	----------------------------------------------------------*/
-	function SaveAuthSettingsInStorage(email,pass,name,type){
+	function SaveAuthSettingsInStorage(email,pass,login,type){
 		localStorage.setItem("auth_email", email);
 		localStorage.setItem("auth_password", pass);
-		localStorage.setItem("user_name", name);
+		localStorage.setItem("user_login", name);
 		localStorage.setItem("user_type", type);		
 	}
 
@@ -48,7 +51,7 @@ $(document).ready(function()
 				{
 					"func": "SRV_RegUser",
 					"type": $("#reg_user_type").val(),
-					"name": $("#reg_name").val(),					
+					"login": $("#reg_login").val(),					
 					"email": $("#reg_email").val(),
 					"password": $("#reg_password").val(),					
 				}, 
@@ -62,7 +65,7 @@ $(document).ready(function()
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
 					case "success": {																			
-							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_name").val(), $("#reg_user_type").val());
+							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
 							switch($("#reg_user_type").val()){						
 							case "0": $(location).attr('href', "pages/reader.php"); break;
 							case "1": $(location).attr('href', "pages/writer.php"); break;
@@ -116,6 +119,23 @@ $(document).ready(function()
 		$("#AuthWindow").modal();
 	});
 	
+	/* диалог регистрации */
+	function ShowRegisterDialog(login, launcher)
+	{
+		$("#RegWindow").modal().find("input").val("");		
+		RegisterDialogEventers();
+		
+		if (launcher==0) 
+		{
+			$("#label_password, #reg_password").show();			
+		}
+		else 
+		{
+			$("#reg_login").val(login);						
+			$("#label_password, #reg_password").hide();
+		}		
+	}
+	
 	/* vk auth */
 	function authInfo(response)
 	{			
@@ -127,18 +147,13 @@ $(document).ready(function()
 				if (r.response) 
 				{                 
 					if (r.response[0].first_name) 
-					{	
-						
-						$("#reg_name").val(r.response[0].first_name+" "+r.response[0].last_name);						
-						
-						//alert(response.session.mid);
-						
+					{																															
 						$.ajax
 						({
 							url: "server.php",
 							data: 
 							{
-								"func": "SRV_AuthUser",                    
+								"func": "SRV_AuthFromVK",                    
 								"vk_id": response.session.mid,								
 							}, 
 							async:false,
@@ -151,19 +166,13 @@ $(document).ready(function()
 								case "warning": warning(obj.string); break;
 								case "success": 
 								{																				
-									/*SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].name, obj.string[0].type);
-									switch(obj.string[0].type)
+									if (obj.string==0)
 									{
-										case "0": $(location).attr('href', "pages/reader.php"); break;
-										case "1": $(location).attr('href', "pages/writer.php"); break;
-									}*/
-									if (obj.string==0) warning("регистрация");
+										ShowRegisterDialog(r.response[0].first_name+response.session.mid, 1);
+									}
 								}
 							}						
-						});
-						
-						//response.session.mid						
-						
+						});												
 					}         
 				}         
 			});																
@@ -174,27 +183,18 @@ $(document).ready(function()
 		}
 	}
 	
-	function ShowRegisterDialog(launcher)
-	{
-		$("#RegWindow").modal().find("input").val("");
-		if (launcher==1)
-		{			
-			VK.init({ apiId: 6041492 });
-			VK.Auth.login(authInfo);
-		}				
-		RegisterDialogEventers();
-	}
 					
 	// --- регистрация ---
 	$("#reg_link").click(function() 
 	{
-		ShowRegisterDialog(0);
+		ShowRegisterDialog(null, 0);
 	});
 		
 	// --- VK! ---
 	$(".social_img").click(function() 
 	{				
-		ShowRegisterDialog(1);	
+		VK.init({ apiId: 6041492 });
+		VK.Auth.login(authInfo);
 	});
 	
 	/*

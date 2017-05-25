@@ -37,11 +37,11 @@
 		<option value="0">Я читатель</option>			
 		<option value="1">Я писатель</option>		
 		</select>
-		<label for="reg_name" id="label_name">Имя</label>
-		<input type="text" class="form-control input" id="reg_name" placeholder="Введи имя">				
+		<label for="reg_login" id="label_name">Логин</label>
+		<input type="text" class="form-control input" id="reg_login" placeholder="Введи логин" title="введи уникальное имя">				
 		<label for="reg_email">Email</label>
 		<input type="email" class="form-control input" id="reg_email" placeholder="Введи email">
-		<label for="reg_password">Пароль</label>
+		<label for="reg_password" id="label_password">Пароль</label>
 		<input type="password" class="form-control input" id="reg_password" placeholder="Введи пароль">
       </div>
       <div class="modal-footer" style="margin:auto">

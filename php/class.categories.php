@@ -30,7 +30,7 @@ class Categories
 		$start 	     = (int)$_GET["start"];		
 		$records = $db->select
 		(
-			"SELECT records.id, records.title, users.name FROM `records` 
+			"SELECT records.id, records.title, users.login FROM `records` 
 			INNER JOIN `users` ON records.user_id=users.id AND records.type_literature='".$category_id."' 
 			AND records.access_mode!=1 LIMIT ".$start.",".self::SHOW_MAX_RECORDS
 		);

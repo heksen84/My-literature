@@ -85,7 +85,9 @@
 	</table>
 	</div>
 	<div class="col-md-12 text-center" style="margin-top:80px">		
-	<a href="site/articles/ru/history.html" style="color:white;">история литературы</a>
+	<a href="site/articles/ru/history.html" class="link_article">история литературы</a>
+	<a href="site/articles/ru/pushkin.html" class="link_article">пушкин</a>
+	<a href="site/articles/ru/literatura.html" class="link_article">литература</a>
 	</div>
 </div>
 <div class="row no-display" id="alert_opros">
