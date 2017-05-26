@@ -1,4 +1,24 @@
-﻿<!-- авторизация -->
+﻿<!-- восстановить доступ -->
+<div class="modal fade" id="PasswordRestoreWindow">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" style="margin:auto">восстановить доступ</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="закрыть">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">	          				
+		<label for="auth_email">Email</label>
+		<input type="email" class="form-control input" id="auth_email" placeholder="Введи email">		
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="button_restore_access">восстановить</button>        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- авторизация -->
 <div class="modal fade" id="AuthWindow">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

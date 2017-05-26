@@ -51,12 +51,6 @@ label
  font-size:17px;
  letter-spacing: 5px;
 }
-#reg_link, #password_restore_link
-{
- padding:4px;
- font-size:16px; 
- color:#4a78c4;
-}
 #button_add_record
 {
  font-size:120px;
@@ -106,6 +100,20 @@ opacity:0.9;
 {
  margin-top:0px;
  text-align:left;
+}
+#reg_link, #password_restore_link
+{
+ padding:4px;
+ font-size:15px; 
+ color:#4a78c4;
+}
+#PasswordRestoreWindow
+{
+ z-index:9999;
+}
+#button_restore_access
+{
+ margin:auto;
 }
 .no-display
 {
@@ -206,7 +214,7 @@ opacity:0.9;
 }
 .modal
 {
- margin-top:-3px;
+ margin-top:-2px;
  width:320px;
 }
 .modal input
