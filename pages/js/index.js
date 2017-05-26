@@ -129,12 +129,11 @@ $(document).ready(function()
 		$("#PasswordRestoreWindow").modal().find("input").val("");
 		
 		/* кнопка восстановить */
-		$("#button_restore_access").click(function() 
-		{				
+		$("#button_restore_access").click(function() {				
+			swal("","Новый пароль отправлен на указанный email","success");							
 			$("#PasswordRestoreWindow").modal("hide");
-			$("#AuthWindow").modal("hide");
-			success("Новый пароль отправлен на указанный email");
-		});		
+			$("#AuthWindow").modal("hide");			
+		});
 	});
 	
 	/* --- диалог регистрации --- */
