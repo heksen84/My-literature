@@ -65,13 +65,13 @@ label
 }
 #table
 {
-background:white;
-color:black;
-width:350px;
-margin: 5px auto;
-cursor:default;
-font-size:20px;
-opacity:0.9;
+ background:white;
+ color:black;
+ width:350px;
+ margin: 5px auto;
+ cursor:default;
+ font-size:20px;
+ opacity:0.9;
 }
 #reg
 {
@@ -103,7 +103,7 @@ opacity:0.9;
 }
 #reg_link, #password_restore_link
 {
- padding:4px;
+ padding:5px;
  font-size:15px; 
  color:#4a78c4;
 }
