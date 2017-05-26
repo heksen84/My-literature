@@ -64,9 +64,9 @@ float:center;
  margin-top:1px;
  border-radius:5px;
 }
-#user_name
+#user_login
 {
- font-size:14px;
+ font-size:13px;
  color:white;
  text-transform:uppercase; 
  font-weight:bold;

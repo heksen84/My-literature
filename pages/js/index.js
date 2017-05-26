@@ -124,11 +124,19 @@ $(document).ready(function()
 	$("#password_restore_link").click(function() 
 	{						
 		/* очистить поле email */
-		$("#PasswordRestoreWindow").modal().find("input").val("");
+		$("#PasswordRestoreWindow").modal().find("input").val("");		
 		
 		/* кнопка восстановить */
 		$("#button_restore_access").click(function() {
-			if ($("#restore_email").val()=="")	warning("укажите email");
+			if ($("#restore_email").val()=="") {
+				$("#restore_email").focus();
+				warning("введи email");				
+			}
+			else
+			if (!ValidateEmail($("#restore_email").val())) {
+				$("#restore_email").focus();
+				warning("введи нормальный email");				
+			}
 			else
 			$.ajax
 			({
@@ -170,7 +178,7 @@ $(document).ready(function()
 		}		
 	}
 	
-	/* --- vk auth ---*/
+	/* --- vk авторизация ---*/
 	function authInfo(response)
 	{			
 		if (response.session) 

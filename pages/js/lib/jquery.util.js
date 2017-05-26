@@ -12,3 +12,8 @@ function BlurInput(){
 function ByteCount(s) {
     return encodeURI(s).split(/%..|./).length - 1;
 }
+
+function ValidateEmail($email) {
+ var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ return emailReg.test($email);
+}
