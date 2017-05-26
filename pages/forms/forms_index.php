@@ -9,8 +9,8 @@
         </button>
       </div>
       <div class="modal-body">	          				
-		<label for="auth_email">Email</label>
-		<input type="email" class="form-control input" id="auth_email" placeholder="Введи email">		
+		<label for="restore_email">Email</label>
+		<input type="email" class="form-control input" id="restore_email" placeholder="Введи email">		
         <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="button_restore_access">восстановить</button>        
       </div>
