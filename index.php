@@ -13,14 +13,6 @@
 <meta name = "keywords"    	content = "стихи, книги, рассказы, сказки, поэмы, статьи, писатель, поэт"/>
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- styles -->
-<link href = "pages/css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
-<link href = "pages/css/lib/tether.min.css"		     	rel = "stylesheet"/>
-<link href = "pages/css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
-<link href = "pages/css/lib/scroll.css"	             	rel = "stylesheet"/>
-<link href = "pages/css/lib/nprogress.css"			   	rel = "stylesheet">
-<link href = "pages/css/index.css?<?php echo time()?>" 	rel	= "stylesheet"/>
-<!-- libs -->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
@@ -80,6 +72,13 @@
     enable_page_level_ads: true
   });
 </script>
+<!-- styles -->
+<link href = "pages/css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
+<link href = "pages/css/lib/tether.min.css"		     	rel = "stylesheet"/>
+<link href = "pages/css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
+<link href = "pages/css/lib/scroll.css"	             	rel = "stylesheet"/>
+<link href = "pages/css/lib/nprogress.css"			   	rel = "stylesheet">
+<link href = "pages/css/index.css?<?php echo time()?>" 	rel	= "stylesheet"/>
 <body>
 <div class="container-fluid">
 <a class="nav-link active" href="#" id="reader_auth_link">ВХОД</a>
