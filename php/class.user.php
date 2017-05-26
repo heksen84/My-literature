@@ -56,7 +56,7 @@ class User
 		$_SESSION["user_email"] = $email;
 
 		$mail = new Mail("no-reply@my-literature.com");
-		$mail->setFromlogin("Моя литература");
+		$mail->setFromName("Моя литература");
 
 		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
 
@@ -130,10 +130,10 @@ class User
 	{
 		$db = DataBase::getDB();
 		$email = (string)$_GET['email'];
-/*		$_mail = new Mail("no-reply@my-literature.com");
-		$_mail->setFromlogin('12312');
-		$content = "новый пароль";
-		$_mail->send($email, "Данные регистрации", $content);	*/
+		$_mail = new Mail("no-reply@my-literature.com");
+		$_mail->setFromName("Моя литература");
+		$content = "<center>новый пароль: <b>21312312</b><br><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
+		$_mail->send($email, "Данные регистрации", $content);
 		msg::success("answer");
 	}
 	
