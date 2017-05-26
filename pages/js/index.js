@@ -5,25 +5,23 @@
 ------------------------------*/
 $(document).ready(function() 
 {				
+	
 	sweetAlertInitialize();
 	BlurInput();		
 
     $(".link_article").hide();
 	
 	/* -- redirect -- */
-	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) 
-	{
+	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) {
 		localStorage.setItem("read_data_id", localStorage.getItem("rec_id"));		
 		$(location).attr("href", "pages/read_text.php");
 	}
-	else 
-	{
+	else {
 		localStorage.setItem("read_data_id", "");
 	}
 	
-	// -- сбрасить настройки --
+	// -- сбросить настройки --
 	localStorage.setItem("writer_record_id", "");	
-
 		
 	/*
 	----------------------------------------------------------
@@ -67,8 +65,8 @@ $(document).ready(function()
 					case "success": {																			
 							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
 							switch($("#reg_user_type").val()){						
-							case "0": $(location).attr('href', "pages/reader.php"); break;
-							case "1": $(location).attr('href', "pages/writer.php"); break;
+								case "0": $(location).attr('href', "pages/reader.php"); break;
+								case "1": $(location).attr('href', "pages/writer.php"); break;
 						}
 					}
 				}			
@@ -129,7 +127,9 @@ $(document).ready(function()
 		$("#PasswordRestoreWindow").modal().find("input").val("");
 		
 		/* кнопка восстановить */
-		$("#button_restore_access").click(function() {			
+		$("#button_restore_access").click(function() {
+			if ($("#restore_email").val()=="")	warning("укажите email");
+			else
 			$.ajax
 			({
 				url: "server.php",
@@ -160,14 +160,11 @@ $(document).ready(function()
 	function ShowRegisterDialog(login, launcher)
 	{
 		$("#RegWindow").modal().find("input").val("");		
-		RegisterDialogEventers();
-		
-		if (launcher == 0) 
-		{
+		RegisterDialogEventers();		
+		if (launcher == 0) {
 			$("#label_password, #reg_password").show();			
 		}
-		else 
-		{
+		else {
 			$("#reg_login").val(login);						
 			$("#label_password, #reg_password").hide();
 		}		
@@ -262,8 +259,8 @@ $(document).ready(function()
 				case "success": {																				
 					SaveAuthSettingsInStorage($("#auth_email").val(), $("#auth_password").val(), obj.string[0].login, obj.string[0].type);
 					switch(obj.string[0].type){
-					case "0": $(location).attr('href', "pages/reader.php"); break;
-					case "1": $(location).attr('href', "pages/writer.php"); break;
+						case "0": $(location).attr('href', "pages/reader.php"); break;
+						case "1": $(location).attr('href', "pages/writer.php"); break;
 					}
 				}
 			}			

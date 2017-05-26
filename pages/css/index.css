@@ -107,10 +107,6 @@ label
  font-size:15px; 
  color:#4a78c4;
 }
-#PasswordRestoreWindow
-{
- z-index:9999;
-}
 #button_restore_access
 {
  margin:auto;
