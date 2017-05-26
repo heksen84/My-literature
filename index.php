@@ -60,6 +60,7 @@
   ga('send', 'pageview');
 
 </script>
+<script src = "pages/js/loader.js?<?php echo time()?>"></script>
 <script src = "pages/js/lib/jquery-3.2.1.min.js"></script>
 <script src = "pages/js/lib/tether.min.js"></script>
 <script src = "pages/js/lib/bootstrap.min.js"></script>
@@ -82,7 +83,7 @@
 <body>
 <div class="container-fluid">
 <a class="nav-link active" href="#" id="reader_auth_link">ВХОД</a>
-<? include "pages/forms_index.php" ?>
+<?include "pages/forms/forms_index.php"?>
 <!-- контент -->
 <div class="row" id="main_row">	
 	<div class="col-md-12 text-center" id="main_col">		
