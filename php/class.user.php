@@ -1,5 +1,5 @@
 <?php
-include "class.mail.php";
+include_once ("class.mail.php");
 
 class User
 {	
@@ -126,10 +126,14 @@ class User
 	}
 	
 	/* --- восстановить пароль --- */
-	static function restorePassword($email)
+	static function restorePassword()
 	{
 		$db = DataBase::getDB();
 		$email = (string)$_GET['email'];
+/*		$_mail = new Mail("no-reply@my-literature.com");
+		$_mail->setFromlogin('12312');
+		$content = "новый пароль";
+		$_mail->send($email, "Данные регистрации", $content);	*/
 		msg::success("answer");
 	}
 	

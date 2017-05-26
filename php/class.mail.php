@@ -7,43 +7,43 @@ class Mail {
   private $encoding = "utf-8";
   private $notify = false;
 
-  /* Êîíñòðóêòîð ïðèíèìàþùèé îáðàòíûé e-mail àäðåñ */
+  /* ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÑŽÑ‰Ð¸Ð¹ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ e-mail Ð°Ð´Ñ€ÐµÑ */
   public function __construct($from) {
     $this->from = $from;
   }
 
-  /* Èçìåíåíèå îáðàòíîãî e-mail àäðåñà */
+  /* Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð³Ð¾ e-mail Ð°Ð´Ñ€ÐµÑÐ° */
   public function setFrom($from) {
     $this->from = $from;
   }
 
-  /* Èçìåíåíèå èìåíè â îáðàòíîì àäðåñå */
+  /* Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð¸Ð¼ÐµÐ½Ð¸ Ð² Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð¼ Ð°Ð´Ñ€ÐµÑÐµ */
   public function setFromName($from_name) {
     $this->from_name = $from_name;
   }
 
-  /* Èçìåíåíèå òèïà ñîäåðæèìîãî ïèñüìà */
+  /* Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ñ‚Ð¸Ð¿Ð° ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾ Ð¿Ð¸ÑÑŒÐ¼Ð° */
   public function setType($type) {
     $this->type = $type;
   }
 
-  /* Íóæíî ëè çàïðàøèâàòü ïîäòâåðæäåíèå ïèñüìà */
+  /* ÐÑƒÐ¶Ð½Ð¾ Ð»Ð¸ Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð° */
   public function setNotify($notify) {
     $this->notify = $notify;
   }
 
-  /* Èçìåíåíèå êîäèðîâêè ïèñüìà */
+  /* Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÐ¸ Ð¿Ð¸ÑÑŒÐ¼Ð° */
   public function setEncoding($encoding) {
     $this->encoding = $encoding;
   }
 
-  /* Ìåòîä îòïðàâêè ïèñüìà */
+  /* ÐœÐµÑ‚Ð¾Ð´ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ Ð¿Ð¸ÑÑŒÐ¼Ð° */
   public function send($to, $subject, $message) {
-    $from = "=?utf-8?B?".base64_encode($this->from_name)."?="." <".$this->from.">"; // Êîäèðóåì îáðàòíûé àäðåñ (âî èçáåæàíèå ïðîáëåì ñ êîäèðîâêîé)
-    $headers = "From: ".$from."\r\nReply-To: ".$from."\r\nContent-type: ".$this->type."; charset=".$this->encoding."\r\n"; // Óñòàíàâëèâàåì íåîáõîäèìûå çàãîëîâêè ïèñüìà
-    if ($this->notify) $headers .= "Disposition-Notification-To: ".$this->from."\r\n"; // Äîáàâëÿåì çàïðîñ ïîäòâåðæäåíèÿ ïîëó÷åíèÿ ïèñüìà, åñëè òðåáóåòñÿ
-    $subject = "=?utf-8?B?".base64_encode($subject)."?="; // Êîäèðóåì òåìó (âî èçáåæàíèå ïðîáëåì ñ êîäèðîâêîé)
-    return mail($to, $subject, $message, $headers); // Îòïðàâëÿåì ïèñüìî è âîçâðàùàåì ðåçóëüòàò
+    $from = "=?utf-8?B?".base64_encode($this->from_name)."?="." <".$this->from.">"; // ÐšÐ¾Ð´Ð¸Ñ€ÑƒÐµÐ¼ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ Ð°Ð´Ñ€ÐµÑ (Ð²Ð¾ Ð¸Ð·Ð±ÐµÐ¶Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ Ñ ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÐ¾Ð¹)
+    $headers = "From: ".$from."\r\nReply-To: ".$from."\r\nContent-type: ".$this->type."; charset=".$this->encoding."\r\n"; // Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ñ‹Ðµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ¸ Ð¿Ð¸ÑÑŒÐ¼Ð°
+    if ($this->notify) $headers .= "Disposition-Notification-To: ".$this->from."\r\n"; // Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð¿Ð¸ÑÑŒÐ¼Ð°, ÐµÑÐ»Ð¸ Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ
+    $subject = "=?utf-8?B?".base64_encode($subject)."?="; // ÐšÐ¾Ð´Ð¸Ñ€ÑƒÐµÐ¼ Ñ‚ÐµÐ¼Ñƒ (Ð²Ð¾ Ð¸Ð·Ð±ÐµÐ¶Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ Ñ ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÐ¾Ð¹)
+    return mail($to, $subject, $message, $headers); // ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÐµÐ¼ Ð¿Ð¸ÑÑŒÐ¼Ð¾ Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚
   }
 }
 ?>
