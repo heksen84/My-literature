@@ -129,10 +129,30 @@ $(document).ready(function()
 		$("#PasswordRestoreWindow").modal().find("input").val("");
 		
 		/* кнопка восстановить */
-		$("#button_restore_access").click(function() {				
-			swal("","Новый пароль отправлен на указанный email","success");							
-			$("#PasswordRestoreWindow").modal("hide");
-			$("#AuthWindow").modal("hide");			
+		$("#button_restore_access").click(function() {			
+			$.ajax
+			({
+				url: "server.php",
+				data: 
+				{
+					"func": "SRV_RestorePassword",                    
+					"email": $("#restore_email").val(),								
+				}, 				
+			}).done(function( data ) 
+			{											
+				var obj = jQuery.parseJSON(data);				
+				switch(obj.answer)
+				{
+					case "error": error(obj.string); break;
+					case "warning": warning(obj.string); break;
+					case "success": 
+					{																				
+						swal("","Новый пароль отправлен на указанный email","success");							
+						$("#PasswordRestoreWindow").modal("hide");
+						$("#AuthWindow").modal("hide");
+					}
+				}						
+			});									
 		});
 	});
 	

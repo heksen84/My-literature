@@ -98,6 +98,12 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$rec->getLikes();					
 					break;
 				}
+				
+				/* -- восстановить пароль -- */
+				case "SRV_RestorePassword": {		
+					$user->restorePassword();					
+					break;
+				}
 			}
 		}
 	break;

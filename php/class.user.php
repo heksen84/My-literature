@@ -127,7 +127,10 @@ class User
 	
 	/* --- восстановить пароль --- */
 	static function restorePassword($email)
-	{  
+	{
+		$db = DataBase::getDB();
+		$email = (string)$_GET['email'];
+		msg::success("answer");
 	}
 	
 	/* --- активировать пароль --- */
