@@ -119,13 +119,31 @@ $(document).ready(function()
 		$("#AuthWindow").modal();
 	});
 	
-	/* диалог регистрации */
+	/* 
+	---------------------------------------
+	восстановить доступ
+	--------------------------------------- */
+	$("#password_restore_link").click(function() 
+	{						
+		/* очистить поле email */
+		$("#PasswordRestoreWindow").modal().find("input").val("");
+		
+		/* кнопка восстановить */
+		$("#button_restore_access").click(function() 
+		{				
+			$("#PasswordRestoreWindow").modal("hide");
+			$("#AuthWindow").modal("hide");
+			success("Новый пароль отправлен на указанный email");
+		});		
+	});
+	
+	/* --- диалог регистрации --- */
 	function ShowRegisterDialog(login, launcher)
 	{
 		$("#RegWindow").modal().find("input").val("");		
 		RegisterDialogEventers();
 		
-		if (launcher==0) 
+		if (launcher == 0) 
 		{
 			$("#label_password, #reg_password").show();			
 		}
@@ -136,7 +154,7 @@ $(document).ready(function()
 		}		
 	}
 	
-	/* vk auth */
+	/* --- vk auth ---*/
 	function authInfo(response)
 	{			
 		if (response.session) 
