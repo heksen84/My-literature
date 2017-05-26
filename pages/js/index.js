@@ -3,25 +3,27 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------*/
+/* -- redirect -- */
+if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) 
+{
+	localStorage.setItem("read_data_id", localStorage.getItem("rec_id"));		
+	$(location).attr("href", "pages/read_text.php");
+}
+else 
+{
+	localStorage.setItem("read_data_id", "");
+}
+
+// -- сбросить настройки --
+localStorage.setItem("writer_record_id", "");
+	
 $(document).ready(function() 
 {				
 	
 	sweetAlertInitialize();
 	BlurInput();		
 
-    $(".link_article").hide();
-	
-	/* -- redirect -- */
-	if (localStorage.getItem("rec_id") != "" && localStorage.getItem("rec_id") != undefined) {
-		localStorage.setItem("read_data_id", localStorage.getItem("rec_id"));		
-		$(location).attr("href", "pages/read_text.php");
-	}
-	else {
-		localStorage.setItem("read_data_id", "");
-	}
-	
-	// -- сбросить настройки --
-	localStorage.setItem("writer_record_id", "");	
+    $(".link_article").hide();		
 		
 	/*
 	----------------------------------------------------------
@@ -145,7 +147,7 @@ $(document).ready(function()
 				{
 					"func": "SRV_RestorePassword",                    
 					"email": $("#restore_email").val(),								
-				}, 				
+				}, async:false,				
 			}).done(function( data ) 
 			{											
 				var obj = jQuery.parseJSON(data);				
