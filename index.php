@@ -10,7 +10,7 @@
 <meta charset = "utf-8">
 <meta name = "viewport" 	content	= "width=device-width"/>
 <meta name = "description" 	content = "литературный ресурс"/>
-<meta name = "keywords"    	content = "стихи, книги, рассказы, сказки, поэмы, статьи, писатель, поэт"/>
+<meta name = "keywords"    	content = "книги онлайн, онлайн, читать, стихи, книги, рассказы, сказки, поэмы, статьи, писатель, поэт"/>
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Yandex.Metrika counter -->
