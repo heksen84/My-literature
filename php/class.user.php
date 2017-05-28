@@ -85,7 +85,7 @@ class User
 		if (!$result) msg::error("email - не найден!");
 		
 		if (!password_verify($password, $result[0]["password"])) 
-		msg::error("не верные данные");	
+		msg::error("данные не подходят");	
 		
 		$_SESSION["user_id"] 	= $result[0]["id"];
 		$_SESSION["user_login"] = $result[0]["login"];						
@@ -130,21 +130,20 @@ class User
 	{
 		$db = DataBase::getDB();
 		$email = (string)$_GET['email'];
-		$_mail = new Mail("no-reply@my-literature.com");
-		$_mail->setFromName("Моя литература");
-		$content = "<center>новый пароль: <b>21312312</b><br><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
-		$_mail->send($email, "Данные регистрации", $content);
+		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
+		if (!$table) msg::warning("email не найден");
+
+		$new_pass = uniqid();		
+		$hash_password = password_hash($new_pass, PASSWORD_BCRYPT);
+		
+		$result = $db->query("UPDATE `users` SET password='".$hash_password."' WHERE email='".$email."'");						
+		if (!$result) msg::error("невозможно установить пароль");
+		
+		$mail = new Mail("no-reply@my-literature.com");
+		$mail->setFromName("Моя литература");
+		$content = "<center>новый пароль: <b>".$new_pass."</b><br><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
+		$mail->send($email, "Сброс пароля", $content);
 		msg::success("answer");
-	}
-	
-	/* --- активировать пароль --- */
-	static function activatePassword($email)
-	{  
-	}
- 
-	/* --- удаление --- */
-	static function delete()
-	{  
 	}
 }
 ?>

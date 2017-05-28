@@ -28,7 +28,7 @@ class util
 		fwrite($fp, "<meta charset='utf-8'>");
 		fwrite($fp, "<meta name='viewport' content='width=device-width'/>");
 		fwrite($fp, "<meta name='description' content='".$desc."'/>");
-		fwrite($fp, "<meta name='keywords' content='литература'/>");
+		fwrite($fp, "<meta name='keywords' content='".$title." читать онлайн'/>");
 		fwrite($fp, "<meta name='robots' content='index, follow'/>");
 		fwrite($fp, "<title>".$title."</title>");
 		fwrite($fp, "</head>");
