@@ -39,7 +39,7 @@ class util
 		$sitemap = simplexml_load_file("sitemap.xml");
 
 		$url = $sitemap->addChild('url');
-		$url->addChild("loc", "https://www.".$_SERVER['SERVER_NAME']."/".$dir."/".$name.".html");
+		$url->addChild("loc", "https://".$_SERVER['SERVER_NAME']."/".$dir."/".$name.".html");
 		$url->addChild("changefreq", "daily");
 		$url->addChild("priority", "0.5");
 		$dom = new DOMDocument('1.0');
