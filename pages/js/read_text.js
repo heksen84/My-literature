@@ -5,10 +5,11 @@
 ------------------------------*/
 $(document).ready(function() 
 {											
+	var reader = null;
+	
 	sweetAlertInitialize();
 	BlurInput();
 
-	var reader = null;
 	if (localStorage.getItem("rec_id") != "") reader="web";
 		
 	/* -- назад -- */
