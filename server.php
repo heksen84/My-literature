@@ -18,8 +18,8 @@ include "php/class.writer.php";
 include "php/class.categories.php";
 
 session_start();
-/* ------------- [ одиночки ] ------------- */
 
+/* ------------- [ одиночки ] ------------- */
 $db			= DataBase::getDB();
 $user		= User::getUser();	
 $rec 		= Record::getRecord();	
@@ -28,6 +28,7 @@ $text		= Text::getText();
 $bookmark	= BookMark::getBookMark();
 $writer		= Writer::getWriter();
 $categories	= Categories::getCategories();
+$lang		= Lang::getLang();
 
 /* -------------- [ роутинг ] -------------- */
 switch(strtoupper($_SERVER["REQUEST_METHOD"])) {	
@@ -97,11 +98,20 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				case "SRV_GetLikes": {		
 					$rec->getLikes();					
 					break;
-				}
-				
+				}				
 				/* -- восстановить пароль -- */
 				case "SRV_RestorePassword": {		
 					$user->restorePassword();					
+					break;
+				}
+				/* -- установить язык --*/
+				case "SRV_SetLanguage": {		
+					$lang->setLanguage();					
+					break;
+				}
+				/* -- получить содержимое страницы --*/
+				case "SRV_GetStrings": {		
+					$lang->getStrings();					
 					break;
 				}
 			}
