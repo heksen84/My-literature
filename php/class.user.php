@@ -1,6 +1,6 @@
 <?php
-
 include_once ("class.mail.php");
+
 class User
 {	
 	private static $user = null;	
@@ -47,7 +47,7 @@ class User
 			$mail = new Mail("no-reply@my-literature.com");
 			$mail->setFromName("Моя литература");
 			$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
-			$mail->send($email, "-", $content);		
+			$mail->send($email, "Моя литература", $content);		
 			msg::success($login);
 		}
 		else
@@ -146,12 +146,9 @@ class User
 		$db = DataBase::getDB();
 		$vk_id = (int)$_GET['vk_id'];
 		
-		// -- 1) НУЖНО ЗАРЕГАТЬСЯ --
-		
-		if (!empty($vk_id))
-		{
-			$result = $db->select("SELECT COUNT(*) as count FROM `users` WHERE vk_id=".$vk_id);
-			msg::success($result[0]["count"]);			
+		if (!empty($vk_id)){			
+			$result = $db->select("SELECT id,type,login,email FROM `users` WHERE vk_id=".$vk_id);
+			msg::success($result);			
 		}	  
 	}
 	

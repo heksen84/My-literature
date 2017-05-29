@@ -71,6 +71,7 @@ $(document).ready(function()
 	--------------------------------------- */
 	$("#password_restore_link").click(function() 
 	{						
+		
 		/* очистить поле email */
 		$("#PasswordRestoreWindow").modal().find("input").val("");		
 		
@@ -117,8 +118,15 @@ $(document).ready(function()
 	----------------------------------
 	REGISTER
 	----------------------------------*/	
-	function RegisterAjax(vk_id) {						
-		$("#button_reg").off().click(function() {							
+	function RegisterAjax(vk_id) 
+	{						
+		$("#button_reg").off().click(function() 
+		{										
+			if (!ValidateEmail($("#reg_email").val())) {
+				$("#reg_email").focus();
+				warning("введи нормальный email");				
+			}
+			else
 			$.ajax
 			({
 				url: "server.php",
@@ -154,7 +162,7 @@ $(document).ready(function()
 		
 	/* --- диалог регистрации --- */
 	function ShowRegisterDialog(launcher, login, vk_id)
-	{
+	{		
 		$("#RegWindow").modal().find("input").val("");				
 		
 		/* стандартная регистрация */
@@ -193,7 +201,7 @@ $(document).ready(function()
 							}, 
 							async:false,
 						}).done(function( data ) 
-						{											
+						{																		
 							var obj = jQuery.parseJSON(data);				
 							switch(obj.answer)
 							{
@@ -201,7 +209,17 @@ $(document).ready(function()
 								case "warning": warning(obj.string); break;
 								case "success": 
 								{																				
-									if (obj.string == 0) ShowRegisterDialog(1, r.response[0].first_name+response.session.mid, response.session.mid);									
+									if (obj.string=="") {										
+										ShowRegisterDialog(1, r.response[0].first_name+response.session.mid, response.session.mid)
+									}
+									else 
+									{
+										SaveAuthSettingsInStorage(obj.string[0].email, null, obj.string[0].login, obj.string[0].type);
+										switch(obj.string[0].type){
+										case "0": $(location).attr('href', "pages/reader.php"); break;
+										case "1": $(location).attr('href', "pages/writer.php"); break;
+										}										
+									}
 								}
 							}						
 						});												
