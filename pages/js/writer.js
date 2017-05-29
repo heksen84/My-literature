@@ -3,14 +3,14 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------*/
-var max_symbols = 100000;
-
 /*
 ----------------------------------
  JQUERY
 ----------------------------------*/	
 $(document).ready(function() 
 {								
+	var max_symbols = 200000;
+	
 	sweetAlertInitialize();
 	BlurInput();	
 	
