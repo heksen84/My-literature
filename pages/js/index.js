@@ -117,16 +117,15 @@ $(document).ready(function()
 	----------------------------------
 	REGISTER
 	----------------------------------*/	
-	function RegisterAjax(vk_id) 
-	{									
-		$("#button_reg").off().click(function() 
-		{							
+	function RegisterAjax(vk_id) {						
+		$("#button_reg").off().click(function() {							
 			$.ajax
 			({
 				url: "server.php",
 				data: 
 				{
 					"func": "SRV_RegUser",
+					"vk_id": vk_id,
 					"type": $("#reg_user_type").val(),
 					"login": $("#reg_login").val(),					
 					"email": $("#reg_email").val(),
@@ -159,51 +158,16 @@ $(document).ready(function()
 		$("#RegWindow").modal().find("input").val("");				
 		
 		/* стандартная регистрация */
-		if (launcher == 0) 
-		{
+		if (launcher == 0) {
 			$("#label_password, #reg_password").show();
-			RegisterAjax();					
+			RegisterAjax(null);					
 		}
 		else 
-		{
+		{			
 			/* регистрация через vk */
 			$("#reg_login").val(login);						
 			$("#label_password, #reg_password").hide();
-			
-			/* button reg */
-			$("#button_reg").off().click(function() 
-			{							
-				alert(vk_id);
-				/*$.ajax
-				({
-					url: "server.php",
-					data: 
-					{
-						"func": "SRV_RegUser",
-						"type": $("#reg_user_type").val(),
-						"login": $("#reg_login").val(),					
-						"email": $("#reg_email").val(),
-						"password": $("#reg_password").val(),					
-					}, 
-					method: "POST", 
-					async:false,
-				}).done(function( data ) 
-				{			
-					var obj = jQuery.parseJSON(data);
-					switch(obj.answer)
-					{				
-						case "error": error(obj.string); break;
-						case "warning": warning(obj.string); break;
-						case "success": {																			
-							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
-							switch($("#reg_user_type").val()){						
-								case "0": $(location).attr('href', "pages/reader.php"); break;
-								case "1": $(location).attr('href', "pages/writer.php"); break;
-						}
-					}
-				}			
-			});*/
-		});
+			RegisterAjax(vk_id);			
 		}		
 	}
 	
