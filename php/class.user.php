@@ -1,6 +1,6 @@
 <?php
-include_once ("class.mail.php");
 
+include_once ("class.mail.php");
 class User
 {	
 	private static $user = null;	
@@ -18,8 +18,8 @@ class User
 	{	
 		if (empty($_POST['vk_id'])) msg::error("путо");
 		msg::error($_POST['vk_id']);
+		
 		$db	= DataBase::getDB();						
-
 		if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) 
 			msg::error("нет данных");
 				
@@ -70,7 +70,6 @@ class User
 	function auth()
 	{						
 		$db = DataBase::getDB();				
-		
 		if (!isset($_GET['email']) || !isset($_GET['password'])) msg::error("нет данных");					
 
 		$email	  = (string)$_GET['email'];        
@@ -86,8 +85,7 @@ class User
 		$result = $db->select("SELECT id,type,login,password FROM `users` WHERE email='".$email."'");
 		if (!$result) msg::error("email - не найден!");
 		
-		if (!password_verify($password, $result[0]["password"])) 
-		msg::error("данные не подходят");	
+		if (!password_verify($password, $result[0]["password"])) msg::error("данные не подходят");	
 		
 		$_SESSION["user_id"] 	= $result[0]["id"];
 		$_SESSION["user_login"] = $result[0]["login"];						
@@ -101,7 +99,6 @@ class User
 	function update()
 	{
 		$db	= DataBase::getDB();
-		
 		if (!isset($_POST['login']) || !isset($_POST['email'])) msg::error("нет данных");
 		
 		$login	= (string)$_POST["login"];		
