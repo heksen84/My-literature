@@ -16,7 +16,7 @@
 <div class="row">
 <div class="col-md-12 text-center">
 <h4 style="margin-top:30px">
-К сожалению текст не найден!<br>Скорее всего он был удалён.
+К сожалению текст не был найден!<br>Скорее всего он был удалён.
 <br>:(
 <div class="col-md-12 text-center"><br><a href="https://www.my-literature.com">на главную</a></div>
 </h4>
