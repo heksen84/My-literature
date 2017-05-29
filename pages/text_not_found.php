@@ -15,8 +15,10 @@
 </head>
 <div class="row">
 <div class="col-md-12 text-center">
-<h5 style="margin-top:30px">К сожалению текст не найден!<br>Скорее всего его удалили.</h5>
-<a href="https://www.my-literature.com">на главную</a>
+<h4 style="margin-top:30px">
+К сожалению текст не найден.<br>Скорее всего его удалили.
+<br><a href="https://www.my-literature.com">на главную</a>
+</h4>
 </div>
 </div>
 </html>

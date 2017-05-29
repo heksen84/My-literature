@@ -133,6 +133,9 @@ $(document).ready(function()
 				case "warning": warning(obj.string); break;
 				case "success": 
 				{					
+ 					if (obj.string==""){
+					$(location).attr('href', "text_not_found.php");									
+					}
 					/* данные записи */															
 					$("#col-title").html(obj.string[0].title);
 					$("#col-desc").html(obj.string[0].description);												
