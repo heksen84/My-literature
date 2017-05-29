@@ -143,12 +143,20 @@ class User
 	/* --- авторизация через VK --- */	
 	function authFromVK()
 	{						
-		$db = DataBase::getDB();
-		$vk_id = (int)$_GET['vk_id'];
+		$db = DataBase::getDB();		
 		
-		if (!empty($vk_id)){			
+		$vk_id = (int)$_GET['vk_id'];		
+		
+		if (!empty($vk_id))
+		{			
 			$result = $db->select("SELECT id,type,login,email FROM `users` WHERE vk_id=".$vk_id);
-			msg::success($result);			
+			if ($result) 
+			{
+				$_SESSION["user_id"] 	= $result[0]["id"];
+				$_SESSION["user_login"] = $result[0]["login"];	
+				msg::success($result);
+			}
+			msg::error("не возможно авторизироваться");			
 		}	  
 	}
 	
