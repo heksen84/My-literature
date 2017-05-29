@@ -16,14 +16,43 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{			
-		$db	= DataBase::getDB();
-		
-		if (!empty($_POST['vk_id']))
+		$db	= DataBase::getDB();		
+		$vk_id  = $_POST['vk_id'];
+
+		/* -- регистрация через vk -- */
+		if (!empty($vk_id)) 
 		{
-			msg::error($_POST['vk_id']);
+			if (!isset($vk_id)) msg::error("нет данных");
+			
+			$type 	  = (int)$_POST['type'];
+			$login 	  = (string)$_POST['login'];		
+			$email    = (string)$_POST['email'];
+			
+			// --- безопасность
+			$login 		= $db->safe_string($login);		
+			$login 		= trim($login);				
+			$email		= $db->safe_string($email);		
+			$email 		= trim($email);
+			
+			if (empty($login) || empty($email)) msg::warning("поля должны быть заполнены");
+			
+			$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
+			if ($table!=false) msg::warning("пользователь уже существует");
+			
+			$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$login."','".$email."','','".$vk_id."','0','0',NOW(),NOW())");
+		
+			$_SESSION["user_id"] 	= $user_id;
+			$_SESSION["user_email"] = $email;
+			
+			$mail = new Mail("no-reply@my-literature.com");
+			$mail->setFromName("Моя литература");
+			$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
+			$mail->send($email, "Данные регистрации", $content);		
+			msg::success($login);
 		}
 		else
 		{		
+			/* -- стандартная регистрация -- */
 			if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) msg::error("нет данных");
 				
 			$type 	  = (int)$_POST['type'];
@@ -33,8 +62,7 @@ class User
 					
 			// --- безопасность
 			$login 		= $db->safe_string($login);		
-			$login 		= trim($login);
-				
+			$login 		= trim($login);				
 			$email		= $db->safe_string($email);		
 			$email 		= trim($email);
 		
