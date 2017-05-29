@@ -47,7 +47,7 @@ class User
 			$mail = new Mail("no-reply@my-literature.com");
 			$mail->setFromName("Моя литература");
 			$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
-			$mail->send($email, "Данные регистрации", $content);		
+			$mail->send($email, "-", $content);		
 			msg::success($login);
 		}
 		else
