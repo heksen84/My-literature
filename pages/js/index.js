@@ -154,7 +154,7 @@ $(document).ready(function()
 	}
 		
 	/* --- диалог регистрации --- */
-	function ShowRegisterDialog(login, launcher)
+	function ShowRegisterDialog(launcher, login, vk_id)
 	{
 		$("#RegWindow").modal().find("input").val("");				
 		
@@ -173,7 +173,7 @@ $(document).ready(function()
 			/* button reg */
 			$("#button_reg").off().click(function() 
 			{							
-				alert("vk!");
+				alert(vk_id);
 				/*$.ajax
 				({
 					url: "server.php",
@@ -237,10 +237,7 @@ $(document).ready(function()
 								case "warning": warning(obj.string); break;
 								case "success": 
 								{																				
-									if (obj.string==0)
-									{
-										ShowRegisterDialog(r.response[0].first_name+response.session.mid, 1);
-									}
+									if (obj.string == 0) ShowRegisterDialog(1, r.response[0].first_name+response.session.mid, response.session.mid);									
 								}
 							}						
 						});												
@@ -258,7 +255,7 @@ $(document).ready(function()
 	// --- регистрация ---
 	$("#reg_link").click(function() 
 	{
-		ShowRegisterDialog(null, 0);
+		ShowRegisterDialog(0, null, null);
 	});
 		
 	// --- VK! ---
