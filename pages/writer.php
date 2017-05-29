@@ -44,7 +44,7 @@
   aria-label="Toggle navigation" id="nav_bar_button" style="background:#1584ea">
   <span class="navbar-toggler-icon" style="font-size:14px;"></span>
   </button>
-  <a class="navbar-brand" href="#" id="user_name">&nbsp;</a>
+  <a class="navbar-brand" href="#" id="user_login">&nbsp;</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">            	  	  	
 	<li class="nav-item active">
@@ -68,15 +68,15 @@
 <label for="load_text" class="grey_shadow_text">Загрузить текст</label>
 <input type="file" id="load_text" name="fileupload" accept=".txt" style="margin-bottom:7px"/>
 </div>
-<textarea class="form-control" id="editor" placeholder="текст..." maxlength="150000"></textarea>
+<textarea class="form-control" id="editor" placeholder="текст..." maxlength="200000"></textarea>
 <div id="info_panel">&nbsp;</div>
 </div>
 <!-- ROW2 -->
 <div class="col-md-3">
 <label for="text" style="margin-top:10px" class="grey_shadow_text">Название</label>
-<input type="text" class="form-control" maxlength="100" id="title" placeholder="Название текста">
+<input type="text" class="form-control" maxlength="100" id="title">
 <label for="short_description" class="grey_shadow_text">Примечание</label>
-<textarea class="form-control" id="short_description" placeholder="Здесь, можно указать имя автора или другую информацию"></textarea>
+<textarea class="form-control" id="short_description"></textarea>
 <label for="type_of_literature" class="grey_shadow_text">Тип литературы</label>
 <select class="form-control" id="type_of_literature">
 </select>
