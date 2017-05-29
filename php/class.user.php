@@ -16,6 +16,8 @@ class User
 	/* --- регистрация --- */
 	function register()
 	{	
+		if (empty($_POST['vk_id'])) msg::error("путо");
+		msg::error($_POST['vk_id']);
 		$db	= DataBase::getDB();						
 
 		if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) 
@@ -118,6 +120,9 @@ class User
 	{						
 		$db = DataBase::getDB();
 		$vk_id = (int)$_GET['vk_id'];
+		
+		// -- 1) НУЖНО ЗАРЕГАТЬСЯ --
+		
 		if (!empty($vk_id))
 		{
 			$result = $db->select("SELECT COUNT(*) as count FROM `users` WHERE vk_id=".$vk_id);
