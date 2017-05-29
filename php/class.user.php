@@ -15,55 +15,55 @@ class User
 						
 	/* --- регистрация --- */
 	function register()
-	{	
-		if (empty($_POST['vk_id'])) msg::error("путо");
-		msg::error($_POST['vk_id']);
+	{			
+		$db	= DataBase::getDB();
 		
-		$db	= DataBase::getDB();						
-		if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) 
-			msg::error("нет данных");
+		if (!empty($_POST['vk_id']))
+		{
+			msg::error($_POST['vk_id']);
+		}
+		else
+		{		
+			if (!isset($_POST['type']) || !isset($_POST['login']) || !isset($_POST['email']) || !isset($_POST['password'])) msg::error("нет данных");
 				
-		$type 	  = (int)$_POST['type'];
-		$login 	  = (string)$_POST['login'];		
-	    $email    = (string)$_POST['email'];
-        $password = (string)$_POST['password'];
-
-						
-		// --- безопасность ---				
-		$login 		= $db->safe_string($login);		
-		$login 		= trim($login);
+			$type 	  = (int)$_POST['type'];
+			$login 	  = (string)$_POST['login'];		
+			$email    = (string)$_POST['email'];
+			$password = (string)$_POST['password'];
+					
+			// --- безопасность
+			$login 		= $db->safe_string($login);		
+			$login 		= trim($login);
 				
-		$email		= $db->safe_string($email);		
-		$email 		= trim($email);
+			$email		= $db->safe_string($email);		
+			$email 		= trim($email);
 		
-		$password	= $db->safe_string($password);					
-		$password 	= trim($password);
+			$password	= $db->safe_string($password);					
+			$password 	= trim($password);
 		
-		if (empty($login) || empty($email) || empty($password)) 
-			msg::warning("поля должны быть заполнены");
+			if (empty($login) || empty($email) || empty($password)) msg::warning("поля должны быть заполнены");
 				
-		$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
-		if ($table!=false) msg::warning("пользователь уже существует");
+			$table = $db->select("SELECT * FROM `users` WHERE email='".$email."'");		
+			if ($table!=false) msg::warning("пользователь уже существует");
 				
-		if (strlen($password) < 5) msg::error("плохой пароль");
-		$hash_password = password_hash($password, PASSWORD_BCRYPT); 	
+			if (strlen($password) < 5) msg::error("плохой пароль");
+			$hash_password = password_hash($password, PASSWORD_BCRYPT); 	
 		
-		$vk_id = 0; 
-		$ok_id = 0; 
-		$fb_id = 0;		
+			$vk_id = 0; 
+			$ok_id = 0; 
+			$fb_id = 0;		
 		
-		$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$login."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
+			$user_id = $db->query("INSERT INTO `users` VALUES (NULL,'".$type."','".$login."','".$email."','".$hash_password."','".$vk_id."','".$ok_id."','".$fb_id."',NOW(),NOW())");
 		
-		$_SESSION["user_id"] 	= $user_id;
-		$_SESSION["user_email"] = $email;
+			$_SESSION["user_id"] 	= $user_id;
+			$_SESSION["user_email"] = $email;
 
-		$mail = new Mail("no-reply@my-literature.com");
-		$mail->setFromName("Моя литература");
-
-		$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
-
-		$mail->send($email, "Данные регистрации", $content);		
-		msg::success($login);
+			$mail = new Mail("no-reply@my-literature.com");
+			$mail->setFromName("Моя литература");
+			$content = "<center><h1>Добро пожаловать в портал МОЯ ЛИТЕРАТУРА!</h1><h2>Ваш пароль: ".$password."</h2><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
+			$mail->send($email, "Данные регистрации", $content);		
+			msg::success($login);
+		}
 	}
  
 	/* --- авторизация --- */
