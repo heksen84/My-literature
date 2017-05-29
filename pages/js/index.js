@@ -6,11 +6,11 @@
 /* -- документ загружен -- */	
 $(document).ready(function() 
 {					
+	$(".link_article").hide();		
+	
 	sweetAlertInitialize();
-	BlurInput();		
-
-    $(".link_article").hide();		
-		
+	BlurInput();		    
+	
 	/*
 	----------------------------------------------------------
 	сохранить данные в localstorage
@@ -22,46 +22,6 @@ $(document).ready(function()
 		localStorage.setItem("user_type", type);		
 	}
 
-	/*
-	----------------------------------
-	REGISTER
-	----------------------------------*/	
-	function RegisterDialogEventers() 
-	{									
-		$("#button_reg").off().click(function() 
-		{							
-			$.ajax
-			({
-				url: "server.php",
-				data: 
-				{
-					"func": "SRV_RegUser",
-					"type": $("#reg_user_type").val(),
-					"login": $("#reg_login").val(),					
-					"email": $("#reg_email").val(),
-					"password": $("#reg_password").val(),					
-				}, 
-				method: "POST", 
-				async:false,
-			}).done(function( data ) 
-			{			
-				var obj = jQuery.parseJSON(data);
-				switch(obj.answer)
-				{				
-					case "error": error(obj.string); break;
-					case "warning": warning(obj.string); break;
-					case "success": {																			
-							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
-							switch($("#reg_user_type").val()){						
-								case "0": $(location).attr('href', "pages/reader.php"); break;
-								case "1": $(location).attr('href', "pages/writer.php"); break;
-						}
-					}
-				}			
-			});
-		});		
-	}
-	
 	/*
 	-------------------------------------
 	КАТЕГОРИИ
@@ -133,7 +93,8 @@ $(document).ready(function()
 				{
 					"func": "SRV_RestorePassword",                    
 					"email": $("#restore_email").val(),								
-				}, async:false,				
+				}, 
+				async:false,				
 			}).done(function( data ) 
 			{											
 				var obj = jQuery.parseJSON(data);				
@@ -152,17 +113,97 @@ $(document).ready(function()
 		});
 	});
 	
+	/*
+	----------------------------------
+	REGISTER
+	----------------------------------*/	
+	function RegisterAjax(vk_id) 
+	{									
+		$("#button_reg").off().click(function() 
+		{							
+			$.ajax
+			({
+				url: "server.php",
+				data: 
+				{
+					"func": "SRV_RegUser",
+					"type": $("#reg_user_type").val(),
+					"login": $("#reg_login").val(),					
+					"email": $("#reg_email").val(),
+					"password": $("#reg_password").val(),					
+				}, 
+				method: "POST", 
+				async:false,
+			}).done(function( data ) 
+			{			
+				var obj = jQuery.parseJSON(data);
+				switch(obj.answer)
+				{				
+					case "error": error(obj.string); break;
+					case "warning": warning(obj.string); break;
+					case "success": {																			
+							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
+							switch($("#reg_user_type").val()){						
+								case "0": $(location).attr('href', "pages/reader.php"); break;
+								case "1": $(location).attr('href', "pages/writer.php"); break;
+						}
+					}
+				}			
+			});
+		});		
+	}
+		
 	/* --- диалог регистрации --- */
 	function ShowRegisterDialog(login, launcher)
 	{
-		$("#RegWindow").modal().find("input").val("");		
-		RegisterDialogEventers();		
-		if (launcher == 0) {
-			$("#label_password, #reg_password").show();			
+		$("#RegWindow").modal().find("input").val("");				
+		
+		/* стандартная регистрация */
+		if (launcher == 0) 
+		{
+			$("#label_password, #reg_password").show();
+			RegisterAjax();					
 		}
-		else {
+		else 
+		{
+			/* регистрация через vk */
 			$("#reg_login").val(login);						
 			$("#label_password, #reg_password").hide();
+			
+			/* button reg */
+			$("#button_reg").off().click(function() 
+			{							
+				alert("vk!");
+				/*$.ajax
+				({
+					url: "server.php",
+					data: 
+					{
+						"func": "SRV_RegUser",
+						"type": $("#reg_user_type").val(),
+						"login": $("#reg_login").val(),					
+						"email": $("#reg_email").val(),
+						"password": $("#reg_password").val(),					
+					}, 
+					method: "POST", 
+					async:false,
+				}).done(function( data ) 
+				{			
+					var obj = jQuery.parseJSON(data);
+					switch(obj.answer)
+					{				
+						case "error": error(obj.string); break;
+						case "warning": warning(obj.string); break;
+						case "success": {																			
+							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
+							switch($("#reg_user_type").val()){						
+								case "0": $(location).attr('href', "pages/reader.php"); break;
+								case "1": $(location).attr('href', "pages/writer.php"); break;
+						}
+					}
+				}			
+			});*/
+		});
 		}		
 	}
 	
