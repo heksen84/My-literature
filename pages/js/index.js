@@ -19,6 +19,7 @@ $(document).ready(function()
 		localStorage.setItem("auth_email", email);
 		localStorage.setItem("auth_password", pass);
 		localStorage.setItem("user_login", login);
+		localStorage.setItem("internal_login", login); // для личного кабинета
 		localStorage.setItem("user_type", type);		
 	}
 
@@ -148,7 +149,11 @@ $(document).ready(function()
 				{				
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
-					case "success": {																			
+					case "success": {														
+							if (vk_id!="") {
+								localStorage.setItem("social_auth", "true"); 
+							}
+							else localStorage.setItem("social_auth", "false");																				
 							SaveAuthSettingsInStorage($("#reg_email").val(), $("#reg_password").val(), $("#reg_login").val(), $("#reg_user_type").val());
 							switch($("#reg_user_type").val()){						
 								case "0": $(location).attr('href', "pages/reader.php"); break;
@@ -214,7 +219,8 @@ $(document).ready(function()
 									}
 									else 
 									{
-										SaveAuthSettingsInStorage(obj.string[0].email, null, obj.string[0].login, obj.string[0].type);
+										localStorage.setItem("social_auth", "true"); 
+										localStorage.setItem("internal_login", obj.string[0].login);										
 										switch(obj.string[0].type){
 										case "0": $(location).attr('href', "pages/reader.php"); break;
 										case "1": $(location).attr('href', "pages/writer.php"); break;
@@ -227,13 +233,11 @@ $(document).ready(function()
 				}         
 			});																
 		}
-		else 
-		{
+		else {
 			warning("Для продолжения требуется авторизация в ВКонтакте!");
 		}
 	}
-	
-					
+						
 	// --- регистрация ---
 	$("#reg_link").click(function() 
 	{

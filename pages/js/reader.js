@@ -5,7 +5,6 @@
 ------------------------------*/
 $(document).ready(function() 
 {					
-
 	sweetAlertInitialize(); // -- инит messages dialog
 	BlurInput();			// -- input потеря фокуса
 
