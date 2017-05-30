@@ -13,6 +13,7 @@
 <meta name = "keywords"    	content = "книги онлайн, онлайн, читать, стихи, книги, рассказы, сказки, поэмы, статьи, писатель, поэт"/>
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="yandex-verification" content="01fb1fedaac3f028" />
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
