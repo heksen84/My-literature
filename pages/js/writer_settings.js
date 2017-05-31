@@ -20,9 +20,7 @@ $(document).ready(function()
 		
 		/* --- сохранить личные данные --- */
 		$("#button_save").off().click(function() 
-		{
-			alert(localStorage.getItem("social_auth"));
-			return;
+		{			
 			if ($("#login").val()=="" || $("#email").val()=="") {				
 				error("заполните поля");
 			}
