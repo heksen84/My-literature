@@ -9,7 +9,7 @@
 ----------------------------------*/	
 $(document).ready(function() 
 {								
-	var max_symbols = 200000;
+	var max_symbols = 1000000;
 	
 	sweetAlertInitialize();
 	BlurInput();	

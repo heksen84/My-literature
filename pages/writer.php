@@ -68,7 +68,7 @@
 <label for="load_text" class="grey_shadow_text">Загрузить текст</label>
 <input type="file" id="load_text" name="fileupload" accept=".txt" style="margin-bottom:7px"/>
 </div>
-<textarea class="form-control" id="editor" placeholder="текст..." maxlength="200000"></textarea>
+<textarea class="form-control" id="editor" placeholder="текст..." maxlength="1000000"></textarea>
 <div id="info_panel">&nbsp;</div>
 </div>
 <!-- ROW2 -->
