@@ -54,7 +54,7 @@ class Record
 		
 		//$this->compareText($text,null);
 		
-		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."',".$type.",'0','".$text."',".$mode.",".$price.",NOW())");		
+		$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$title."','".$desc."',".$type.",'0','".$text."',".$mode.",".$price.",NOW(),0)");		
 		if (!$record_id) msg::error($db->error());
 		if ($mode != 1 && $text_length > self::MIN_TEXT_SIZE_IN_BYTES) util::GeneratePage($title, $desc, $record_id);				
 		msg::success("опубликовано!");
