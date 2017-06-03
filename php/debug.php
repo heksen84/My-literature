@@ -1,3 +1,3 @@
 <?php 
-if ($_SERVER['SERVER_NAME']=="www.my-literature.com") echo "?".time();
+if ($_SERVER['SERVER_NAME']=="alphatest.my-literature.com") echo "?".time();
 ?>
