@@ -176,9 +176,10 @@ class User
 		
 		$mail = new Mail("no-reply@my-literature.com");
 		$mail->setFromName("Моя литература");
+
 		$content = "<center>новый пароль: <b>".$new_pass."</b><br><a href=https://".$_SERVER['HTTP_HOST'].">перейти на сайт</a></center>";
-		if ($mail->send($email, "Сброс пароля", $content))
-		{
+
+		if ($mail->send($email, "Сброс пароля", $content)){
 			msg::success("письмо отправлено");
 		}
 		msg::error("невозможно отправить письмо!");
