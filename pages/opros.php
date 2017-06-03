@@ -17,7 +17,7 @@
 <link href = "css/lib/tether.min.css"		     	rel = "stylesheet"/>
 <link href = "css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
 <link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
-<link href = "css/index.css?<?php echo time()?>" 	rel	= "stylesheet"/>
+<link href = "css/index.css<?php include "php/debug.php"?>" 	rel	= "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>

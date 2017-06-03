@@ -17,7 +17,7 @@
 <link href = "css/lib/tether.min.css"		      rel = "stylesheet"/>
 <link href = "css/lib/sweet-alert.css"   		  rel = "stylesheet"/>
 <link href = "css/lib/scroll.css"	              rel = "stylesheet"/>
-<link href = "css/posted.css?<?php echo time()?>" rel = "stylesheet"/>
+<link href = "css/posted.css<?php include "php/debug.php"?>" rel = "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>
@@ -25,7 +25,7 @@
 <script src = "js/lib/sweet-alert.min.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/moment.min.js"></script>
-<script src = "js/posted.js?<?php echo time()?>"></script>
+<script src = "js/posted.js<?php include "php/debug.php"?>"></script>
 </head>
 <body>
 <div class="container-fluid">	
