@@ -17,18 +17,18 @@
 <link href = "css/lib/tether.min.css"		     	rel = "stylesheet"/>
 <link href = "css/lib/sweet-alert.css"   			rel = "stylesheet"/>
 <link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
-<link href = "css/index.css<?php include "php/debug.php"?>" 	rel = "stylesheet"/>
-<link href = "css/work.css<?php include "php/debug.php"?>" 	rel = "stylesheet"/>
+<link href = "css/index.css<?php include "../php/debug.php"?>" 	rel = "stylesheet"/>
+<link href = "css/work.css<?php include "../php/debug.php"?>" 	rel = "stylesheet"/>
 <!-- libs -->
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>
 <script src = "js/lib/bootstrap.min.js"></script>
 <script src = "js/lib/sweet-alert.min.js"></script>      
-<script src = "js/lib/jquery.util.js<?php include "php/debug.php"?>"></script>  
+<script src = "js/lib/jquery.util.js<?php include "../php/debug.php"?>"></script>  
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/jquery.float.js"></script>          
 <script src = "js/lib/moment.min.js"></script>
-<script src = "js/work.js<?php include "php/debug.php"?>"></script>
+<script src = "js/work.js<?php include "../php/debug.php"?>"></script>
 </head>
 <body>
 1) Базовая
