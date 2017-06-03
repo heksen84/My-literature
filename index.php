@@ -53,18 +53,18 @@
   ga('send', 'pageview');
 
 </script>
-<script src = "pages/js/loader.js?<?php echo time()?>"></script>
+<script src = "pages/js/loader.js<?php include "php/debug.php"?>"></script>
 <script src = "pages/js/lib/jquery-3.2.1.min.js"></script>
 <script src = "pages/js/lib/tether.min.js"></script>
 <script src = "pages/js/lib/bootstrap.min.js"></script>
 <script src = "pages/js/lib/sweet-alert.min.js"></script>      
-<script src = "pages/js/lib/jquery.util.js?<?php echo time()?>"></script>  
+<script src = "pages/js/lib/jquery.util.js<?php include "php/debug.php"?>"></script>  
 <script src = "pages/js/lib/jquery.msg.js"></script>          
 <script src = "pages/js/lib/jquery.float.js"></script>          
 <script src = "pages/js/lib/nprogress.js"></script>
 <script src = "pages/js/lib/moment.min.js"></script>
 <script src = "https://vk.com/js/api/openapi.js?136" type="text/javascript"></script>
-<script src = "pages/js/index.js?<?php echo time()?>"></script>
+<script src = "pages/js/index.js<?php include "php/debug.php"?>"></script>
 </head>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
