@@ -210,7 +210,8 @@ $(document).ready(function()
 					case "warning": warning(obj.string); break;
 					case "success": {						
 						$("#record_access_mode").trigger("change");
-						$("input:text, textarea").val("");						
+						$("input:text, textarea").val("");
+						$("#info_panel").html("Символов:&nbsp;0");											
 						success("готово");
 					}
 				}
