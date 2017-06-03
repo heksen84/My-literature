@@ -79,7 +79,7 @@
 <link href = "pages/css/lib/sweet-alert.css"   			rel	= "stylesheet"/>
 <link href = "pages/css/lib/scroll.css"	             	rel = "stylesheet"/>
 <link href = "pages/css/lib/nprogress.css"			   	rel = "stylesheet">
-<link href = "pages/css/index.css?<?php echo time()?>" 	rel	= "stylesheet"/>
+<link href = "pages/css/index.css<?php include "php/debug.php"?>" 	rel	= "stylesheet"/>
 <body>
 <div class="container-fluid">
 <a class="nav-link active" href="#" id="reader_auth_link">ВХОД</a>
