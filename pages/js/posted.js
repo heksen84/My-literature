@@ -53,11 +53,11 @@ $(document).ready(function()
 		});
 	}
 
-	/* получить список работ */
+	/* -- получить список работ -- */	
 	$.ajax
 	({
 		url: "..//server.php",
-		data: {	"func": "SRV_GetWriterWorks" }, 
+		data: {	"func": "SRV_GetWriterWorks" },		
 	}).done(function( data )				
 	{																
 		var obj = jQuery.parseJSON(data);					
@@ -67,37 +67,38 @@ $(document).ready(function()
 			case "warning": warning(obj.string); break;
 			case "success": 
 			{												
-				$.each(obj.string, function(i, item) {
+				$.each(obj.string, function(i, item) 
+				{
 					$("#tbody").append("<tr data-id='"+item.id+"'><td>"+(i+1)+"</td><td class='table_item'><div class='title_cell'>"+item.title+"</div></td><td><div class='like_cell'>0</div></td><td class='display_cell' title='не отображается'>&nbsp;</td><td class='delete_record' title='удалить запись'>X</td></tr>");
 					if (item.access_mode!=1) $(".display_cell").eq(i).html("<img src='img/eye1.png' class='img-fluid eye_icon' title='отображается'>");										
 				});
 
-					/* -- лайки -- */
-					$.each(obj.string, function(i, item) 
-					{					
-						$.ajax
-						({
-							url: "..//server.php",
-							data: 
-							{
-								"func": "SRV_GetLikes",                    
-								"record_id": item.id,			
-							},			
-						}).done(function( data ) 
-						{						
-							var obj = jQuery.parseJSON(data);				
-							switch(obj.answer) 
-							{
-								case "error": error(obj.string); break;
-								case "warning": warning(obj.string); break;
-								case "success": 
-								{																			
-									$("#tbody tr").eq(i).find(".like_cell").text(obj.string);
-									break;
-								}
-							} 
-						});					
-					});
+				/* -- лайки -- */
+				$.each(obj.string, function(i, item) 
+				{					
+					$.ajax
+					({
+						url: "..//server.php",
+						data: 
+						{
+							"func": "SRV_GetLikes",                    
+							"record_id": item.id,			
+						},						
+					}).done(function( data ) 
+					{						
+						var obj = jQuery.parseJSON(data);				
+						switch(obj.answer) 
+						{
+							case "error": error(obj.string); break;
+							case "warning": warning(obj.string); break;
+							case "success": 
+							{																			
+								$("#tbody tr").eq(i).find(".like_cell").text(obj.string);
+								break;
+							}
+						} 
+					});					
+				});
 				
 				/* показать запись в редакторе */
 				$(".table_item").click(function() {
@@ -156,7 +157,7 @@ $(document).ready(function()
 						}
 					});					
 				});
-			}
-		}		
+			}			
+		}				
 	});
 });

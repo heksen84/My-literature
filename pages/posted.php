@@ -22,7 +22,8 @@
 <script src = "js/lib/jquery-3.2.1.min.js"></script>
 <script src = "js/lib/tether.min.js"></script>
 <script src = "js/lib/bootstrap.min.js"></script>
-<script src = "js/lib/sweet-alert.min.js"></script>      
+<script src = "js/lib/sweet-alert.min.js"></script>
+<script src = "js/lib/nprogress.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>          
 <script src = "js/lib/moment.min.js"></script>
 <script src = "js/posted.js<?php include "../php/debug.php"?>"></script>
