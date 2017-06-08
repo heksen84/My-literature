@@ -1,6 +1,6 @@
 -------------------------------------------
  Литературный портал "МОЯ ЛИТЕРАТУРА"
- Literary portal "MY LITERATURE"
+ (Literary portal "MY LITERATURE")
 -------------------------------------------
 Текущее задание: (Current assignment in Russian)
 1) Поднимать по лайкам вверх
