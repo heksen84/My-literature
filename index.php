@@ -51,7 +51,14 @@
 
   ga('create', 'UA-99922016-1', 'auto');
   ga('send', 'pageview');
-
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- реклама -->
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8074944108437227",
+    enable_page_level_ads: true
+  });
 </script>
 <script src = "pages/js/loader.js<?php include "php/debug.php"?>"></script>
 <script src = "pages/js/lib/jquery-3.2.1.min.js"></script>
@@ -66,13 +73,6 @@
 <script src = "https://vk.com/js/api/openapi.js?136" type="text/javascript"></script>
 <script src = "pages/js/index.js<?php include "php/debug.php"?>"></script>
 </head>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8074944108437227",
-    enable_page_level_ads: true
-  });
-</script>
 <!-- styles -->
 <link href = "pages/css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
 <link href = "pages/css/lib/tether.min.css"		     	rel = "stylesheet"/>
