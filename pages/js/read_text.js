@@ -123,20 +123,20 @@ $(document).ready(function()
             "func": "SRV_ReadText",                    
             "record_id": localStorage.getItem("read_data_id"),
 			"reader": reader,
+			"read_pos": 0,
         },
     	}).done(function( data ) 
 		{						
 			var obj = jQuery.parseJSON(data);		
-			localStorage.setItem("rec_id", ""); /* -- сбросить переход со статической страницы -- */
+			localStorage.setItem( "rec_id", "" ); /* -- сбросить переход со статической страницы -- */
 			switch(obj.answer) 
 			{
 				case "error": error(obj.string); break;
 				case "warning": warning(obj.string); break;
 				case "success": 
 				{					
- 					if (obj.string==""){
-					$(location).attr('href', "text_not_found.php");									
-					}
+ 					if (obj.string == "") $(location).attr("href", "text_not_found.php");														
+					
 					/* данные записи */															
 					$("#col-title").html(obj.string[0].title);
 					$("#col-desc").html(obj.string[0].description);												
