@@ -1,3 +1,9 @@
 User-agent: Yandex
 Allow: /
 sitemap: https://www.my-literature.com/sitemap.xml
+
+User-Agent: Googlebot
+sitemap: https://www.my-literature.com/sitemap.xml
+
+User-Agent: *
+sitemap: https://www.my-literature.com/sitemap.xml
