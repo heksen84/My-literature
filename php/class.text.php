@@ -12,7 +12,8 @@ class Text
 			return self::$text;
 		}
 	}
-	
+
+	/* --- читать текст --- */	
 	function read()
 	{
 		$db = DataBase::getDB();
