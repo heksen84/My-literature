@@ -9,7 +9,7 @@
 ----------------------------------*/	
 $(document).ready(function() 
 {								
-	var max_symbols = 1000000;
+	const MAX_SYMBOLS = 1000000;
 	
 	sweetAlertInitialize();
 	BlurInput();	
@@ -24,8 +24,8 @@ $(document).ready(function()
 		f = this.files[0];
 		reader.onload = (function(theFile) {
 			return function(e) {            		        
-				if (ByteCount(e.target.result) > max_symbols) 
-					error("не более "+max_symbols+" символов");
+				if (ByteCount(e.target.result) > MAX_SYMBOLS) 
+					error("не более "+MAX_SYMBOLS+" символов");
 				else
 				$("#editor").val(e.target.result).trigger("keyup");
 			};
@@ -84,7 +84,7 @@ $(document).ready(function()
 				url: "..//server.php",
 				data: 
 				{
-					"func": "SRV_ReadText",                    
+					"func": "SRV_ReadFullText",                    
 					"record_id": localStorage.getItem("read_data_id"),
 				},
 				async:false,

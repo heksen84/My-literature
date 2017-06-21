@@ -66,6 +66,10 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					$text->read();					
 					break;
 				}			
+				case "SRV_ReadFullText": {		
+					$text->readFullText();					
+					break;
+				}			
 				/* -- закладки -- */
 				case "SRV_GetBookMark": {		
 					$bookmark->get();					
@@ -150,6 +154,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 				case "SRV_SetPrivateMode": {
 					$rec->setPrivateMode();
 					break;    		
+				}
+				case "SRV_GetTextFullSize":
+				{
+					msg::success("50000");
+					break;
 				}
 			}		
 		}

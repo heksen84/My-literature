@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>МОЯ ЛИТЕРАТУРА&reg - литературный портал (книги онлайн, стихи, книги, прозы, рассказы)</title>
+<title>Читать книги онлайн - МОЯ ЛИТЕРАТУРА&reg</title>
 <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 <meta charset = "utf-8">
 <meta name = "viewport" 	content	= "width=device-width"/>
 <meta name = "description" 	content = "литературный ресурс"/>
-<meta name = "keywords"    	content = "книги онлайн, онлайн, читать, стихи, книги, рассказы, сказки, поэмы, статьи, писатель, поэт"/>
+<meta name = "keywords"    	content = "читать, читаемый, читать онлайн, читать бесплатно, читаем бесплатно, читать книги, читаем книги, читать онлайн бесплатно, читаем онлайн бесплатно, читать книги онлайн, читаем книги онлайн, книги, скачать книги, читать книги, читаем книги, скачать книги бесплатно, книги онлайн, писатели, русские писатели"/>
 <meta name = "robots" 	   	content = "index, follow"/>
 <meta name = "viewport" 	content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="yandex-verification" content="01fb1fedaac3f028" />
@@ -70,7 +70,13 @@
 <script src = "pages/js/lib/jquery.float.js"></script>          
 <script src = "pages/js/lib/nprogress.js"></script>
 <script src = "pages/js/lib/moment.min.js"></script>
-<script src = "https://vk.com/js/api/openapi.js?136" type="text/javascript"></script>
+<script src = "https://vk.com/js/api/openapi.js?146" type="text/javascript"></script>
+<!-- VK Widget -->
+<div id="vk_community_messages"></div>
+<script type="text/javascript">
+VK.Widgets.CommunityMessages("vk_community_messages", 148588660, {disableButtonTooltip: "1"});
+</script>
+<!-- VK Widget End -->
 <script src = "pages/js/index.js<?php include "php/debug.php"?>"></script>
 </head>
 <!-- styles -->

@@ -34,14 +34,19 @@
 <!-- контейнер -->
 <div class="container">
 <div class="row">
-<div class="col-md-12 text-center">
-<button type="button" class="btn btn-link" id="return_link">назад</button></div>
-<div class="col-md-12 text-center" id="col-title"></div>
-<div class="col-md-12 text-center" id="col-desc"></div>
-<div class="col-md-12 text-center" id="col-like"><button type="button" class="btn btn-link" id="like" title="лайкнуть">&#10084;&nbsp;мне нравиться</button></div></div>
-<div class="col-md-12 text-center" id="col-text"></div>
+	<div class="col-md-12 text-center">
+		<button type="button" class="btn btn-link" id="return_link">вернуться</button>
+	</div>
+	<div class="col-md-12 text-center" id="col-previus-text"></div>
+	<div class="col-md-12 text-center" id="col-title"></div>
+	<div class="col-md-12 text-center" id="col-desc"></div>
+	<div class="col-md-12 text-center" id="col-like">
+		<button type="button" class="btn btn-link" id="like" title="лайкнуть">&#10084;&nbsp;мне нравиться</button>
+	</div>
+	<div class="col-md-12 text-center" id="col-text"></div>
+	<div class="col-md-12 text-center" id="col-add-more"></div>
+	<div id="totop">Вверх</div>
+	</div>
 </div>
-<div id="totop">Вверх</div>
-<div id="bookmark">Закладка</div>
 </div>
 </html>
