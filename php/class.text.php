@@ -31,5 +31,12 @@ class Text
 		if ($result[0]["access_mode"]==1 && (string)$_GET["reader"]=="web") msg::error("доступ запрещён!");
 		msg::success($result);
 	}
+	
+	function getFullSize()
+	{
+		$db = DataBase::getDB();
+		$result = $db->select("SELECT text FROM records WHERE id='".$_GET["record_id"]."' LIMIT 1");		
+		msg::success(strlen($result[0]["text"]));
+	}
 }
 ?>

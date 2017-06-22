@@ -63,8 +63,7 @@ $(document).ready(function()
 	// ------------------------------
 	function GetTextFullSize() 
 	{
-		var size = 0;
-		
+		var size = 0;		
 		$.ajax
 		({
 			url: "..//server.php",
@@ -72,17 +71,16 @@ $(document).ready(function()
 			{
 				"func": "SRV_GetTextFullSize",                    
 				"record_id": localStorage.getItem("read_data_id"),				
-			}, 	
-			method: "POST",			
+			}, 				
 			async: false,
 		}).done(function( data ) 
-		{													
+		{																
 			var obj = jQuery.parseJSON(data);				
 			switch(obj.answer)
 			{
 				case "error": error(obj.string); break;
 				case "warning": console.log(obj.string); break;
-				case "success": {							
+				case "success": {												
 					size = obj.string;
 				}
 			} 
@@ -153,10 +151,12 @@ $(document).ready(function()
 							--------------------------------------------
 							сброс если текущая позиция текста,
 							превышает общий размер текста 
-							--------------------------------------------*/
+							--------------------------------------------*/							
 							if (read_pos > GetTextFullSize()) {
 								read_pos 	= 1;
-								scroll_pos	= 0;								
+								scroll_pos	= 0;
+								$( "body, html" ).animate( { scrollTop: 0 }, 0 );
+								SetBookmark();								
 							}
 						}																									
 						break;
@@ -274,7 +274,7 @@ $(document).ready(function()
 	--------------------------------
 	*/
 	$("#totop").click(function() {
-		$("body,html").animate({scrollTop:0},0);
+		$( "body, html" ).animate( { scrollTop: 0 }, 0 );
 	});
 	
 	GetBookmark();	// получить закладку
