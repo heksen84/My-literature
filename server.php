@@ -71,7 +71,11 @@ switch(strtoupper($_SERVER["REQUEST_METHOD"])) {
 					break;
 				}
 				case "SRV_GetTextFullSize":{
-					$text->getFullSize();
+					$text->getFullSize();					
+					break;
+				}
+				case "SRV_GetLastSymbols":{
+					$text->getLastSymbols();					
 					break;
 				}				
 				/* -- закладки -- */
