@@ -104,7 +104,8 @@ $(document).ready(function()
 				"record_id": localStorage.getItem("read_data_id"),
 				"scroll_pos": $(window).scrollTop(), 	// позиция скрола
 				"read_pos": read_pos,					// позиция текста
-			}, 	
+			},
+			async:false,
 			method: "POST",			
 		}).done(function( data ) 
 		{													
@@ -147,12 +148,14 @@ $(document).ready(function()
 						if ( obj.string != "" ) {						    																				
 							read_pos 	= obj.string[0].read_pos;							
 							scroll_pos 	= obj.string[0].scroll_pos;
+
 							/* 
 							--------------------------------------------
 							сброс если текущая позиция текста,
 							превышает общий размер текста 
 							--------------------------------------------*/							
-							full_text_size = GetTextFullSize(); 
+							full_text_size = GetTextFullSize();
+							
 							if (read_pos > full_text_size) {
 								$( "body, html" ).animate( { scrollTop: 0 }, 0 );
 								read_pos 	= 1;
@@ -186,7 +189,8 @@ $(document).ready(function()
 				"record_id": localStorage.getItem("read_data_id"),
 				"reader": reader,
 				"read_pos": read_pos,
-			},						
+			},
+			async:false,
 			}).done(function( data ) 
 			{										
 				var obj = jQuery.parseJSON(data);				
@@ -208,8 +212,7 @@ $(document).ready(function()
 						else 
 						{
 							$("#col-title, #col-desc").empty();	
-							$("#like").hide();																														
-							
+							$("#like").hide();																																					
 						}
 												
 						// ------------------
@@ -225,13 +228,16 @@ $(document).ready(function()
 								LoadText();
 								SetBookmark(); 
 							});
-						}
+						}											
 															
 						/* -- добавить текст если он есть -- */
 						if( ByteCount(obj.string[0].text) > 0 )
 						{											
+							var str = obj.string[0].text;
+							var cut = str.substr(str.length-513, 513);
+								
 							$("#col-text").empty().html(obj.string[0].text);					
-							$("body,html").animate({ scrollTop: scroll_pos }, 0 );
+							$("body,html").animate({ scrollTop: scroll_pos }, 0 );															
 							
 							// -----------------------------------------------------------														
 							$.ajax
@@ -252,23 +258,30 @@ $(document).ready(function()
 									case "warning": console.log(obj.string); break;
 									case "success": 
 									{																				
-										console.log(data);
-										//alert(obj.string);						
+										//console.log(data);
+										if(cut!=obj.string)
+										{
+											$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");
+							
+											/* загрузить больше */
+											$("#button_add_more").click(function() {
+											read_pos += MAX_LOAD_SYMBOLS;								
+											LoadText();							
+											$("#totop").trigger("click");
+											SetBookmark();
+											});												
+										}
+										else
+										{											
+											$("#col-add-more").empty();
+											//alert("конец!");
+										}
 										break;
 									}
 								} 
 							});
 																					
-							// -----------------------------------------------------------
-							$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");
-							
-							/* загрузить больше */
-							$("#button_add_more").click(function() {
-								read_pos += MAX_LOAD_SYMBOLS;								
-								LoadText();							
-								$("#totop").trigger("click");
-								SetBookmark();
-							});						   							
+							// -----------------------------------------------------------												   						
 						}						
 					}
 				}
