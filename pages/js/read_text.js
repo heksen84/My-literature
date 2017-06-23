@@ -7,8 +7,8 @@ $(document).ready(function()
 {															
 	const MAX_LOAD_SYMBOLS = 10000;	
 	
-	var reader 		= null;
-	var timer  		= null;									
+	var reader 			= null;
+	var timer  			= null;									
 	var scroll_pos 		= 0; 	// позиция скрола
 	var read_pos 		= 1;	// позиция считывания текста		
 	var full_text_size 	= 0;
@@ -131,7 +131,8 @@ $(document).ready(function()
 			$.ajax
 			({
 				url: "..//server.php",
-				data: {
+				data: 
+				{
 					"func": "SRV_GetBookMark",                    
 					"record_id": localStorage.getItem("read_data_id"),			
 				},			
@@ -173,13 +174,10 @@ $(document).ready(function()
 	// --------------------------
 	// ЗАГРУЗИТЬ ТЕКСТ
 	// --------------------------
-	function LoadText()
+	function LoadText(pos)
 	{					
 		NProgress.start();												
-		if ( read_pos == 0 ) read_pos = 1;				
-		// ----------------------
-		// получить текст
-		// ----------------------
+		if ( pos == 0 ) pos = 1;		
 		$.ajax
 		({
 			url: "..//server.php",
@@ -188,7 +186,7 @@ $(document).ready(function()
 				"func": "SRV_ReadText",                    
 				"record_id": localStorage.getItem("read_data_id"),
 				"reader": reader,
-				"read_pos": read_pos,
+				"read_pos": pos,
 			},
 			async:false,
 			}).done(function( data ) 
@@ -200,17 +198,16 @@ $(document).ready(function()
 					case "error": error(obj.string); break;
 					case "warning": warning(obj.string); break;
 					case "success": 
-					{																						
-						if (obj.string == "") $(location).attr( "href", "text_not_found.php" ); // редирект, если нет текста
-						if ( read_pos == 1 ) 
-						{						
+					{							
+						read_pos = pos;
+						if (obj.string == "") $(location).attr( "href", "text_not_found.php" ); // редирект, если нет текста						
+						if ( read_pos == 1 ) {						
 							$("#like").show();																							
 							$("#col-previus-text").empty();					
 							$("#col-title").html(obj.string[0].title);
 							$("#col-desc").html(obj.string[0].description);												
 						}
-						else 
-						{
+						else {
 							$("#col-title, #col-desc").empty();	
 							$("#like").hide();																																					
 						}
@@ -223,9 +220,8 @@ $(document).ready(function()
 							$("#col-previus-text").empty().append("<button type='button' class='btn btn-success' id='button_previus_text'>назад</button>");
 							
 							/* -- дальше -- */
-							$("#button_previus_text").click(function() {
-								read_pos -= MAX_LOAD_SYMBOLS;								
-								LoadText();
+							$("#button_previus_text").click(function() {								
+								LoadText(read_pos-MAX_LOAD_SYMBOLS);
 								SetBookmark(); 
 							});
 						}											
@@ -257,25 +253,18 @@ $(document).ready(function()
 									case "error": error(obj.string); break;
 									case "warning": console.log(obj.string); break;
 									case "success": 
-									{																				
-										//console.log(data);
-										if(cut!=obj.string)
-										{
-											$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");
-							
+									{																														
+										if( cut != obj.string ) {
+											$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");						
 											/* загрузить больше */
-											$("#button_add_more").click(function() {
-											read_pos += MAX_LOAD_SYMBOLS;								
-											LoadText();							
-											$("#totop").trigger("click");
-											SetBookmark();
+											$("#button_add_more").click(function() {																		
+												LoadText(read_pos+MAX_LOAD_SYMBOLS);
+												$("#totop").trigger("click");
+												SetBookmark();
 											});												
 										}
 										else 
-										{											
-											$("#col-add-more").html("<h1>конец</h1>");
-											//alert("конец!");
-										}
+											$("#col-add-more").html("<h1>конец</h1>");																					
 										break;
 									}
 								} 
@@ -320,5 +309,5 @@ $(document).ready(function()
 	});
 	
 	GetBookmark();	// получить закладку
-	LoadText(); 	// считать текст	
+	LoadText(1); 	// считать текст	
 });
