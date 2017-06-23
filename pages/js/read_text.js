@@ -153,7 +153,7 @@ $(document).ready(function()
 							--------------------------------------------
 							сброс если текущая позиция текста,
 							превышает общий размер текста 
-							--------------------------------------------*/							
+							-------------------------------------------- */							
 							full_text_size = GetTextFullSize();
 							
 							if (read_pos > full_text_size) {
@@ -271,9 +271,9 @@ $(document).ready(function()
 											SetBookmark();
 											});												
 										}
-										else
+										else 
 										{											
-											$("#col-add-more").empty();
+											$("#col-add-more").html("<h1>конец</h1>");
 											//alert("конец!");
 										}
 										break;
