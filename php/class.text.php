@@ -35,8 +35,18 @@ class Text
 	function getFullSize()
 	{
 		$db = DataBase::getDB();
-		$result = $db->select("SELECT text FROM records WHERE id='".$_GET["record_id"]."' LIMIT 1");		
+		$result = $db->select("SELECT text FROM records WHERE id='".$_GET["record_id"]."'");		
 		msg::success(strlen($result[0]["text"]));
+	}
+	
+	function getLastSymbols()
+	{
+		$db = DataBase::getDB();
+		$result = $db->select("SELECT text FROM records WHERE id='".$_GET["record_id"]."'");
+		if (!$result) msg::error("getLastSymbols mysql error");
+		$pos = strlen(utf8_decode($result[0]["text"]))-512;				
+		$result = $db->select("SELECT SUBSTR(CAST(text as CHAR), ".$pos.", 512) AS text FROM records WHERE id='".$_GET["record_id"]."'");
+		msg::success($result[0]["text"]);
 	}
 }
 ?>

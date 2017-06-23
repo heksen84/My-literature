@@ -9,8 +9,9 @@ $(document).ready(function()
 	
 	var reader 		= null;
 	var timer  		= null;									
-	var scroll_pos 	= 0; 	// позиция скрола
-	var read_pos 	= 1;	// позиция считывания текста		
+	var scroll_pos 		= 0; 	// позиция скрола
+	var read_pos 		= 1;	// позиция считывания текста		
+	var full_text_size 	= 0;
 	
 	sweetAlertInitialize();
 	BlurInput();
@@ -146,16 +147,16 @@ $(document).ready(function()
 						if ( obj.string != "" ) {						    																				
 							read_pos 	= obj.string[0].read_pos;							
 							scroll_pos 	= obj.string[0].scroll_pos;
-							
 							/* 
 							--------------------------------------------
 							сброс если текущая позиция текста,
 							превышает общий размер текста 
 							--------------------------------------------*/							
-							if (read_pos > GetTextFullSize()) {
-								read_pos 	= 1;
-								scroll_pos	= 0;
+							full_text_size = GetTextFullSize(); 
+							if (read_pos > full_text_size) {
 								$( "body, html" ).animate( { scrollTop: 0 }, 0 );
+								read_pos 	= 1;
+								scroll_pos	= 0;								
 								SetBookmark();								
 							}
 						}																									
@@ -230,7 +231,35 @@ $(document).ready(function()
 						if( ByteCount(obj.string[0].text) > 0 )
 						{											
 							$("#col-text").empty().html(obj.string[0].text);					
-							$("body,html").animate({ scrollTop: scroll_pos }, 0 );											   
+							$("body,html").animate({ scrollTop: scroll_pos }, 0 );
+							
+							// -----------------------------------------------------------														
+							$.ajax
+							({
+								url: "..//server.php",
+								data: 
+								{
+										"func": "SRV_GetLastSymbols",                    
+										"record_id": localStorage.getItem("read_data_id"),			
+								},			
+								async:false,
+							}).done(function( data ) 
+							{																
+								var obj = jQuery.parseJSON(data);												
+								switch(obj.answer)
+								{					
+									case "error": error(obj.string); break;
+									case "warning": console.log(obj.string); break;
+									case "success": 
+									{																				
+										console.log(data);
+										//alert(obj.string);						
+										break;
+									}
+								} 
+							});
+																					
+							// -----------------------------------------------------------
 							$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");
 							
 							/* загрузить больше */
@@ -278,6 +307,5 @@ $(document).ready(function()
 	});
 	
 	GetBookmark();	// получить закладку
-	LoadText(); 	// считать текст
-	
+	LoadText(); 	// считать текст	
 });
