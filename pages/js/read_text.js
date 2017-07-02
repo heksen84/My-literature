@@ -85,8 +85,7 @@ $(document).ready(function()
 					size = obj.string;
 				}
 			} 
-		});
-		
+		});		
 		return size;
 	}
 	
@@ -125,9 +124,11 @@ $(document).ready(function()
 	// получить закладку
 	// -------------------------
 	function GetBookmark()
-	{	
+	{			
 		if ( localStorage.getItem("user_name") != "" ) 
-		{				
+		{							
+			var bm = new Object();
+			
 			$.ajax
 			({
 				url: "..//server.php",
@@ -149,7 +150,10 @@ $(document).ready(function()
 						if ( obj.string != "" ) {						    																				
 							read_pos 	= obj.string[0].read_pos;							
 							scroll_pos 	= obj.string[0].scroll_pos;
-
+							
+							bm["read_pos"] 	 = obj.string[0].read_pos;
+							bm["scroll_pos"] = obj.string[0].scroll_pos;
+							
 							/* 
 							--------------------------------------------
 							сброс если текущая позиция текста,
@@ -167,8 +171,9 @@ $(document).ready(function()
 						break;
 					}
 				} 
-			});
+			});					
 		}		
+		return bm;
 	}
 	
 	// --------------------------
@@ -228,7 +233,7 @@ $(document).ready(function()
 															
 						/* -- добавить текст если он есть -- */
 						if( ByteCount(obj.string[0].text) > 0 )
-						{											
+						{							
 							var str = obj.string[0].text;
 							var cut = str.substr(str.length-513, 513);
 								
@@ -241,30 +246,30 @@ $(document).ready(function()
 								url: "..//server.php",
 								data: 
 								{
-										"func": "SRV_GetLastSymbols",                    
-										"record_id": localStorage.getItem("read_data_id"),			
+									"func": "SRV_GetLastSymbols",                    
+									"record_id": localStorage.getItem("read_data_id"),			
 								},			
 								async:false,
 							}).done(function( data ) 
 							{																
 								var obj = jQuery.parseJSON(data);												
 								switch(obj.answer)
-								{					
+								{														
 									case "error": error(obj.string); break;
 									case "warning": console.log(obj.string); break;
 									case "success": 
 									{																														
 										if( cut != obj.string ) {
-											$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");						
+											$("#col-add-more").empty().append("<button type='button' class='btn btn-success' id='button_add_more'>дальше</button>");											
 											/* загрузить больше */
-											$("#button_add_more").click(function() {																		
+											$("#button_add_more").click(function() 
+											{																		
 												LoadText(read_pos+MAX_LOAD_SYMBOLS);
 												$("#totop").trigger("click");
 												SetBookmark();
 											});												
 										}
-										else 
-											$("#col-add-more").html("<h1>конец</h1>");																					
+										else $("#col-add-more").html("<h1>конец</h1>");																					
 										break;
 									}
 								} 

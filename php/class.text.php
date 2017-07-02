@@ -45,7 +45,7 @@ class Text
 		$result = $db->select("SELECT text FROM records WHERE id='".$_GET["record_id"]."'");
 		if (!$result) msg::error("getLastSymbols mysql error");
 		$pos = strlen(utf8_decode($result[0]["text"]))-512;				
-		$result = $db->select("SELECT SUBSTR(CAST(text as CHAR), ".$pos.", 512) AS text FROM records WHERE id='".$_GET["record_id"]."'");
+		$result = $db->select("SELECT SUBSTR(CAST(text as CHAR), ".$pos.", 513) AS text FROM records WHERE id='".$_GET["record_id"]."'");
 		msg::success($result[0]["text"]);
 	}
 }
